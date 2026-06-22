@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be the Brand — Sesión Estratégica</title>
+<meta name="description" content="Dejá de depender de referidos. Armá un sistema de captación para tu negocio de servicios.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0a0a0a;
+    --surface: #141414;
+    --surface-2: #1e1e1e;
+    --border: rgba(255,255,255,0.08);
+    --text: #ece8db;
+    --text-muted: #a8a296;
+    --text-dim: #6b6b6b;
+    --accent: #f5c842;
+    --accent-hover: #f7d36a;
+    --accent-bg: rgba(245,200,66,0.1);
+    --accent-border: rgba(245,200,66,0.25);
+    --green: #34d399;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Layout ── */
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  section {
+    padding: 80px 0;
+  }
+
+  @media (max-width: 640px) {
+    section { padding: 56px 0; }
+  }
+
+  /* ── Hero ── */
+  .hero {
+    padding: 100px 0 80px;
+    text-align: center;
+  }
+
+  @media (max-width: 640px) {
+    .hero { padding: 72px 0 56px; }
+  }
+
+  .hero-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.75rem, 5vw, 2.75rem);
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 .highlight {
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: var(--text-muted);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* ── Video Section ── */
+  .video-section {
+    padding: 0 0 80px;
+  }
+
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    background: var(--surface);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .video-wrapper iframe,
+  .video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .video-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+  }
+
+  .video-placeholder .play-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .video-placeholder .play-icon::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 20px solid #0a0a0a;
+    margin-left: 4px;
+  }
+
+  /* ── Problem Section ── */
+  .problem {
+    border-top: 1px solid var(--border);
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .problem h2 {
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+  }
+
+  .problem-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .problem-list li {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .problem-list .icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: var(--accent-bg);
+    border: 1px solid var(--accent-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-top: 2px;
+  }
+
+  /* ── Solution / Framework ── */
+  .solution {
+    border-top: 1px solid var(--border);
+  }
+
+  .solution h2 {
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .solution .lead {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    margin-bottom: 48px;
+    line-height: 1.6;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 640px) {
+    .steps-grid { grid-template-columns: 1fr; }
+  }
+
+  .step-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px 28px;
+  }
+
+  .step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: var(--accent);
+    color: #0a0a0a;
+    font-size: 1.1rem;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .step-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .step-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* ── Who It's For ── */
+  .for-who {
+    border-top: 1px solid var(--border);
+  }
+
+  .for-who h2 {
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+  }
+
+  .for-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  @media (max-width: 640px) {
+    .for-grid { grid-template-columns: 1fr; }
+  }
+
+  .for-col h3 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .for-col.yes h3 { color: var(--green); }
+  .for-col.no h3 { color: #ef4444; }
+
+  .for-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .for-col li {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.4;
+  }
+
+  .for-col.yes li::before {
+    content: '+';
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: 700;
+  }
+
+  .for-col.no li::before {
+    content: '-';
+    position: absolute;
+    left: 2px;
+    color: #ef4444;
+    font-weight: 700;
+  }
+
+  /* ── CTA Section ── */
+  .cta-section {
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  .cta-section .sub {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+  }
+
+  .cta-section .spots {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-bg);
+    border: 1px solid var(--accent-border);
+    border-radius: 100px;
+    padding: 8px 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 32px;
+  }
+
+  .cta-section .spots .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* ── Application Form ── */
+  .form-wrapper {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px 32px;
+    text-align: left;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 640px) {
+    .form-wrapper { padding: 28px 20px; }
+  }
+
+  .form-wrapper label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .form-wrapper .field {
+    margin-bottom: 24px;
+  }
+
+  .form-wrapper input,
+  .form-wrapper select,
+  .form-wrapper textarea {
+    width: 100%;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    color: var(--text);
+    font-family: 'Figtree', sans-serif;
+    outline: none;
+    transition: border-color 0.15s ease;
+  }
+
+  .form-wrapper input:focus,
+  .form-wrapper select:focus,
+  .form-wrapper textarea:focus {
+    border-color: var(--accent-border);
+  }
+
+  .form-wrapper input::placeholder,
+  .form-wrapper textarea::placeholder {
+    color: var(--text-dim);
+  }
+
+  .form-wrapper textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+
+  .form-wrapper select {
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b6b6b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+  }
+
+  .form-wrapper select option {
+    background: var(--surface-2);
+    color: var(--text);
+  }
+
+  .form-submit {
+    width: 100%;
+    background: var(--accent);
+    color: #0a0a0a;
+    font-family: 'Figtree', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    padding: 16px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.15s ease;
+    letter-spacing: -0.01em;
+    margin-top: 8px;
+  }
+
+  .form-submit:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+  }
+
+  .form-submit:disabled {
+    opacity: 0.5;
+    cursor: default;
+    transform: none;
+  }
+
+  .form-note {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    margin-top: 16px;
+    line-height: 1.5;
+  }
+
+  /* ── Thank You (hidden by default) ── */
+  .thank-you {
+    display: none;
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .thank-you.show {
+    display: block;
+  }
+
+  .thank-you h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: var(--accent);
+  }
+
+  .thank-you p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ── CTA Button (sticky mobile) ── */
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent);
+    color: #0a0a0a;
+    font-family: 'Figtree', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    padding: 16px 40px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: background 0.15s ease, transform 0.15s ease;
+    letter-spacing: -0.01em;
+  }
+
+  .cta-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+  }
+
+  .cta-btn-sub {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-dim);
+    margin-top: 8px;
+  }
+
+  .sticky-cta {
+    display: none;
+  }
+
+  @media (max-width: 640px) {
+    .sticky-cta {
+      display: flex;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      padding: 12px 16px;
+      padding-bottom: calc(12px + env(safe-area-inset-bottom));
+      background: linear-gradient(to top, var(--bg) 60%, transparent);
+    }
+
+    .sticky-cta .cta-btn {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+    }
+  }
+
+  /* ── Footer ── */
+  footer {
+    padding: 40px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
+  footer a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  /* ── Divider ── */
+  .divider {
+    text-align: center;
+    padding: 40px 0;
+  }
+
+  .divider span {
+    display: inline-block;
+    width: 40px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="container">
+    <span class="hero-badge">be the brand</span>
+    <h1>
+      Tu experiencia merece<br>
+      <span class="highlight">clientes que lleguen solos.</span>
+    </h1>
+    <p class="hero-sub">
+      Armá un sistema de captación para tu negocio de servicios.
+      Dejá de depender de que alguien te recomiende.
+    </p>
+  </div>
+</section>
+
+<!-- ── VIDEO ── -->
+<section class="video-section">
+  <div class="container">
+    <div class="video-wrapper">
+      <!-- REEMPLAZAR con el embed del video de Juan cuando esté grabado -->
+      <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe> -->
+      <div class="video-placeholder">
+        <div class="play-icon"></div>
+        <span>Video disponible pronto</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROBLEMA ── -->
+<section class="problem">
+  <div class="container">
+    <div class="section-label">El problema</div>
+    <h2>Sos bueno en lo que hacés.<br>Pero tu negocio depende de la suerte.</h2>
+    <ul class="problem-list">
+      <li>
+        <span class="icon">1</span>
+        <span>Tus clientes llegan por recomendación. Cuando alguien se acuerda de vos, cuando justo sale el tema en una conversación. No controlás cuándo ni cuántas veces pasa.</span>
+      </li>
+      <li>
+        <span class="icon">2</span>
+        <span>Tenés meses buenos y meses vacíos. Y no tiene nada que ver con lo bueno que seas. Un trimestre sin recomendaciones y tu facturación se frena.</span>
+      </li>
+      <li>
+        <span class="icon">3</span>
+        <span>Publicás contenido, pero no te llegan clientes de ahí. Porque el contenido sin un sistema detrás es una vidriera apagada en una calle con tránsito.</span>
+      </li>
+      <li>
+        <span class="icon">4</span>
+        <span>Sabés que tendrías que hacer algo con tu marca, pero no sabés por dónde arrancar. O peor: arrancaste y no pasó nada.</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ── SOLUCIÓN ── -->
+<section class="solution">
+  <div class="container">
+    <div class="section-label">La solución</div>
+    <h2>Un sistema de captación que trabaja por vos.</h2>
+    <p class="lead">
+      No necesitás más seguidores, más contenido, ni más horas en redes.
+      Necesitás un sistema que convierta tu experiencia en una máquina de atraer clientes.
+      Eso es lo que armamos juntos.
+    </p>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3>Oferta clara y vendible</h3>
+        <p>Ordenamos lo que sabés en una propuesta concreta, con etapas, entregables y una promesa que se explique sola.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3>Posicionamiento real</h3>
+        <p>Que elegirte sea una consecuencia de lo que mostrás, no una negociación. Tu marca personal es tu vidriera prendida.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3>Sistema de captación</h3>
+        <p>Contenido, automatizaciones y estrategia comercial funcionando. Clientes que llegan sin que vos los vayas a buscar.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">4</div>
+        <h3>Negocio con estructura</h3>
+        <p>Dejás de improvisar cada mes. Tenés un negocio con clientes constantes, sin depender de referidos ni del algoritmo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PARA QUIÉN ── -->
+<section class="for-who">
+  <div class="container">
+    <h2>Esto es para vos si...</h2>
+    <div class="for-grid">
+      <div class="for-col yes">
+        <h3><span>Es para vos</span></h3>
+        <ul>
+          <li>Sos consultor, coach, mentor o profesional independiente</li>
+          <li>Vendés lo que sabés: conocimiento, experiencia, acompañamiento</li>
+          <li>Ya tenés clientes pero llegan solo por boca en boca</li>
+          <li>Querés un sistema predecible para conseguir clientes</li>
+          <li>Estás dispuesto a construir tu marca personal en serio</li>
+        </ul>
+      </div>
+      <div class="for-col no">
+        <h3><span>No es para vos</span></h3>
+        <ul>
+          <li>Vendés productos físicos o tenés un e-commerce</li>
+          <li>Estás arrancando de cero y no tenés experiencia en tu rubro</li>
+          <li>Buscás seguidores, no clientes</li>
+          <li>Querés resultados sin poner el trabajo</li>
+          <li>No te interesa mostrar tu cara ni construir marca</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA + CALENDLY ── -->
+<section class="cta-section" id="agendar">
+  <div class="container">
+    <div class="section-label">Sesión estratégica gratuita</div>
+    <h2>Agendá tu sesión con Juan</h2>
+    <p class="sub">30 minutos para analizar tu situación y ver si tiene sentido trabajar juntos.</p>
+
+    <div class="spots">
+      <span class="dot"></span>
+      Cupos limitados por semana
+    </div>
+
+    <div class="form-wrapper" id="application-form">
+      <form id="btb-form" onsubmit="return submitForm(event)">
+        <div class="field">
+          <label for="nombre">Tu nombre</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Juan Pérez" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="juan@email.com" required>
+        </div>
+        <div class="field">
+          <label for="instagram">Tu Instagram</label>
+          <input type="text" id="instagram" name="instagram" placeholder="@tu.usuario" required>
+        </div>
+        <div class="field">
+          <label for="servicio">¿Qué servicio ofrecés?</label>
+          <input type="text" id="servicio" name="servicio" placeholder="Consultoría, coaching, mentoría, diseño..." required>
+        </div>
+        <div class="field">
+          <label for="tiempo">¿Hace cuánto trabajás independiente?</label>
+          <select id="tiempo" name="tiempo" required>
+            <option value="" disabled selected>Seleccioná una opción</option>
+            <option value="menos_1">Menos de 1 año</option>
+            <option value="1_3">1 a 3 años</option>
+            <option value="3_5">3 a 5 años</option>
+            <option value="mas_5">Más de 5 años</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="captacion">¿Cómo te llegan clientes hoy?</label>
+          <select id="captacion" name="captacion" required>
+            <option value="" disabled selected>Seleccioná una opción</option>
+            <option value="referidos">Solo por referidos / boca en boca</option>
+            <option value="redes">Publico en redes pero no me llegan de ahí</option>
+            <option value="mix">Referidos + algo de redes</option>
+            <option value="ads">Hago ads pero no funcionan bien</option>
+            <option value="no_tengo">No me llegan clientes</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="frustracion">¿Cuál es tu mayor frustración con la captación de clientes?</label>
+          <textarea id="frustracion" name="frustracion" placeholder="Contame en pocas palabras..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit" id="submit-btn">Quiero mi sesión estratégica</button>
+        <p class="form-note">Revisamos cada aplicación personalmente. Si tu perfil encaja, te contactamos en menos de 24hs para agendar.</p>
+      </form>
+    </div>
+
+    <div class="thank-you" id="thank-you">
+      <h3>Recibimos tu aplicación</h3>
+      <p>Vamos a revisar tus respuestas y si tu perfil encaja,<br>te contactamos en menos de 24 horas para agendar tu sesión.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="container">
+    <p>Be the Brand &mdash; Sistema de captación para profesionales independientes.</p>
+    <p style="margin-top: 8px;">
+      <a href="https://instagram.com/juanhrr.mkt" target="_blank">@juanhrr.mkt</a>
+    </p>
+  </div>
+</footer>
+
+<!-- ── Sticky CTA Mobile ── -->
+<div class="sticky-cta">
+  <a href="#agendar" class="cta-btn">Agendá tu sesión gratuita</a>
+</div>
+
+<script>
+// N8N_WEBHOOK_URL se reemplaza cuando se despliega el workflow
+const WEBHOOK_URL = 'https://bethebrand.app.n8n.cloud/webhook/btb-funnel-lead';
+
+async function submitForm(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+
+  const data = {
+    nombre: document.getElementById('nombre').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    instagram: document.getElementById('instagram').value.trim().replace(/^@/, ''),
+    servicio: document.getElementById('servicio').value.trim(),
+    tiempo: document.getElementById('tiempo').value,
+    captacion: document.getElementById('captacion').value,
+    frustracion: document.getElementById('frustracion').value.trim(),
+    timestamp: new Date().toISOString(),
+    source: 'landing_btb',
+    page_url: window.location.href,
+  };
+
+  try {
+    await fetch(WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+      mode: 'no-cors',
+    });
+  } catch (err) {
+    // no-cors won't throw on success, catch network errors
+  }
+
+  // Show thank you
+  document.getElementById('application-form').style.display = 'none';
+  document.getElementById('thank-you').classList.add('show');
+  document.querySelector('.spots').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
