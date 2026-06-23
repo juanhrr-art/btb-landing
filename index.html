@@ -67,6 +67,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    text-align: center;
     padding: 120px 40px 80px;
     max-width: 900px;
     margin: 0 auto;
@@ -865,7 +867,7 @@
       playsinline
       preload="metadata"
       poster="./vsl-poster.jpg"
-      style="width:100%;max-width:560px;height:auto;margin:48px 0;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.3);display:block;background:#000">
+      style="width:100%;max-width:560px;height:auto;margin:48px auto;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.3);display:block;background:#000">
       <source src="./vsl.mp4" type="video/mp4">
       Tu navegador no soporta el video.
     </video>
@@ -887,11 +889,11 @@
 </section>
 
 <!-- FORMULARIO -->
-<section class="section" id="formulario">
+<section class="section" id="formulario" style="text-align:center">
   <p class="section-label">siguiente paso</p>
   <h2 style="font-size:48px;font-weight:900;margin-bottom:48px;color:var(--cream)">agenda tu llamada</h2>
 
-  <div style="max-width:560px;margin:0;background:rgba(245,240,232,0.04);padding:48px;border:1px solid rgba(245,240,232,0.1);border-radius:8px">
+  <div style="max-width:560px;margin:0 auto;text-align:left;background:rgba(245,240,232,0.04);padding:48px;border:1px solid rgba(245,240,232,0.1);border-radius:8px">
     <form id="precall-form" style="display:flex;flex-direction:column;gap:24px">
 
       <div style="display:flex;flex-direction:column;gap:8px">
