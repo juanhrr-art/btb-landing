@@ -3,865 +3,1210 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Be the Brand — Sesión Estratégica</title>
-<meta name="description" content="Dejá de depender de referidos. Armá un sistema de captación para tu negocio de servicios.">
-<meta property="og:title" content="Be the Brand — Sesión Estratégica">
-<meta property="og:description" content="Armá un sistema de captación para tu negocio de servicios. Dejá de depender de que alguien te recomiende.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://juanhrr-art.github.io/btb-landing/og.png">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<title>BTB Kickoff — Juan Herrera</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;900&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
   :root {
-    --bg: #0a0a0a;
-    --surface: #141414;
-    --surface-2: #1e1e1e;
-    --border: rgba(255,255,255,0.08);
-    --text: #ece8db;
-    --text-muted: #a8a296;
-    --text-dim: #6b6b6b;
-    --accent: #f5c842;
-    --accent-hover: #f7d36a;
-    --accent-bg: rgba(245,200,66,0.1);
-    --accent-border: rgba(245,200,66,0.25);
-    --green: #34d399;
+    --cream: #F5F0E8;
+    --dark: #1C1C1A;
+    --yellow: #F0C93A;
+    --gray: #6B6B68;
+    --light-gray: #E8E3DA;
   }
 
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
 
   body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Figtree', system-ui, -apple-system, sans-serif;
-    line-height: 1.6;
+    font-family: 'Figtree', sans-serif;
+    background: var(--dark);
+    color: var(--cream);
+    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ── Layout ── */
-  .container {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 24px;
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--dark);
+    border-bottom: 1px solid rgba(245,240,232,0.08);
   }
 
-  section {
-    padding: 80px 0;
+  .nav-logo {
+    font-weight: 900;
+    font-size: 14px;
+    letter-spacing: -0.02em;
+    color: var(--cream);
+    text-decoration: none;
   }
 
-  @media (max-width: 640px) {
-    section { padding: 56px 0; }
+  .nav-logo span { color: var(--yellow); }
+
+  .nav-cta {
+    font-size: 13px;
+    font-weight: 900;
+    color: var(--dark);
+    background: var(--yellow);
+    padding: 10px 20px;
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    transition: opacity 0.2s;
   }
 
-  /* ── Hero ── */
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* HERO */
   .hero {
-    padding: 100px 0 80px;
-    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 40px 80px;
+    max-width: 900px;
+    margin: 0 auto;
   }
 
-  @media (max-width: 640px) {
-    .hero { padding: 72px 0 56px; }
-  }
-
-  .hero-badge {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--accent);
-    letter-spacing: 0.15em;
+  .hero-tag {
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    margin-bottom: 24px;
+    color: var(--yellow);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.1s;
   }
 
   .hero h1 {
-    font-size: clamp(1.75rem, 5vw, 2.75rem);
+    font-size: clamp(48px, 8vw, 88px);
     font-weight: 900;
-    line-height: 1.15;
-    letter-spacing: -0.03em;
-    margin-bottom: 24px;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    text-transform: lowercase;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.2s;
   }
 
-  .hero h1 .highlight {
-    color: var(--accent);
+  .hero h1 em {
+    font-style: normal;
+    color: var(--yellow);
   }
 
-  .hero-sub {
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
-    color: var(--text-muted);
-    max-width: 560px;
-    margin: 0 auto;
+  .hero-body {
+    font-size: clamp(16px, 2vw, 19px);
+    color: rgba(245,240,232,0.6);
     line-height: 1.6;
+    max-width: 520px;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.3s;
   }
 
-  /* ── Video Section ── */
-  .video-section {
-    padding: 0 0 80px;
-  }
+  .hero-body strong { color: var(--cream); }
 
-  .video-wrapper {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%;
-    background: var(--surface);
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-  }
-
-  .video-wrapper iframe,
-  .video-wrapper video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-
-  .video-placeholder {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    color: var(--text-dim);
-    font-size: 0.9rem;
-  }
-
-  .video-placeholder .play-icon {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background: var(--accent);
+  .hero-meta {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 24px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.35s;
   }
 
-  .video-placeholder .play-icon::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 0;
-    border-top: 12px solid transparent;
-    border-bottom: 12px solid transparent;
-    border-left: 20px solid #0a0a0a;
+  .hero-price {
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: var(--cream);
+    line-height: 1;
+  }
+
+  .hero-price span {
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 0.4;
     margin-left: 4px;
   }
 
-  /* ── Problem Section ── */
-  .problem {
-    border-top: 1px solid var(--border);
-  }
-
-  .section-label {
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: var(--accent);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-
-  .problem h2 {
-    font-size: clamp(1.4rem, 3.5vw, 2rem);
-    font-weight: 800;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    margin-bottom: 32px;
-  }
-
-  .problem-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .problem-list li {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    font-size: 1.05rem;
-    color: var(--text-muted);
-    line-height: 1.5;
-  }
-
-  .problem-list .icon {
-    flex-shrink: 0;
-    width: 28px;
-    height: 28px;
-    border-radius: 8px;
-    background: var(--accent-bg);
-    border: 1px solid var(--accent-border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    color: var(--accent);
-    margin-top: 2px;
-  }
-
-  /* ── Solution / Framework ── */
-  .solution {
-    border-top: 1px solid var(--border);
-  }
-
-  .solution h2 {
-    font-size: clamp(1.4rem, 3.5vw, 2rem);
-    font-weight: 800;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    margin-bottom: 16px;
-  }
-
-  .solution .lead {
-    font-size: 1.05rem;
-    color: var(--text-muted);
-    margin-bottom: 48px;
-    line-height: 1.6;
-  }
-
-  .steps-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
-  @media (max-width: 640px) {
-    .steps-grid { grid-template-columns: 1fr; }
-  }
-
-  .step-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 32px 28px;
-  }
-
-  .step-number {
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    background: var(--accent);
-    color: #0a0a0a;
-    font-size: 1.1rem;
+  .hero-scarcity {
+    font-size: 11px;
     font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.35);
+    border: 1px solid rgba(245,240,232,0.12);
+    padding: 8px 14px;
+  }
+
+  .hero-actions {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 16px;
+    gap: 16px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.4s;
   }
 
-  .step-card h3 {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-    line-height: 1.3;
-  }
-
-  .step-card p {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    line-height: 1.5;
-  }
-
-  /* ── Who It's For ── */
-  .for-who {
-    border-top: 1px solid var(--border);
-  }
-
-  .for-who h2 {
-    font-size: clamp(1.4rem, 3.5vw, 2rem);
-    font-weight: 800;
-    line-height: 1.2;
+  .btn-primary {
+    font-size: 14px;
+    font-weight: 900;
     letter-spacing: -0.02em;
-    margin-bottom: 32px;
+    color: var(--dark);
+    background: var(--yellow);
+    padding: 16px 32px;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+    display: inline-block;
   }
 
-  .for-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
+  .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
 
-  @media (max-width: 640px) {
-    .for-grid { grid-template-columns: 1fr; }
-  }
-
-  .for-col h3 {
-    font-size: 0.85rem;
-    font-weight: 700;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .for-col.yes h3 { color: var(--green); }
-  .for-col.no h3 { color: #ef4444; }
-
-  .for-col ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .for-col li {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    padding-left: 20px;
-    position: relative;
-    line-height: 1.4;
-  }
-
-  .for-col.yes li::before {
-    content: '+';
-    position: absolute;
-    left: 0;
-    color: var(--green);
-    font-weight: 700;
-  }
-
-  .for-col.no li::before {
-    content: '-';
-    position: absolute;
-    left: 2px;
-    color: #ef4444;
-    font-weight: 700;
-  }
-
-  /* ── CTA Section ── */
-  .cta-section {
-    border-top: 1px solid var(--border);
-    text-align: center;
-  }
-
-  .cta-section h2 {
-    font-size: clamp(1.4rem, 3.5vw, 2rem);
-    font-weight: 800;
-    line-height: 1.2;
+  .btn-secondary {
+    font-size: 14px;
+    font-weight: 900;
     letter-spacing: -0.02em;
-    margin-bottom: 12px;
+    color: var(--cream);
+    background: transparent;
+    border: 1px solid rgba(245,240,232,0.2);
+    padding: 16px 32px;
+    text-decoration: none;
+    transition: border-color 0.2s;
+    display: inline-block;
   }
 
-  .cta-section .sub {
-    font-size: 1rem;
-    color: var(--text-muted);
-    margin-bottom: 40px;
-  }
+  .btn-secondary:hover { border-color: var(--cream); }
 
-  .cta-section .spots {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--accent-bg);
-    border: 1px solid var(--accent-border);
-    border-radius: 100px;
-    padding: 8px 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--accent);
-    margin-bottom: 32px;
-  }
-
-  .cta-section .spots .dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    animation: pulse 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
-
-  /* ── Application Form ── */
-  .form-wrapper {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 40px 32px;
-    text-align: left;
-    max-width: 520px;
+  /* SECTIONS */
+  .section {
+    padding: 100px 40px;
+    max-width: 900px;
     margin: 0 auto;
   }
 
-  @media (max-width: 640px) {
-    .form-wrapper { padding: 28px 20px; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 48px;
   }
 
-  .form-wrapper label {
+  /* PROBLEMA */
+  .problema-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .problema-item {
+    background: rgba(245,240,232,0.04);
+    padding: 32px;
+    border-left: 2px solid transparent;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .problema-item:hover {
+    border-left-color: var(--yellow);
+    background: rgba(245,240,232,0.07);
+  }
+
+  .problema-item p {
+    font-size: clamp(15px, 1.8vw, 17px);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.35;
+    color: rgba(245,240,232,0.55);
+  }
+
+  .problema-item p strong {
+    color: var(--cream);
     display: block;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  /* QUÉ ES — cream bg */
+  .que-es {
+    background: var(--cream);
+    color: var(--dark);
+    padding: 100px 40px;
+  }
+
+  .que-es-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .que-es .section-label { color: var(--dark); opacity: 0.4; }
+
+  .que-es h2 {
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 900;
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    text-transform: lowercase;
+    margin-bottom: 40px;
+  }
+
+  .que-es h2 em {
+    font-style: normal;
+    color: var(--yellow);
+    -webkit-text-stroke: 1px var(--dark);
+  }
+
+  .que-es-body {
+    font-size: clamp(17px, 2vw, 20px);
+    color: rgba(28,28,26,0.65);
+    line-height: 1.65;
+    max-width: 620px;
+    margin-bottom: 48px;
+  }
+
+  .que-es-body strong { color: var(--dark); }
+
+  .especificos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .especifico-item {
+    background: rgba(28,28,26,0.05);
+    padding: 24px 20px;
+  }
+
+  .especifico-num {
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    color: rgba(28,28,26,0.3);
+    text-transform: uppercase;
     margin-bottom: 8px;
   }
 
-  .form-wrapper .field {
-    margin-bottom: 24px;
+  .especifico-item p {
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    color: var(--dark);
   }
 
-  .form-wrapper input,
-  .form-wrapper select,
-  .form-wrapper textarea {
-    width: 100%;
-    background: var(--surface-2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 12px 16px;
-    font-size: 0.95rem;
-    color: var(--text);
-    font-family: 'Figtree', sans-serif;
-    outline: none;
-    transition: border-color 0.15s ease;
+  /* INCLUYE */
+  .incluye {
+    padding: 100px 40px;
+    max-width: 900px;
+    margin: 0 auto;
   }
 
-  .form-wrapper input:focus,
-  .form-wrapper select:focus,
-  .form-wrapper textarea:focus {
-    border-color: var(--accent-border);
+  .incluye h2 {
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 900;
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    text-transform: lowercase;
+    margin-bottom: 64px;
   }
 
-  .form-wrapper input::placeholder,
-  .form-wrapper textarea::placeholder {
-    color: var(--text-dim);
+  .incluye h2 em {
+    font-style: normal;
+    color: var(--yellow);
   }
 
-  .form-wrapper textarea {
-    resize: vertical;
-    min-height: 80px;
+  .fase-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
   }
 
-  .form-wrapper select {
-    cursor: pointer;
-    -webkit-appearance: none;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b6b6b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 16px center;
-    padding-right: 40px;
+  .fase-card {
+    background: rgba(245,240,232,0.04);
+    padding: 36px 32px;
+    position: relative;
   }
 
-  .form-wrapper select option {
-    background: var(--surface-2);
-    color: var(--text);
+  .fase-card.destacada {
+    background: var(--yellow);
+    color: var(--dark);
   }
 
-  .form-submit {
-    width: 100%;
-    background: var(--accent);
-    color: #0a0a0a;
-    font-family: 'Figtree', sans-serif;
-    font-size: 1rem;
-    font-weight: 800;
-    padding: 16px;
-    border-radius: 12px;
-    border: none;
-    cursor: pointer;
-    transition: background 0.15s ease, transform 0.15s ease;
-    letter-spacing: -0.01em;
-    margin-top: 8px;
+  .fase-card.wide {
+    grid-column: 1 / -1;
   }
 
-  .form-submit:hover {
-    background: var(--accent-hover);
-    transform: translateY(-1px);
+  .fase-num {
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.3);
+    margin-bottom: 16px;
   }
 
-  .form-submit:disabled {
-    opacity: 0.5;
-    cursor: default;
-    transform: none;
+  .fase-card.destacada .fase-num { color: rgba(28,28,26,0.4); }
+
+  .fase-titulo {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    color: var(--cream);
   }
 
-  .form-note {
-    text-align: center;
-    font-size: 0.8rem;
-    color: var(--text-dim);
-    margin-top: 16px;
+  .fase-card.destacada .fase-titulo { color: var(--dark); }
+
+  .fase-body {
+    font-size: 14px;
+    color: rgba(245,240,232,0.55);
+    line-height: 1.65;
+  }
+
+  .fase-card.destacada .fase-body { color: rgba(28,28,26,0.65); }
+
+  .fase-lista {
+    list-style: none;
+    margin-top: 20px;
+  }
+
+  .fase-lista li {
+    font-size: 14px;
+    color: rgba(245,240,232,0.7);
+    padding: 8px 0;
+    padding-left: 20px;
+    position: relative;
+    border-bottom: 1px solid rgba(245,240,232,0.06);
     line-height: 1.5;
   }
 
-  /* ── Thank You (hidden by default) ── */
-  .thank-you {
-    display: none;
-    text-align: center;
-    padding: 60px 20px;
+  .fase-card.destacada .fase-lista li {
+    color: rgba(28,28,26,0.75);
+    border-bottom-color: rgba(28,28,26,0.08);
   }
 
-  .thank-you.show {
-    display: block;
+  .fase-lista li:last-child { border-bottom: none; }
+
+  .fase-lista li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    font-weight: 900;
+    color: var(--yellow);
   }
 
-  .thank-you h3 {
-    font-size: 1.5rem;
-    font-weight: 800;
-    margin-bottom: 12px;
-    color: var(--accent);
-  }
+  .fase-card.destacada .fase-lista li::before { color: var(--dark); }
 
-  .thank-you p {
-    font-size: 1rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-  }
-
-  /* ── CTA Button (sticky mobile) ── */
-  .cta-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--accent);
-    color: #0a0a0a;
-    font-family: 'Figtree', sans-serif;
-    font-size: 1rem;
-    font-weight: 800;
-    padding: 16px 40px;
-    border-radius: 12px;
-    text-decoration: none;
-    transition: background 0.15s ease, transform 0.15s ease;
-    letter-spacing: -0.01em;
-  }
-
-  .cta-btn:hover {
-    background: var(--accent-hover);
-    transform: translateY(-1px);
-  }
-
-  .cta-btn-sub {
-    display: block;
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: var(--text-dim);
-    margin-top: 8px;
-  }
-
-  .sticky-cta {
-    display: none;
-  }
-
-  @media (max-width: 640px) {
-    .sticky-cta {
-      display: flex;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 50;
-      padding: 12px 16px;
-      padding-bottom: calc(12px + env(safe-area-inset-bottom));
-      background: linear-gradient(to top, var(--bg) 60%, transparent);
-    }
-
-    .sticky-cta .cta-btn {
-      width: 100%;
-      padding: 14px;
-      border-radius: 10px;
-    }
-  }
-
-  /* ── Footer ── */
-  footer {
-    padding: 40px 0;
-    border-top: 1px solid var(--border);
-    text-align: center;
-  }
-
-  footer p {
-    font-size: 0.8rem;
-    color: var(--text-dim);
-    line-height: 1.6;
-  }
-
-  footer a {
-    color: var(--text-muted);
-    text-decoration: none;
-  }
-
-  /* ── Divider ── */
-  .divider {
-    text-align: center;
-    padding: 40px 0;
-  }
-
-  .divider span {
+  .fase-badge {
     display: inline-block;
-    width: 40px;
-    height: 2px;
-    background: var(--accent);
-    border-radius: 2px;
+    background: rgba(240,201,58,0.15);
+    border: 1px solid rgba(240,201,58,0.3);
+    color: var(--yellow);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    margin-top: 20px;
+  }
+
+  /* PRECIO CARD */
+  .precio-card {
+    grid-column: 1 / -1;
+    background: rgba(245,240,232,0.04);
+    border: 1px solid rgba(245,240,232,0.1);
+    padding: 48px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 2px;
+  }
+
+  .precio-left .precio-num {
+    font-size: 56px;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: var(--cream);
+    line-height: 1;
+  }
+
+  .precio-left .precio-nota {
+    font-size: 13px;
+    color: rgba(245,240,232,0.35);
+    margin-top: 6px;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* PARA QUIÉN */
+  .paraquien {
+    background: var(--cream);
+    color: var(--dark);
+    padding: 100px 40px;
+  }
+
+  .paraquien-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .paraquien h2 {
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 900;
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    text-transform: lowercase;
+    margin-bottom: 64px;
+  }
+
+  .paraquien-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .paraquien-col h3 {
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    opacity: 0.4;
+  }
+
+  .paraquien-list {
+    list-style: none;
+  }
+
+  .paraquien-list li {
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(28,28,26,0.1);
+    display: flex;
+    gap: 12px;
+    line-height: 1.3;
+  }
+
+  .paraquien-list.si li::before {
+    content: '✓';
+    color: #2D7A4F;
+    flex-shrink: 0;
+  }
+
+  .paraquien-list.no li::before {
+    content: '✗';
+    color: #C0392B;
+    flex-shrink: 0;
+  }
+
+  /* JUAN */
+  .juan {
+    padding: 100px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .juan-foto {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  .juan-text .section-label { margin-bottom: 24px; }
+
+  .juan-text h2 {
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 900;
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    text-transform: lowercase;
+    margin-bottom: 24px;
+  }
+
+  .juan-text p {
+    font-size: 15px;
+    color: rgba(245,240,232,0.6);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .juan-text p strong { color: var(--cream); }
+
+  .juan-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .juan-stat {
+    padding: 24px;
+    background: rgba(245,240,232,0.04);
+  }
+
+  .juan-stat-num {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: var(--yellow);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .juan-stat-label {
+    font-size: 12px;
+    color: rgba(245,240,232,0.4);
+    line-height: 1.4;
+  }
+
+  /* TESTIMONIOS */
+  .testimonios {
+    background: var(--cream);
+    color: var(--dark);
+    padding: 100px 40px;
+  }
+
+  .testimonios-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .testimonios .section-label { color: var(--dark); opacity: 0.4; }
+
+  .testimonios h2 {
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 900;
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    text-transform: lowercase;
+    margin-bottom: 64px;
+  }
+
+  .testimonios-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+  }
+
+  .testimonio {
+    background: rgba(28,28,26,0.05);
+    padding: 32px;
+  }
+
+  .testimonio-quote {
+    font-size: 16px;
+    line-height: 1.65;
+    color: rgba(28,28,26,0.75);
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  .testimonio-autor {
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    color: var(--dark);
+  }
+
+  .testimonio-rol {
+    font-size: 12px;
+    color: rgba(28,28,26,0.4);
+    margin-top: 2px;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* GARANTÍA */
+  .garantia {
+    padding: 100px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .garantia-block {
+    background: rgba(45,122,79,0.08);
+    border: 1px solid rgba(45,122,79,0.2);
+    padding: 56px 48px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .garantia-icono {
+    font-size: 40px;
+    line-height: 1;
+  }
+
+  .garantia-titulo {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    color: #4ade80;
+    margin-bottom: 16px;
+    text-transform: lowercase;
+  }
+
+  .garantia-body {
+    font-size: 16px;
+    color: rgba(245,240,232,0.6);
+    line-height: 1.65;
+  }
+
+  .garantia-body strong { color: var(--cream); }
+
+  /* FAQ */
+  .faq {
+    background: var(--cream);
+    color: var(--dark);
+    padding: 100px 40px;
+  }
+
+  .faq-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq .section-label { color: var(--dark); opacity: 0.4; }
+
+  .faq h2 {
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 900;
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    text-transform: lowercase;
+    margin-bottom: 64px;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(28,28,26,0.1);
+    padding: 24px 0;
+  }
+
+  .faq-item:first-of-type { border-top: 1px solid rgba(28,28,26,0.1); }
+
+  .faq-q {
+    font-size: 17px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    color: var(--dark);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .faq-a {
+    font-size: 15px;
+    color: rgba(28,28,26,0.55);
+    line-height: 1.65;
+  }
+
+  .faq-a a { color: var(--dark); font-weight: 900; }
+
+  /* CTA FINAL */
+  .cta-final {
+    background: var(--yellow);
+    color: var(--dark);
+    padding: 100px 40px;
+    text-align: center;
+  }
+
+  .cta-final h2 {
+    font-size: clamp(40px, 7vw, 80px);
+    font-weight: 900;
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    text-transform: lowercase;
+    margin-bottom: 16px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-final-precio {
+    font-size: 52px;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .cta-final p {
+    font-size: 15px;
+    opacity: 0.55;
+    margin-bottom: 48px;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-dark {
+    display: inline-block;
+    background: var(--dark);
+    color: var(--cream);
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    padding: 20px 48px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .btn-dark:hover { opacity: 0.85; }
+
+  .cta-final-nota {
+    margin-top: 24px;
+    font-size: 13px;
+    opacity: 0.45;
+    font-weight: 900;
+  }
+
+  .cta-final-nota a { color: var(--dark); }
+
+  /* FOOTER */
+  footer {
+    padding: 40px;
+    border-top: 1px solid rgba(245,240,232,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: rgba(245,240,232,0.3);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .hero { padding: 100px 20px 60px; }
+    .section { padding: 60px 20px; }
+    .problema-grid { grid-template-columns: 1fr; }
+    .que-es { padding: 60px 20px; }
+    .especificos { grid-template-columns: 1fr 1fr; }
+    .incluye { padding: 60px 20px; }
+    .fase-grid { grid-template-columns: 1fr; }
+    .precio-card { flex-direction: column; gap: 24px; }
+    .paraquien { padding: 60px 20px; }
+    .paraquien-grid { grid-template-columns: 1fr; }
+    .juan { padding: 60px 20px; grid-template-columns: 1fr; gap: 40px; }
+    .juan-foto { max-height: 420px; width: 100%; object-fit: cover; object-position: center top; }
+    .juan-stats { grid-template-columns: 1fr 1fr; }
+    .testimonios { padding: 60px 20px; }
+    .testimonios-grid { grid-template-columns: 1fr; }
+    .garantia { padding: 60px 20px; }
+    .garantia-block { grid-template-columns: 1fr; gap: 24px; padding: 40px 28px; }
+    .faq { padding: 60px 20px; }
+    .cta-final { padding: 60px 20px; }
+    footer { padding: 24px 20px; flex-direction: column; gap: 8px; text-align: center; }
   }
 </style>
 </head>
 <body>
 
-<!-- ── HERO ── -->
-<section class="hero">
-  <div class="container">
-    <span class="hero-badge">be the brand</span>
-    <h1>
-      Tu experiencia merece<br>
-      <span class="highlight">clientes que lleguen solos.</span>
-    </h1>
-    <p class="hero-sub">
-      Armá un sistema de captación para tu negocio de servicios.
-      Dejá de depender de que alguien te recomiende.
-    </p>
-  </div>
-</section>
+<!-- NAV -->
+<nav>
+  <a href="https://btb-sistema.netlify.app/" class="nav-logo">be the <span>brand</span></a>
+  <a href="#comprar" class="nav-cta">quiero mi lugar</a>
+</nav>
 
-<!-- ── VIDEO ── -->
-<section class="video-section">
-  <div class="container">
-    <div class="video-wrapper">
-      <!-- REEMPLAZAR con el embed del video de Juan cuando esté grabado -->
-      <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe> -->
-      <div class="video-placeholder">
-        <div class="play-icon"></div>
-        <span>Video disponible pronto</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── PROBLEMA ── -->
-<section class="problem">
-  <div class="container">
-    <div class="section-label">El problema</div>
-    <h2>Sos bueno en lo que hacés.<br>Pero tu negocio depende de la suerte.</h2>
-    <ul class="problem-list">
-      <li>
-        <span class="icon">1</span>
-        <span>Tus clientes llegan por recomendación. Cuando alguien se acuerda de vos, cuando justo sale el tema en una conversación. No controlás cuándo ni cuántas veces pasa.</span>
-      </li>
-      <li>
-        <span class="icon">2</span>
-        <span>Tenés meses buenos y meses vacíos. Y no tiene nada que ver con lo bueno que seas. Un trimestre sin recomendaciones y tu facturación se frena.</span>
-      </li>
-      <li>
-        <span class="icon">3</span>
-        <span>Publicás contenido, pero no te llegan clientes de ahí. Porque el contenido sin un sistema detrás es una vidriera apagada en una calle con tránsito.</span>
-      </li>
-      <li>
-        <span class="icon">4</span>
-        <span>Sabés que tendrías que hacer algo con tu marca, pero no sabés por dónde arrancar. O peor: arrancaste y no pasó nada.</span>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<!-- ── SOLUCIÓN ── -->
-<section class="solution">
-  <div class="container">
-    <div class="section-label">La solución</div>
-    <h2>Un sistema de captación que trabaja por vos.</h2>
-    <p class="lead">
-      No necesitás más seguidores, más contenido, ni más horas en redes.
-      Necesitás un sistema que convierta tu experiencia en una máquina de atraer clientes.
-      Eso es lo que armamos juntos.
+<!-- HERO + VSL -->
+<section>
+  <div class="hero">
+    <p class="hero-tag">Be The Brand · Pre-Call</p>
+    <h1>si dependerás del<br>boca a boca, mira esto.</h1>
+    <p class="hero-body">
+      Este video de 4 minutos explica exactamente por qué algunos consultores tienen agenda llena sin invertir en ads, mientras otros esperan a que suene el teléfono.<br>
+      <strong>La diferencia no es talento. Es un sistema.</strong>
     </p>
 
-    <div class="steps-grid">
-      <div class="step-card">
-        <div class="step-number">1</div>
-        <h3>Oferta clara y vendible</h3>
-        <p>Ordenamos lo que sabés en una propuesta concreta, con etapas, entregables y una promesa que se explique sola.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-number">2</div>
-        <h3>Posicionamiento real</h3>
-        <p>Que elegirte sea una consecuencia de lo que mostrás, no una negociación. Tu marca personal es tu vidriera prendida.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-number">3</div>
-        <h3>Sistema de captación</h3>
-        <p>Contenido, automatizaciones y estrategia comercial funcionando. Clientes que llegan sin que vos los vayas a buscar.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-number">4</div>
-        <h3>Negocio con estructura</h3>
-        <p>Dejás de improvisar cada mes. Tenés un negocio con clientes constantes, sin depender de referidos ni del algoritmo.</p>
-      </div>
+    <!-- VSL EMBEBIDO -->
+    <div style="position:relative;width:100%;max-width:560px;aspect-ratio:16/9;margin:48px 0;border-radius:8px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.3)">
+      <iframe
+        width="100%"
+        height="100%"
+        src="https://www.youtube.com/embed/_MxUGtbgGLY?controls=1&modestbranding=1"
+        title="VSL BTB — Proceso Pre-Call"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        style="position:absolute;top:0;left:0;width:100%;height:100%">
+      </iframe>
+    </div>
+
+    <div class="hero-actions">
+      <a href="#formulario" class="btn-primary">agenda tu llamada</a>
     </div>
   </div>
 </section>
 
-<!-- ── PARA QUIÉN ── -->
-<section class="for-who">
-  <div class="container">
-    <h2>Esto es para vos si...</h2>
-    <div class="for-grid">
-      <div class="for-col yes">
-        <h3><span>Es para vos</span></h3>
-        <ul>
-          <li>Sos consultor, coach, mentor o profesional independiente</li>
-          <li>Vendés lo que sabés: conocimiento, experiencia, acompañamiento</li>
-          <li>Ya tenés clientes pero llegan solo por boca en boca</li>
-          <li>Querés un sistema predecible para conseguir clientes</li>
-          <li>Estás dispuesto a construir tu marca personal en serio</li>
-        </ul>
+<!-- FORMULARIO -->
+<section class="section" id="formulario">
+  <p class="section-label">siguiente paso</p>
+  <h2 style="font-size:48px;font-weight:900;margin-bottom:48px;color:var(--cream)">agenda tu llamada</h2>
+
+  <div style="max-width:560px;margin:0 auto;background:rgba(245,240,232,0.04);padding:48px;border:1px solid rgba(245,240,232,0.1);border-radius:8px">
+    <form id="precall-form" style="display:flex;flex-direction:column;gap:24px">
+
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <label for="nombre" style="font-size:14px;font-weight:900;letter-spacing:-0.02em;color:var(--cream)">nombre</label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          required
+          placeholder="tu nombre"
+          style="background:rgba(28,28,26,0.3);border:1px solid rgba(245,240,232,0.1);color:var(--cream);padding:12px 16px;font-size:14px;font-family:inherit;border-radius:4px"
+        >
       </div>
-      <div class="for-col no">
-        <h3><span>No es para vos</span></h3>
-        <ul>
-          <li>Vendés productos físicos o tenés un e-commerce</li>
-          <li>Estás arrancando de cero y no tenés experiencia en tu rubro</li>
-          <li>Buscás seguidores, no clientes</li>
-          <li>Querés resultados sin poner el trabajo</li>
-          <li>No te interesa mostrar tu cara ni construir marca</li>
-        </ul>
+
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <label for="negocio" style="font-size:14px;font-weight:900;letter-spacing:-0.02em;color:var(--cream)">¿a qué te dedicas?</label>
+        <select
+          id="negocio"
+          name="negocio"
+          required
+          style="background:rgba(28,28,26,0.3);border:1px solid rgba(245,240,232,0.1);color:var(--cream);padding:12px 16px;font-size:14px;font-family:inherit;border-radius:4px;cursor:pointer"
+        >
+          <option value="" style="background:var(--dark)">selecciona</option>
+          <option value="consultor" style="background:var(--dark)">consultor independiente</option>
+          <option value="agencia" style="background:var(--dark)">agencia pequeña</option>
+          <option value="freelancer" style="background:var(--dark)">freelancer</option>
+          <option value="coach" style="background:var(--dark)">coach/mentoría</option>
+          <option value="servicios" style="background:var(--dark)">servicios profesionales</option>
+          <option value="otro" style="background:var(--dark)">otro</option>
+        </select>
       </div>
-    </div>
+
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <label for="desafio" style="font-size:14px;font-weight:900;letter-spacing:-0.02em;color:var(--cream)">¿cuál es tu desafío ahora?</label>
+        <textarea
+          id="desafio"
+          name="desafio"
+          required
+          placeholder="en una línea: qué te trae acá"
+          style="background:rgba(28,28,26,0.3);border:1px solid rgba(245,240,232,0.1);color:var(--cream);padding:12px 16px;font-size:14px;font-family:inherit;border-radius:4px;min-height:80px;resize:vertical"
+        ></textarea>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <label for="urgencia" style="font-size:14px;font-weight:900;letter-spacing:-0.02em;color:var(--cream)">¿cuándo lo necesitás resolver?</label>
+        <select
+          id="urgencia"
+          name="urgencia"
+          required
+          style="background:rgba(28,28,26,0.3);border:1px solid rgba(245,240,232,0.1);color:var(--cream);padding:12px 16px;font-size:14px;font-family:inherit;border-radius:4px;cursor:pointer"
+        >
+          <option value="" style="background:var(--dark)">selecciona</option>
+          <option value="este_mes" style="background:var(--dark)">este mes</option>
+          <option value="proximo_trimestre" style="background:var(--dark)">próximos 3 meses</option>
+          <option value="despues" style="background:var(--dark)">después (sin urgencia)</option>
+        </select>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <label for="whatsapp" style="font-size:14px;font-weight:900;letter-spacing:-0.02em;color:var(--cream)">whatsapp</label>
+        <input
+          type="tel"
+          id="whatsapp"
+          name="whatsapp"
+          required
+          placeholder="+54 9 1234567890"
+          style="background:rgba(28,28,26,0.3);border:1px solid rgba(245,240,232,0.1);color:var(--cream);padding:12px 16px;font-size:14px;font-family:inherit;border-radius:4px"
+        >
+      </div>
+
+      <button
+        type="submit"
+        class="btn-primary"
+        style="margin-top:16px;width:100%;cursor:pointer;border:none"
+      >
+        agendar llamada →
+      </button>
+
+      <p style="font-size:12px;color:rgba(245,240,232,0.4);text-align:center;margin-top:8px">
+        30 minutos de diagnóstico sin compromiso. Si es un fit, hablamos de los próximos pasos.
+      </p>
+
+    </form>
   </div>
-</section>
 
-<!-- ── CTA + CALENDLY ── -->
-<section class="cta-section" id="agendar">
-  <div class="container">
-    <div class="section-label">Sesión estratégica gratuita</div>
-    <h2>Agendá tu sesión con Juan</h2>
-    <p class="sub">30 minutos para analizar tu situación y ver si tiene sentido trabajar juntos.</p>
+  <script>
+    document.getElementById('precall-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
 
-    <div class="spots">
-      <span class="dot"></span>
-      Cupos limitados por semana
-    </div>
+      const formData = {
+        nombre: document.getElementById('nombre').value,
+        negocio: document.getElementById('negocio').value,
+        desafio: document.getElementById('desafio').value,
+        urgencia: document.getElementById('urgencia').value,
+        whatsapp: document.getElementById('whatsapp').value,
+        timestamp: new Date().toISOString()
+      };
 
-    <div class="form-wrapper" id="application-form">
-      <form id="btb-form" onsubmit="return submitForm(event)">
-        <div class="field">
-          <label for="nombre">Tu nombre</label>
-          <input type="text" id="nombre" name="nombre" placeholder="Juan Pérez" required>
-        </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="juan@email.com" required>
-        </div>
-        <div class="field">
-          <label for="instagram">Tu Instagram</label>
-          <input type="text" id="instagram" name="instagram" placeholder="@tu.usuario" required>
-        </div>
-        <div class="field">
-          <label for="servicio">¿Qué servicio ofrecés?</label>
-          <input type="text" id="servicio" name="servicio" placeholder="Consultoría, coaching, mentoría, diseño..." required>
-        </div>
-        <div class="field">
-          <label for="tiempo">¿Hace cuánto trabajás independiente?</label>
-          <select id="tiempo" name="tiempo" required>
-            <option value="" disabled selected>Seleccioná una opción</option>
-            <option value="menos_1">Menos de 1 año</option>
-            <option value="1_3">1 a 3 años</option>
-            <option value="3_5">3 a 5 años</option>
-            <option value="mas_5">Más de 5 años</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="captacion">¿Cómo te llegan clientes hoy?</label>
-          <select id="captacion" name="captacion" required>
-            <option value="" disabled selected>Seleccioná una opción</option>
-            <option value="referidos">Solo por referidos / boca en boca</option>
-            <option value="redes">Publico en redes pero no me llegan de ahí</option>
-            <option value="mix">Referidos + algo de redes</option>
-            <option value="ads">Hago ads pero no funcionan bien</option>
-            <option value="no_tengo">No me llegan clientes</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="frustracion">¿Cuál es tu mayor frustración con la captación de clientes?</label>
-          <textarea id="frustracion" name="frustracion" placeholder="Contame en pocas palabras..." required></textarea>
-        </div>
-        <button type="submit" class="form-submit" id="submit-btn">Quiero mi sesión estratégica</button>
-        <p class="form-note">Revisamos cada aplicación personalmente. Si tu perfil encaja, te contactamos en menos de 24hs para agendar.</p>
-      </form>
-    </div>
-
-    <div class="thank-you" id="thank-you">
-      <h3>Recibimos tu aplicación</h3>
-      <p>Vamos a revisar tus respuestas y si tu perfil encaja,<br>te contactamos en menos de 24 horas para agendar tu sesión.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ── Footer ── -->
-<footer>
-  <div class="container">
-    <p>Be the Brand &mdash; Sistema de captación para profesionales independientes.</p>
-    <p style="margin-top: 8px;">
-      <a href="https://instagram.com/juanhrr.mkt" target="_blank">@juanhrr.mkt</a>
-    </p>
-  </div>
-</footer>
-
-<!-- ── Sticky CTA Mobile ── -->
-<div class="sticky-cta">
-  <a href="#agendar" class="cta-btn">Agendá tu sesión gratuita</a>
-</div>
-
-<!-- Meta Pixel — BTB-Ads-Pixel -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1514394006799758');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1514394006799758&ev=PageView&noscript=1"/></noscript>
-
-<script>
-const WEBHOOK_URL = 'https://bethebrand.app.n8n.cloud/webhook/btb-funnel-lead';
-
-async function submitForm(e) {
-  e.preventDefault();
-  const btn = document.getElementById('submit-btn');
-  btn.disabled = true;
-  btn.textContent = 'Enviando...';
-
-  const data = {
-    nombre: document.getElementById('nombre').value.trim(),
-    email: document.getElementById('email').value.trim(),
-    instagram: document.getElementById('instagram').value.trim().replace(/^@/, ''),
-    servicio: document.getElementById('servicio').value.trim(),
-    tiempo: document.getElementById('tiempo').value,
-    captacion: document.getElementById('captacion').value,
-    frustracion: document.getElementById('frustracion').value.trim(),
-    timestamp: new Date().toISOString(),
-    source: 'landing_btb',
-    page_url: window.location.href,
-  };
-
-  try {
-    await fetch(WEBHOOK_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
+      // Aquí iría la integración con n8n webhook o Google Sheets
+      // Por ahora, mostrar confirmación
+      alert('¡Listo! Te contactaremos pronto por WhatsApp para agendar tu llamada.');
+      this.reset();
     });
-  } catch (err) {
-    // no-cors won't throw on success, catch network errors
-  }
+  </script>
+</section>
 
-  // Show thank you
-  document.getElementById('application-form').style.display = 'none';
-  document.getElementById('thank-you').classList.add('show');
-  document.querySelector('.spots').style.display = 'none';
-}
-</script>
+<!-- QUÉ ES -->
+<section class="que-es">
+  <div class="que-es-inner">
+    <p class="section-label">qué es kickoff</p>
+    <h2>no es un curso.<br><em>son dos sesiones.</em></h2>
+    <p class="que-es-body">
+      No vas a ver videos grabados ni bajar PDFs que encontrarías gratis en YouTube.<br><br>
+      Son <strong>dos sesiones en vivo conmigo</strong>, mirando tu situación específica. Tu servicio, tu mercado, tu mensaje. Salís con la oferta definida, el mensaje de captación y el plan exacto de los tres primeros pasos.
+    </p>
+    <div class="especificos">
+      <div class="especifico-item">
+        <p class="especifico-num">01</p>
+        <p>tu oferta</p>
+      </div>
+      <div class="especifico-item">
+        <p class="especifico-num">02</p>
+        <p>tu mercado</p>
+      </div>
+      <div class="especifico-item">
+        <p class="especifico-num">03</p>
+        <p>tu mensaje</p>
+      </div>
+      <div class="especifico-item">
+        <p class="especifico-num">04</p>
+        <p>tu plan</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUÉ INCLUYE -->
+<section class="incluye" id="incluye">
+  <p class="section-label">qué incluye</p>
+  <h2>cuatro piezas.<br><em>un arranque.</em></h2>
+
+  <div class="fase-grid">
+
+    <div class="fase-card">
+      <p class="fase-num">Antes de la Sesión 1</p>
+      <h3 class="fase-titulo">Pre-work + análisis de perfil</h3>
+      <p class="fase-body">Completás un formulario corto: cuál es tu servicio, cómo conseguís clientes hoy, qué intentaste antes. Llego a la sesión habiendo analizado tu situación.</p>
+      <p class="fase-body" style="margin-top:14px">También tenés acceso a la <strong style="color:var(--cream)">IA de optimización de perfil de Instagram</strong> para analizar tu bio y tus últimos posts antes de encontrarnos.</p>
+    </div>
+
+    <div class="fase-card destacada">
+      <p class="fase-num">Sesión 1 · 60 minutos</p>
+      <h3 class="fase-titulo">diagnóstico + definición</h3>
+      <p class="fase-body">Identificamos el cuello que te está frenando — oferta, mensaje, captación o conversión — y definimos:</p>
+      <ul class="fase-lista">
+        <li>Tu oferta clara y específica</li>
+        <li>Tu mensaje de captación personalizado</li>
+        <li>Tu plan de 90 días con los 3 pasos en orden</li>
+      </ul>
+      <div class="fase-badge" style="background:rgba(28,28,26,0.1);border-color:rgba(28,28,26,0.2);color:var(--dark)">Mapa de Prioridades BTB — documento con todo lo definido</div>
+    </div>
+
+    <div class="fase-card">
+      <p class="fase-num">Entre sesiones</p>
+      <h3 class="fase-titulo">recurso personalizado + WhatsApp</h3>
+      <p class="fase-body">Según lo que identifiquemos en Sesión 1, recibís el recurso que más te sirve:</p>
+      <ul class="fase-lista">
+        <li>si el problema es la oferta: cómo los mejores consultores estructuran lo que venden</li>
+        <li>si el problema es el mensaje: el modelo de conversación de captación con ejemplos reales</li>
+        <li>si el problema es el perfil: análisis de 3 perfiles que generan clientes, anotado punto por punto</li>
+      </ul>
+      <p class="fase-body" style="margin-top:16px"><strong style="color:var(--cream)">30 días de acceso por WhatsApp</strong> para hasta 3 preguntas mientras estás ejecutando.</p>
+    </div>
+
+    <div class="fase-card">
+      <p class="fase-num">Sesión 2 · 30 minutos · 3 semanas después</p>
+      <h3 class="fase-titulo">revisión de ejecución</h3>
+      <p class="fase-body">Revisamos cómo va la ejecución. Qué funcionó, qué ajustar, qué sigue.</p>
+      <p class="fase-body" style="margin-top:14px">No terminamos la sesión y desaparezco. Me interesa que el plan se ejecute.</p>
+    </div>
+
+  </div>
+
+  <!-- PRECIO -->
+  <div class="precio-card" id="comprar">
+    <div class="precio-left">
+      <div class="precio-num">USD 147</div>
+      <div class="precio-nota">pago único · 8 cupos por mes</div>
+    </div>
+    <a href="#" class="btn-primary" style="font-size:15px;padding:18px 40px">quiero mi lugar →</a>
+  </div>
+
+</section>
+
+<!-- PARA QUIÉN -->
+<section class="paraquien">
+  <div class="paraquien-inner">
+    <p class="section-label" style="opacity:0.4;color:var(--dark)">para quién es</p>
+    <h2>para consultores<br>que recién arrancan.</h2>
+    <div class="paraquien-grid">
+      <div class="paraquien-col">
+        <h3>sí es para vos</h3>
+        <ul class="paraquien-list si">
+          <li>Tenés un servicio o expertise y querés vivir de eso de forma independiente</li>
+          <li>Estás en los primeros pasos y no sabés por dónde arrancar</li>
+          <li>Publicás o hablaste con gente pero nada se convierte en clientes reales</li>
+          <li>Querés claridad y un plan concreto, no más contenido genérico sobre emprender</li>
+        </ul>
+      </div>
+      <div class="paraquien-col">
+        <h3>no es para vos</h3>
+        <ul class="paraquien-list no">
+          <li>Buscás un curso con teoría para ver a tu ritmo</li>
+          <li>No tenés ningún servicio ni expertise definido todavía</li>
+          <li>Esperás que alguien haga el trabajo por vos</li>
+          <li>Ya conseguís clientes de forma consistente (BTB Proceso es tu siguiente paso)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JUAN -->
+<section class="juan">
+  <img src="./juan.webp" alt="Juan Herrera" class="juan-foto">
+  <div class="juan-text">
+    <p class="section-label">quién lo construyó</p>
+    <h2>juan herrera.</h2>
+    <p>18 años trabajando en marketing. Estrategia para marcas internacionales, incluyendo <strong>los comerciales del Super Bowl de Budweiser</strong>.</p>
+    <p>Hace dos años decidí aplicar todo eso a negocios de una sola persona. Construí BTB porque vi que los consultores más capaces eran los que menos clientes tenían. El problema nunca fue el conocimiento. <strong>Siempre fue el sistema.</strong></p>
+    <p>No enseño teoría. Trabajo con lo que tenés y te digo exactamente qué mover primero.</p>
+    <div class="juan-stats">
+      <div class="juan-stat">
+        <div class="juan-stat-num">18</div>
+        <div class="juan-stat-label">años en marketing</div>
+      </div>
+      <div class="juan-stat">
+        <div class="juan-stat-num">2</div>
+        <div class="juan-stat-label">sesiones en vivo</div>
+      </div>
+      <div class="juan-stat">
+        <div class="juan-stat-num">8</div>
+        <div class="juan-stat-label">cupos por mes</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testimonios">
+  <div class="testimonios-inner">
+    <p class="section-label">casos reales</p>
+    <h2>lo que dicen<br>quienes pasaron por acá.</h2>
+    <div class="testimonios-grid">
+      <div class="testimonio">
+        <p class="testimonio-quote">"Llevaba 10 años con el negocio pero no sabía cómo explicar lo que hacía. Armamos la oferta y entendí a quién le estaba hablando realmente."</p>
+        <div class="testimonio-autor">Fabián O.</div>
+        <div class="testimonio-rol">Catering de eventos</div>
+      </div>
+      <div class="testimonio">
+        <p class="testimonio-quote">"Cinco meses sin clientes y pensaba que el problema era el contenido. No era eso. Identifiqué exactamente qué estaba haciendo mal y cómo resolverlo."</p>
+        <div class="testimonio-autor">Agostina M.</div>
+        <div class="testimonio-rol">Consultora en planificación estratégica</div>
+      </div>
+      <div class="testimonio">
+        <p class="testimonio-quote">"Tenía seguidores que no eran mi cliente ideal. En las primeras sesiones entendí por qué no convertía y cómo reorientar todo el mensaje."</p>
+        <div class="testimonio-autor">Fernando B.</div>
+        <div class="testimonio-rol">Consultor</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTÍA -->
+<section class="garantia">
+  <p class="section-label">garantía</p>
+  <div class="garantia-block">
+    <div class="garantia-icono">↩</div>
+    <div>
+      <div class="garantia-titulo">garantía total</div>
+      <p class="garantia-body">
+        Si terminamos la Sesión 1 y no identificamos al menos <strong>3 acciones concretas para tu negocio</strong>, te devuelvo el dinero. Sin preguntas.<br><br>
+        No tengo interés en que pagues por algo que no te sirve.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-inner">
+    <p class="section-label">preguntas frecuentes</p>
+    <h2>lo que suelen<br>preguntar.</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">¿Necesito haber trabajado como independiente antes?</div>
+      <div class="faq-a">No necesitás tener años de experiencia como independiente. Sí necesitás tener un servicio o expertise claro que querés ofrecer.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">¿Las sesiones son en vivo o grabadas?</div>
+      <div class="faq-a">Las dos sesiones son en vivo por videollamada. Recibís la grabación para que puedas volver a verlas cuando quieras.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">¿En qué horario son las sesiones?</div>
+      <div class="faq-a">Al comprar recibís el link de Calendly para elegir el horario que mejor te quede dentro de los disponibles.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">¿Qué pasa después de las 2 sesiones?</div>
+      <div class="faq-a">Tenés el Mapa de Prioridades y el plan de 90 días para ejecutar. Si querés seguir trabajando conmigo en la implementación completa, <strong>BTB Proceso</strong> es el siguiente paso natural.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">¿Por qué solo 8 cupos por mes?</div>
+      <div class="faq-a">Cada sesión requiere mi atención completa. No es un grupo ni un curso grabado. Para que el trabajo valga, los cupos son limitados.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">¿Puedo pagar en cuotas?</div>
+      <div class="faq-a">Por ahora el pago es único. Si tenés alguna consulta antes de comprar, escribime directo a <a href="https://instagram.com/juanhrr.mkt" target="_blank">@juanhrr.mkt</a>.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <h2>dos sesiones.<br>tu primer cliente.</h2>
+  <div class="cta-final-precio">USD 147</div>
+  <p>pago único · 8 cupos por mes · garantía total</p>
+  <a href="#" class="btn-dark">quiero mi lugar →</a>
+  <p class="cta-final-nota">¿Tenés una pregunta antes de comprar? Escribime: <a href="https://instagram.com/juanhrr.mkt" target="_blank">@juanhrr.mkt</a></p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Be The Brand · Juan Herrera</span>
+  <span>@juanhrr.mkt</span>
+</footer>
 
 </body>
 </html>
