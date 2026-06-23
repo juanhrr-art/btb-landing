@@ -821,6 +821,24 @@
     footer { padding: 24px 20px; flex-direction: column; gap: 8px; text-align: center; }
   }
 </style>
+
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1514394006799758');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1514394006799758&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -845,7 +863,7 @@
       <iframe
         width="100%"
         height="100%"
-        src="https://www.youtube.com/embed/_MxUGtbgGLY?controls=1&modestbranding=1"
+        src="https://www.youtube-nocookie.com/embed/_MxUGtbgGLY?rel=0&modestbranding=1&controls=1&playsinline=1"
         title="VSL BTB — Proceso Pre-Call"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -987,6 +1005,14 @@
         });
 
         if (!res.ok) throw new Error('Respuesta no OK: ' + res.status);
+
+        // Evento Meta: lead capturado (Meta aprende de este perfil)
+        if (window.fbq) {
+          fbq('track', 'Lead', {
+            content_name: 'PreCall Form',
+            content_category: formData.negocio
+          });
+        }
 
         // Éxito
         if (CALENDLY_URL) {
