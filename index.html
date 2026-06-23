@@ -952,7 +952,17 @@
   </div>
 
   <script>
-    document.getElementById('precall-form').addEventListener('submit', async function(e) {
+    // URL del webhook n8n (instancia Railway). El workflow "BTB — PreCall Form"
+    // debe estar IMPORTADO y ACTIVO para que esta URL responda.
+    const N8N_WEBHOOK_URL = 'https://primary-production-a7e75.up.railway.app/webhook/precall-form';
+
+    // Cuando tengas el link de Calendly, pegalo acá y descomentá el redirect de abajo.
+    const CALENDLY_URL = '';
+
+    const form = document.getElementById('precall-form');
+    const btn = form.querySelector('button[type="submit"]');
+
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
 
       const formData = {
@@ -961,13 +971,35 @@
         desafio: document.getElementById('desafio').value,
         urgencia: document.getElementById('urgencia').value,
         whatsapp: document.getElementById('whatsapp').value,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        source: 'btb-landing-precall'
       };
 
-      // Aquí iría la integración con n8n webhook o Google Sheets
-      // Por ahora, mostrar confirmación
-      alert('¡Listo! Te contactaremos pronto por WhatsApp para agendar tu llamada.');
-      this.reset();
+      const originalLabel = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'enviando…';
+
+      try {
+        const res = await fetch(N8N_WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+
+        if (!res.ok) throw new Error('Respuesta no OK: ' + res.status);
+
+        // Éxito
+        if (CALENDLY_URL) {
+          window.location.href = CALENDLY_URL;
+          return;
+        }
+        form.innerHTML = '<div style="text-align:center;padding:24px 0"><div style="font-size:40px;margin-bottom:16px">✓</div><p style="font-size:18px;font-weight:900;color:var(--cream);margin-bottom:8px">¡Listo!</p><p style="font-size:14px;color:rgba(245,240,232,0.55);line-height:1.6">Recibimos tus datos. Te escribimos por WhatsApp en breve para coordinar la llamada.</p></div>';
+      } catch (err) {
+        console.error(err);
+        btn.disabled = false;
+        btn.textContent = originalLabel;
+        alert('Hubo un problema al enviar. Probá de nuevo o escribime a @juanhrr.mkt');
+      }
     });
   </script>
 </section>
