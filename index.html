@@ -858,19 +858,27 @@
       <strong>La diferencia no es talento. Es un sistema.</strong>
     </p>
 
-    <!-- VSL EMBEBIDO -->
-    <div style="position:relative;width:100%;max-width:560px;aspect-ratio:16/9;margin:48px 0;border-radius:8px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.3)">
-      <iframe
-        width="100%"
-        height="100%"
-        src="https://www.youtube-nocookie.com/embed/_MxUGtbgGLY?rel=0&modestbranding=1&controls=1&playsinline=1"
-        title="VSL BTB — Proceso Pre-Call"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-        style="position:absolute;top:0;left:0;width:100%;height:100%">
-      </iframe>
-    </div>
+    <!-- VSL — reproductor propio (sin branding de YouTube) -->
+    <video
+      id="vsl-video"
+      controls
+      playsinline
+      preload="metadata"
+      poster="./vsl-poster.jpg"
+      style="width:100%;max-width:560px;height:auto;margin:48px 0;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.3);display:block;background:#000">
+      <source src="./vsl.mp4" type="video/mp4">
+      Tu navegador no soporta el video.
+    </video>
+    <script>
+      // Evento Meta: empezó a ver el VSL (señal de interés)
+      (function(){
+        var v = document.getElementById('vsl-video');
+        var fired = false;
+        v.addEventListener('play', function(){
+          if (!fired && window.fbq) { fbq('track', 'ViewContent', { content_name: 'VSL PreCall' }); fired = true; }
+        });
+      })();
+    </script>
 
     <div class="hero-actions">
       <a href="#formulario" class="btn-primary">agenda tu llamada</a>
