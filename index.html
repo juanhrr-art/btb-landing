@@ -953,6 +953,18 @@
       </div>
 
       <div style="display:flex;flex-direction:column;gap:8px">
+        <label for="email" style="font-size:14px;font-weight:900;letter-spacing:-0.02em;color:var(--cream)">email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="tu@email.com"
+          style="background:rgba(28,28,26,0.3);border:1px solid rgba(245,240,232,0.1);color:var(--cream);padding:12px 16px;font-size:14px;font-family:inherit;border-radius:4px"
+        >
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:8px">
         <label for="whatsapp" style="font-size:14px;font-weight:900;letter-spacing:-0.02em;color:var(--cream)">whatsapp</label>
         <input
           type="tel"
@@ -998,6 +1010,7 @@
         negocio: document.getElementById('negocio').value,
         desafio: document.getElementById('desafio').value,
         urgencia: document.getElementById('urgencia').value,
+        email: document.getElementById('email').value,
         whatsapp: document.getElementById('whatsapp').value,
         timestamp: new Date().toISOString(),
         source: 'btb-landing-precall'
@@ -1024,9 +1037,12 @@
           });
         }
 
-        // Éxito
+        // Éxito → a Calendly con nombre y email pre-cargados (el lead solo elige horario)
         if (CALENDLY_URL) {
-          window.location.href = CALENDLY_URL;
+          var url = CALENDLY_URL
+            + '?name=' + encodeURIComponent(formData.nombre)
+            + '&email=' + encodeURIComponent(formData.email);
+          window.location.href = url;
           return;
         }
         form.innerHTML = '<div style="text-align:center;padding:24px 0"><div style="font-size:40px;margin-bottom:16px">✓</div><p style="font-size:18px;font-weight:900;color:var(--cream);margin-bottom:8px">¡Listo!</p><p style="font-size:14px;color:rgba(245,240,232,0.55);line-height:1.6">Recibimos tus datos. Te escribimos por WhatsApp en breve para coordinar la llamada.</p></div>';
