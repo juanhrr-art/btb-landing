@@ -830,6 +830,47 @@
     footer { padding: 24px 20px; flex-direction: column; gap: 8px; text-align: center; }
   }
 
+  /* Tarjetas de testimonio */
+  .testi-card {
+    background: rgba(245,240,232,0.04);
+    border: 1px solid rgba(245,240,232,0.08);
+    border-radius: 10px;
+    padding: 44px 32px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+  .testi-card::before {
+    content: '\201C';
+    position: absolute;
+    top: 10px;
+    left: 22px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 96px;
+    line-height: 1;
+    color: var(--yellow);
+    opacity: 0.22;
+    pointer-events: none;
+  }
+  .testi-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(240,201,58,0.35);
+    background: rgba(245,240,232,0.06);
+  }
+  .testi-quote {
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(245,240,232,0.85);
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .testi-author {
+    font-size: 13px;
+    font-weight: 900;
+    color: var(--yellow);
+    letter-spacing: 0.02em;
+  }
+
   /* CTA fijo en mobile */
   .sticky-cta { display: none; }
   @media (max-width: 768px) {
@@ -929,17 +970,17 @@
 <section class="section" style="text-align:center;padding-bottom:20px">
   <p class="section-label">lo que dicen</p>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:1040px;margin:0 auto;text-align:left">
-    <div style="background:rgba(245,240,232,0.04);border:1px solid rgba(245,240,232,0.08);border-radius:8px;padding:32px">
-      <p style="font-size:16px;line-height:1.6;color:rgba(245,240,232,0.85);margin-bottom:20px">"No es un 'hacé esto y vas a tener clientes'. Te ayuda a repensarte y a verte a vos misma como un negocio. Muy completo, te lleva de la mano."</p>
-      <p style="font-size:13px;font-weight:900;color:var(--yellow);letter-spacing:0.02em">Agos Milocco · Consultora agroindustrial</p>
+    <div class="testi-card">
+      <p class="testi-quote">"No es un 'hacé esto y vas a tener clientes'. Te ayuda a repensarte y a verte a vos misma como un negocio. Muy completo, te lleva de la mano."</p>
+      <p class="testi-author">Agos Milocco · Consultora agroindustrial</p>
     </div>
-    <div style="background:rgba(245,240,232,0.04);border:1px solid rgba(245,240,232,0.08);border-radius:8px;padding:32px">
-      <p style="font-size:16px;line-height:1.6;color:rgba(245,240,232,0.85);margin-bottom:20px">"No hablamos solo de redes — analizamos el negocio desde la raíz. Juan nos hace preguntas que dábamos por obvias y nos ordena las ideas y los próximos pasos."</p>
-      <p style="font-size:13px;font-weight:900;color:var(--yellow);letter-spacing:0.02em">Lucila · Nicca Estudio</p>
+    <div class="testi-card">
+      <p class="testi-quote">"No hablamos solo de redes — analizamos el negocio desde la raíz. Juan nos hace preguntas que dábamos por obvias y nos ordena las ideas y los próximos pasos."</p>
+      <p class="testi-author">Lucila · Nicca Estudio</p>
     </div>
-    <div style="background:rgba(245,240,232,0.04);border:1px solid rgba(245,240,232,0.08);border-radius:8px;padding:32px">
-      <p style="font-size:16px;line-height:1.6;color:rgba(245,240,232,0.85);margin-bottom:20px">"Por fin encontré un orden de lo que tengo y lo que me falta para mis objetivos. Lo veo como un sistema personalizado, con el acompañamiento de alguien que sabe y está presente en cada paso."</p>
-      <p style="font-size:13px;font-weight:900;color:var(--yellow);letter-spacing:0.02em">Flor Guaji · Wellness Creator</p>
+    <div class="testi-card">
+      <p class="testi-quote">"Por fin encontré un orden de lo que tengo y lo que me falta para mis objetivos. Lo veo como un sistema personalizado, con el acompañamiento de alguien que sabe y está presente en cada paso."</p>
+      <p class="testi-author">Flor Guaji · Wellness Creator</p>
     </div>
   </div>
   <p style="font-size:12px;color:rgba(245,240,232,0.3);margin-top:24px">Casos reales de clientes. Cada situación es distinta.</p>
