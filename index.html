@@ -1068,32 +1068,6 @@
       </div>
 
       <div style="display:flex;flex-direction:column;gap:8px">
-        <label for="desafio" style="font-size:14px;font-weight:900;letter-spacing:-0.02em;color:var(--cream)">¿cuál es tu desafío ahora?</label>
-        <textarea
-          id="desafio"
-          name="desafio"
-          required
-          placeholder="en una línea: qué te trae acá"
-          style="background:rgba(28,28,26,0.3);border:1px solid rgba(245,240,232,0.1);color:var(--cream);padding:12px 16px;font-size:14px;font-family:inherit;border-radius:4px;min-height:80px;resize:vertical"
-        ></textarea>
-      </div>
-
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <label for="urgencia" style="font-size:14px;font-weight:900;letter-spacing:-0.02em;color:var(--cream)">¿cuándo lo necesitás resolver?</label>
-        <select
-          id="urgencia"
-          name="urgencia"
-          required
-          style="background:rgba(28,28,26,0.3);border:1px solid rgba(245,240,232,0.1);color:var(--cream);padding:12px 16px;font-size:14px;font-family:inherit;border-radius:4px;cursor:pointer"
-        >
-          <option value="" style="background:var(--dark)">selecciona</option>
-          <option value="este_mes" style="background:var(--dark)">este mes</option>
-          <option value="proximo_trimestre" style="background:var(--dark)">próximos 3 meses</option>
-          <option value="despues" style="background:var(--dark)">después (sin urgencia)</option>
-        </select>
-      </div>
-
-      <div style="display:flex;flex-direction:column;gap:8px">
         <label for="email" style="font-size:14px;font-weight:900;letter-spacing:-0.02em;color:var(--cream)">email</label>
         <input
           type="email"
@@ -1149,8 +1123,6 @@
       const formData = {
         nombre: document.getElementById('nombre').value,
         negocio: document.getElementById('negocio').value,
-        desafio: document.getElementById('desafio').value,
-        urgencia: document.getElementById('urgencia').value,
         email: document.getElementById('email').value,
         whatsapp: document.getElementById('whatsapp').value,
         timestamp: new Date().toISOString(),
