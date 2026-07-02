@@ -910,6 +910,15 @@
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
+  // Capturar fbclid del anuncio y persistirlo como cookie _fbc (para CAPI + matching de Meta)
+  (function(){
+    try {
+      var fbclid = new URLSearchParams(window.location.search).get('fbclid');
+      if (fbclid && !/(^|; )_fbc=/.test(document.cookie)) {
+        document.cookie = '_fbc=fb.1.' + Date.now() + '.' + fbclid + '; path=/; max-age=7776000';
+      }
+    } catch(e){}
+  })();
   fbq('init', '1514394006799758');
   fbq('track', 'PageView');
 </script>
@@ -1107,9 +1116,8 @@
   </div>
 
   <script>
-    // URL del webhook n8n (instancia Railway). El workflow "BTB — PreCall Form"
-    // debe estar IMPORTADO y ACTIVO para que esta URL responda.
-    const N8N_WEBHOOK_URL = 'https://primary-production-a7e75.up.railway.app/webhook/precall-form';
+    // URL del webhook n8n (Cloud). Workflow "BTB — CAPI Lead": guarda en Sheet + dispara Lead por CAPI.
+    const N8N_WEBHOOK_URL = 'https://bethebrand.app.n8n.cloud/webhook/capi-lead';
 
     // Al enviar el form, redirige a Calendly para agendar en el momento.
     const CALENDLY_URL = 'https://calendly.com/juanhrr/60min';
@@ -1120,11 +1128,17 @@
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
 
+      function getCookie(name){ var m = document.cookie.match('(^|; )' + name + '=([^;]*)'); return m ? m[2] : ''; }
+      const eventId = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : ('lead-' + Date.now() + '-' + Math.random().toString(36).slice(2));
+
       const formData = {
         nombre: document.getElementById('nombre').value,
         negocio: document.getElementById('negocio').value,
         email: document.getElementById('email').value,
         whatsapp: document.getElementById('whatsapp').value,
+        event_id: eventId,
+        fbp: getCookie('_fbp'),
+        fbc: getCookie('_fbc'),
         timestamp: new Date().toISOString(),
         source: 'btb-landing-precall'
       };
@@ -1147,7 +1161,7 @@
           fbq('track', 'Lead', {
             content_name: 'PreCall Form',
             content_category: formData.negocio
-          });
+          }, { eventID: eventId });
         }
 
         // Éxito → a Calendly con nombre y email pre-cargados (el lead solo elige horario)
