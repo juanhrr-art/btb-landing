@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taller en vivo — Tu oferta en una oración · Be The Brand</title>
+<meta name="description" content="Taller gratuito en vivo para consultores independientes. Salís con tu oferta reescrita en una oración que tu cliente entiende en 15 segundos. Jueves 21 de agosto, 19:00 AR, por Zoom.">
+<meta property="og:title" content="Tu oferta en una oración — taller en vivo, gratis">
+<meta property="og:description" content="Si tu cliente no entiende qué hacés en 15 segundos, no es problema de contenido. Es la oferta. Jueves 21/8, 19:00 AR, en vivo por Zoom.">
+<meta property="og:image" content="https://juanhrr-art.github.io/btb-landing/taller-cover.jpg">
+<meta property="og:url" content="https://juanhrr-art.github.io/btb-landing/taller/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --dark: #1C1C1A;
+    --yellow: #F0C93A;
+    --gray: #6B6B68;
+    --light-gray: #E8E3DA;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Figtree', sans-serif;
+    background: var(--dark);
+    color: var(--cream);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--dark);
+    border-bottom: 1px solid rgba(245,240,232,0.08);
+  }
+  .nav-logo { font-weight: 900; font-size: 14px; letter-spacing: -0.02em; color: var(--cream); text-decoration: none; }
+  .nav-logo span { color: var(--yellow); }
+  .nav-cta {
+    font-size: 13px; font-weight: 900; color: var(--dark); background: var(--yellow);
+    padding: 10px 20px; text-decoration: none; letter-spacing: -0.02em; transition: opacity 0.2s;
+  }
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+    padding: 120px 40px 80px; max-width: 900px; margin: 0 auto;
+  }
+  .hero-tag {
+    font-size: 11px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--yellow); margin-bottom: 32px;
+    opacity: 0; animation: fadeUp 0.6s ease forwards 0.1s;
+  }
+  .hero h1 {
+    font-size: clamp(44px, 8vw, 84px); font-weight: 900; line-height: 0.95;
+    letter-spacing: -0.035em; text-transform: lowercase; margin-bottom: 32px;
+    opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s;
+  }
+  .hero h1 em { font-style: normal; color: var(--yellow); }
+  .hero-body {
+    font-size: clamp(16px, 2vw, 19px); color: rgba(245,240,232,0.6); line-height: 1.6;
+    max-width: 540px; margin-bottom: 40px;
+    opacity: 0; animation: fadeUp 0.6s ease forwards 0.3s;
+  }
+  .hero-body strong { color: var(--cream); }
+
+  /* META (fecha / hora / formato) */
+  .hero-meta {
+    display: flex; align-items: stretch; gap: 2px; margin-bottom: 40px; flex-wrap: wrap;
+    justify-content: center;
+    opacity: 0; animation: fadeUp 0.6s ease forwards 0.35s;
+  }
+  .meta-chip {
+    background: rgba(245,240,232,0.04); border: 1px solid rgba(245,240,232,0.1);
+    padding: 16px 22px; min-width: 130px;
+  }
+  .meta-chip .k { font-size: 10px; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(245,240,232,0.4); margin-bottom: 6px; }
+  .meta-chip .v { font-size: 16px; font-weight: 900; letter-spacing: -0.02em; color: var(--cream); }
+  .meta-chip .v span { color: var(--yellow); }
+
+  .hero-actions {
+    display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+    opacity: 0; animation: fadeUp 0.6s ease forwards 0.4s;
+  }
+  .btn-primary {
+    font-size: 15px; font-weight: 900; letter-spacing: -0.02em; color: var(--dark);
+    background: var(--yellow); padding: 18px 40px; text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s; display: inline-block; border: none; cursor: pointer;
+  }
+  .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+  .hero-free { font-size: 13px; color: rgba(245,240,232,0.45); font-weight: 900; letter-spacing: 0.02em; margin-top: 14px; }
+
+  /* SECTIONS */
+  .section { padding: 100px 40px; max-width: 900px; margin: 0 auto; }
+  .section-label { font-size: 11px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: var(--yellow); margin-bottom: 40px; }
+  .section h2 { font-size: clamp(32px, 5vw, 56px); font-weight: 900; letter-spacing: -0.035em; line-height: 1; text-transform: lowercase; margin-bottom: 16px; }
+  .section h2 em { font-style: normal; color: var(--yellow); }
+
+  /* ESPEJO (problema) */
+  .espejo { background: var(--cream); color: var(--dark); }
+  .espejo-inner { max-width: 900px; margin: 0 auto; padding: 100px 40px; }
+  .espejo .section-label { color: var(--dark); opacity: 0.45; }
+  .espejo h2 { font-size: clamp(30px, 5vw, 52px); font-weight: 900; letter-spacing: -0.035em; line-height: 1.05; text-transform: none; margin-bottom: 28px; }
+  .espejo p { font-size: clamp(16px, 2vw, 19px); line-height: 1.6; color: rgba(28,28,26,0.72); max-width: 620px; }
+  .espejo p strong { color: var(--dark); }
+
+  /* QUÉ TE LLEVÁS */
+  .llevas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 8px; }
+  .llevas-item { background: rgba(245,240,232,0.04); padding: 36px 28px; border-top: 2px solid var(--yellow); }
+  .llevas-item .n { font-size: 13px; font-weight: 900; color: var(--yellow); margin-bottom: 14px; letter-spacing: 0.04em; }
+  .llevas-item h3 { font-size: 19px; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 10px; color: var(--cream); line-height: 1.15; }
+  .llevas-item p { font-size: 15px; line-height: 1.55; color: rgba(245,240,232,0.55); }
+
+  /* MECÁNICA */
+  .mecanica { max-width: 720px; margin: 0 auto; }
+  .mecanica-row { display: flex; gap: 20px; padding: 24px 0; border-bottom: 1px solid rgba(245,240,232,0.08); align-items: flex-start; }
+  .mecanica-row:last-child { border-bottom: none; }
+  .mecanica-row .dot { color: var(--yellow); font-weight: 900; font-size: 18px; line-height: 1.5; }
+  .mecanica-row p { font-size: 16px; line-height: 1.5; color: rgba(245,240,232,0.7); }
+  .mecanica-row p strong { color: var(--cream); }
+
+  /* FORM */
+  .form-wrap { max-width: 580px; margin: 0 auto; text-align: left; background: rgba(245,240,232,0.04); padding: 48px; border: 1px solid rgba(245,240,232,0.1); border-radius: 8px; }
+  .form-field { display: flex; flex-direction: column; gap: 8px; }
+  .form-field label { font-size: 14px; font-weight: 900; letter-spacing: -0.02em; color: var(--cream); }
+  .form-field .hint { font-size: 12px; font-weight: 400; color: rgba(245,240,232,0.4); }
+  .form-field input, .form-field select, .form-field textarea {
+    background: rgba(28,28,26,0.3); border: 1px solid rgba(245,240,232,0.1); color: var(--cream);
+    padding: 12px 16px; font-size: 14px; font-family: inherit; border-radius: 4px; width: 100%;
+  }
+  .form-field textarea { resize: vertical; min-height: 88px; line-height: 1.5; }
+  .form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: none; border-color: var(--yellow); }
+  .form-field select { cursor: pointer; }
+
+  /* FOOTER */
+  footer { padding: 40px; border-top: 1px solid rgba(245,240,232,0.08); display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: rgba(245,240,232,0.3); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .hero { padding: 100px 20px 60px; }
+    .section { padding: 60px 20px; }
+    .espejo-inner { padding: 60px 20px; }
+    .llevas-grid { grid-template-columns: 1fr; }
+    .form-wrap { padding: 32px 24px; }
+    footer { padding: 24px 20px; flex-direction: column; gap: 8px; text-align: center; }
+  }
+
+  .sticky-cta { display: none; }
+  @media (max-width: 768px) {
+    .sticky-cta {
+      display: block; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+      background: rgba(28,28,26,0.96); border-top: 1px solid rgba(245,240,232,0.1);
+      -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+    }
+    .sticky-cta a {
+      display: block; text-align: center; background: var(--yellow); color: var(--dark);
+      font-weight: 900; font-size: 16px; letter-spacing: -0.02em; padding: 16px;
+      text-decoration: none; border-radius: 4px;
+    }
+  }
+</style>
+
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1514394006799758');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1514394006799758&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">be the <span>brand</span></a>
+  <a href="#registro" class="nav-cta">registrarme</a>
+</nav>
+
+<!-- HERO -->
+<section>
+  <div class="hero">
+    <p class="hero-tag">Taller en vivo · gratis · por Zoom</p>
+    <h1>tu oferta en <em>una oración</em>.</h1>
+    <p class="hero-body">
+      Si tu cliente no entiende qué hacés en 15 segundos, no es un problema de contenido. Es la oferta.<br>
+      <strong>En 90 minutos salís con la tuya reescrita en una sola oración — y si te animás, la reescribimos en vivo.</strong>
+    </p>
+
+    <div class="hero-meta">
+      <div class="meta-chip"><div class="k">Cuándo</div><div class="v">jue <span>21 ago</span></div></div>
+      <div class="meta-chip"><div class="k">Hora</div><div class="v">19:00 <span>AR</span></div></div>
+      <div class="meta-chip"><div class="k">Dónde</div><div class="v">Zoom en vivo</div></div>
+      <div class="meta-chip"><div class="k">Dura</div><div class="v">90 min</div></div>
+    </div>
+
+    <div class="hero-actions">
+      <a href="#registro" class="btn-primary">reservar mi lugar →</a>
+    </div>
+    <p class="hero-free">Sin cargo · cupos reales (sala chica, con cámaras) · quedás con la grabación</p>
+  </div>
+</section>
+
+<!-- ESPEJO -->
+<section class="espejo">
+  <div class="espejo-inner">
+    <p class="section-label">para quién es</p>
+    <h2>Para el consultor que hace un gran trabajo — pero no lo sabe explicar rápido.</h2>
+    <p>
+      Vivís de referidos y de tu cartera. Cuando te preguntan a qué te dedicás, arrancás a explicar por cinco minutos y terminás con un "bueno, depende". <strong>El día que tu oferta se entiende en una oración, tu cliente te puede repetir, tu contenido engancha y tu precio deja de temblar.</strong> Eso es lo que trabajamos, en vivo, con tu material real.
+    </p>
+  </div>
+</section>
+
+<!-- QUÉ TE LLEVÁS -->
+<section class="section">
+  <p class="section-label">qué te llevás</p>
+  <div class="llevas-grid">
+    <div class="llevas-item">
+      <div class="n">01</div>
+      <h3>La fórmula completa</h3>
+      <p>La misma que uso en el Proceso para escribir una oferta que se entiende en 15 segundos. Sin guardarme nada.</p>
+    </div>
+    <div class="llevas-item">
+      <div class="n">02</div>
+      <h3>Tu oferta reescrita en vivo</h3>
+      <p>Trabajás la tuya en el momento. Si te animás, la diagnostico y la afinamos delante de todos.</p>
+    </div>
+    <div class="llevas-item">
+      <div class="n">03</div>
+      <h3>Plantilla + reto de 48h</h3>
+      <p>Una hoja para volver a hacerlo cuando quieras. Y si me mandás tu oración, te la devuelvo con una corrección en audio.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MECÁNICA -->
+<section class="section" style="padding-top:0">
+  <p class="section-label">cómo es</p>
+  <div class="mecanica">
+    <div class="mecanica-row"><span class="dot">·</span><p><strong>No es un webinar de pitch encubierto.</strong> Son 90 minutos de trabajo real: sala chica, cámaras prendidas el que pueda, chat abierto. Se trabaja, no se mira.</p></div>
+    <div class="mecanica-row"><span class="dot">·</span><p><strong>Diagnósticos en vivo.</strong> Reescribo ofertas de verdad, de gente que está en la sala, en el momento. Ese es el taller.</p></div>
+    <div class="mecanica-row"><span class="dot">·</span><p><strong>Tu propio número.</strong> Un autodiagnóstico de las 6 piezas de tu negocio para que veas, con un número tuyo, dónde estás parado hoy.</p></div>
+    <div class="mecanica-row"><span class="dot">·</span><p><strong>Honestidad total.</strong> Al final te cuento cómo trabajo con algunos. Hasta ahí, todo lo del taller es tuyo — te lo lleves o no lo lleves.</p></div>
+  </div>
+</section>
+
+<!-- REGISTRO -->
+<section class="section" id="registro" style="text-align:center">
+  <p class="section-label">reservá tu lugar</p>
+  <h2 style="text-transform:none;margin-bottom:12px">Anotate al taller</h2>
+  <p style="font-size:14px;color:var(--yellow);font-weight:900;letter-spacing:0.02em;margin-bottom:40px">Es gratis, pero la sala es chica. Te mando el link de Zoom por mail y WhatsApp.</p>
+
+  <div class="form-wrap">
+    <form id="taller-form" style="display:flex;flex-direction:column;gap:24px">
+
+      <div class="form-field">
+        <label for="nombre">nombre</label>
+        <input type="text" id="nombre" name="nombre" required placeholder="tu nombre">
+      </div>
+
+      <div class="form-field">
+        <label for="rubro">¿a qué te dedicás?</label>
+        <select id="rubro" name="rubro" required>
+          <option value="">seleccioná</option>
+          <option value="consultor">consultor independiente</option>
+          <option value="coach">coach / mentor</option>
+          <option value="disenio">diseño / arquitectura</option>
+          <option value="salud">salud / bienestar</option>
+          <option value="servicios">servicios profesionales</option>
+          <option value="agencia">agencia pequeña</option>
+          <option value="freelancer">freelancer</option>
+          <option value="otro">otro</option>
+        </select>
+      </div>
+
+      <div class="form-field">
+        <label for="email">email</label>
+        <input type="email" id="email" name="email" required placeholder="tu@email.com">
+      </div>
+
+      <div class="form-field">
+        <label for="whatsapp">whatsapp</label>
+        <input type="tel" id="whatsapp" name="whatsapp" required placeholder="+54 9 11 1234 5678">
+      </div>
+
+      <div class="form-field">
+        <label for="oferta">tu oferta en una oración <span class="hint">— como se la dirías a un cliente. Con esto trabajamos en vivo.</span></label>
+        <textarea id="oferta" name="oferta" required placeholder="Ej: Ayudo a… a lograr… sin…"></textarea>
+      </div>
+
+      <button type="submit" class="btn-primary" style="margin-top:8px;width:100%">reservar mi lugar →</button>
+
+      <p style="font-size:12px;color:rgba(245,240,232,0.4);text-align:center;margin-top:4px">
+        Jueves 21 de agosto, 19:00 AR, por Zoom. Te llega el link a tu mail y WhatsApp.
+      </p>
+    </form>
+  </div>
+
+  <script>
+    // Webhook n8n — workflow "BTB — Taller Registro" (Cloud/Railway) debe estar IMPORTADO y ACTIVO.
+    const N8N_WEBHOOK_URL = 'https://bethebrand.app.n8n.cloud/webhook/taller-registro';
+
+    // --- Captura de parámetros de atribución para el CAPI (dedup por event_id) ---
+    function getCookie(name){
+      var m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+      return m ? m.pop() : '';
+    }
+    // fbclid → _fbc (si Meta aún no lo seteó por cookie)
+    (function(){
+      var p = new URLSearchParams(window.location.search);
+      var fbclid = p.get('fbclid');
+      if (fbclid && !getCookie('_fbc')) {
+        var fbc = 'fb.1.' + Date.now() + '.' + fbclid;
+        document.cookie = '_fbc=' + fbc + ';path=/;max-age=7776000';
+      }
+    })();
+
+    function uuid(){
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c){
+        var r = Math.random()*16|0, v = c==='x' ? r : (r&0x3|0x8);
+        return v.toString(16);
+      });
+    }
+
+    // Atribución de canal: de dónde vino el registro (ads / organico / invitacion).
+    // Si hay fbclid es tráfico de pauta aunque no traiga utm. Default: "directo".
+    function getAttribution(){
+      var p = new URLSearchParams(window.location.search);
+      var src = p.get('utm_source') || (p.get('fbclid') ? 'ads' : 'directo');
+      return {
+        utm_source: src,
+        utm_medium: p.get('utm_medium') || '',
+        utm_campaign: p.get('utm_campaign') || ''
+      };
+    }
+
+    const form = document.getElementById('taller-form');
+    const btn = form.querySelector('button[type="submit"]');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const eventId = uuid();
+      const attr = getAttribution();
+      const formData = {
+        nombre: document.getElementById('nombre').value,
+        rubro: document.getElementById('rubro').value,
+        email: document.getElementById('email').value,
+        whatsapp: document.getElementById('whatsapp').value,
+        oferta: document.getElementById('oferta').value,
+        event_id: eventId,
+        fbp: getCookie('_fbp'),
+        fbc: getCookie('_fbc'),
+        utm_source: attr.utm_source,
+        utm_medium: attr.utm_medium,
+        utm_campaign: attr.utm_campaign,
+        page_url: window.location.href,
+        timestamp: new Date().toISOString(),
+        source: 'btb-landing-taller',
+        evento: 'Taller Agosto 2026'
+      };
+
+      const originalLabel = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'reservando…';
+
+      try {
+        const res = await fetch(N8N_WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+        if (!res.ok) throw new Error('Respuesta no OK: ' + res.status);
+
+        // Evento Meta del navegador. Mismo event_id que el CAPI del servidor → Meta deduplica.
+        if (window.fbq) {
+          fbq('track', 'Lead', {
+            content_name: 'Taller — Tu oferta en una oración',
+            content_category: formData.rubro
+          }, { eventID: eventId });
+        }
+
+        // Estado de éxito
+        form.innerHTML =
+          '<div style="text-align:center;padding:16px 0">' +
+            '<div style="font-size:44px;margin-bottom:16px">✓</div>' +
+            '<p style="font-size:20px;font-weight:900;color:var(--cream);margin-bottom:10px">¡Estás anotado!</p>' +
+            '<p style="font-size:15px;color:rgba(245,240,232,0.6);line-height:1.6;margin-bottom:24px">Te mandamos el link de Zoom a tu mail y WhatsApp. Guardá la fecha:<br><strong style="color:var(--cream)">jueves 21 de agosto, 19:00 AR.</strong></p>' +
+            '<a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Taller+BTB+%E2%80%94+Tu+oferta+en+una+oraci%C3%B3n&dates=20260821T220000Z/20260821T233000Z&details=Taller+en+vivo+de+Be+The+Brand.+El+link+de+Zoom+te+llega+por+mail+y+WhatsApp." target="_blank" rel="noopener" style="display:inline-block;font-size:13px;font-weight:900;color:var(--yellow);text-decoration:none;border:1px solid rgba(240,201,58,0.4);padding:12px 22px">+ agendar en Google Calendar</a>' +
+          '</div>';
+      } catch (err) {
+        console.error(err);
+        btn.disabled = false;
+        btn.textContent = originalLabel;
+        alert('Hubo un problema al reservar. Probá de nuevo o escribime a @juanhrr.mkt');
+      }
+    });
+  </script>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Be The Brand · Juan Herrera</span>
+  <span>@juanhrr.mkt</span>
+</footer>
+
+<!-- CTA fijo mobile -->
+<div class="sticky-cta"><a href="#registro">reservar mi lugar →</a></div>
+
+</body>
+</html>
