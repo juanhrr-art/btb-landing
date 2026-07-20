@@ -297,6 +297,18 @@
       </div>
 
       <div class="form-field">
+        <label for="facturacion">¿cuánto facturás por mes hoy? <span class="hint">— aproximado, en USD. Me ayuda a que el diagnóstico del taller te sirva de verdad.</span></label>
+        <select id="facturacion" name="facturacion" required>
+          <option value="">seleccioná</option>
+          <option value="recien_arranco">todavía no facturo / recién arranco</option>
+          <option value="menos_500">menos de 500</option>
+          <option value="500_2000">entre 500 y 2.000</option>
+          <option value="2000_5000">entre 2.000 y 5.000</option>
+          <option value="mas_5000">más de 5.000</option>
+        </select>
+      </div>
+
+      <div class="form-field">
         <label for="email">email</label>
         <input type="email" id="email" name="email" required placeholder="tu@email.com">
       </div>
@@ -368,6 +380,7 @@
       const formData = {
         nombre: document.getElementById('nombre').value,
         rubro: document.getElementById('rubro').value,
+        facturacion: document.getElementById('facturacion').value,
         email: document.getElementById('email').value,
         whatsapp: document.getElementById('whatsapp').value,
         oferta: document.getElementById('oferta').value,
