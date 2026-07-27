@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mesa de trabajo en vivo — Por qué no te llegan clientes solos · Be The Brand</title>
-<meta name="description" content="Una mesa de trabajo en vivo (máximo 30) para consultores que ya son buenos pero viven del boca a boca. Diagnósticos reales en la sala: salís sabiendo por qué tu negocio no te trae clientes solo — y qué mover primero. Jueves 21 de agosto, 19:00 AR, por Zoom.">
-<meta property="og:title" content="No es un webinar: es una mesa de trabajo en vivo (máximo 30)">
-<meta property="og:description" content="Sos bueno en lo tuyo pero dependés del boca a boca. 90 minutos de trabajo real, casos diagnosticados en vivo, cupo de 30. Jueves 21/8, 19:00 AR, por Zoom.">
-<meta property="og:image" content="https://juanhrr-art.github.io/btb-landing/taller-cover.jpg">
+<meta name="description" content="Una mesa de trabajo en vivo (máximo 25) para consultores que ya son buenos pero viven del boca a boca. Diagnósticos reales en la sala: salís sabiendo por qué tu negocio no te trae clientes solo — y qué mover primero. Jueves 21 de agosto, 19:00 AR, por Zoom.">
+<meta property="og:title" content="No es un webinar: es una mesa de trabajo en vivo (máximo 25)">
+<meta property="og:description" content="Sos bueno en lo tuyo pero dependés del boca a boca. 90 minutos de trabajo real, casos diagnosticados en vivo, cupo de 25. Jueves 21/8, 19:00 AR, por Zoom.">
+<meta property="og:image" content="https://juanhrr-art.github.io/btb-landing/taller/reel2.jpg">
 <meta property="og:url" content="https://juanhrr-art.github.io/btb-landing/taller/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -131,6 +131,17 @@
   .mecanica-row p { font-size: 16px; line-height: 1.5; color: rgba(245,240,232,0.7); }
   .mecanica-row p strong { color: var(--cream); }
 
+  /* QUIÉN */
+  .quien-text { max-width: 660px; margin: 0 auto; text-align: center; }
+  .quien-text p { font-size: 16px; line-height: 1.6; color: rgba(245,240,232,0.7); margin-top: 16px; }
+  .quien-text p strong { color: var(--cream); }
+  .reels { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; max-width: 700px; margin: 40px auto 0; }
+  .reels video { width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 8px; border: 1px solid rgba(245,240,232,0.12); background: #000; display: block; }
+  @media (max-width: 768px) {
+    .reels { display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; gap: 10px; padding-bottom: 8px; max-width: 100%; }
+    .reels video { flex: 0 0 62%; scroll-snap-align: center; }
+  }
+
   /* FORM */
   .form-wrap { max-width: 580px; margin: 0 auto; text-align: left; background: rgba(245,240,232,0.04); padding: 48px; border: 1px solid rgba(245,240,232,0.1); border-radius: 8px; }
   .form-field { display: flex; flex-direction: column; gap: 8px; }
@@ -202,7 +213,7 @@
 <!-- HERO -->
 <section>
   <div class="hero">
-    <p class="hero-tag">Mesa de trabajo en vivo · máximo 30 · por Zoom</p>
+    <p class="hero-tag">Mesa de trabajo en vivo · máximo 25 · por Zoom</p>
     <h1>por qué no te llegan <em>clientes solos</em>.</h1>
     <p class="hero-body">
       Sos bueno en lo tuyo, pero los clientes te llegan por recomendación y no podés predecir el mes que viene.<br>
@@ -213,13 +224,13 @@
       <div class="meta-chip"><div class="k">Cuándo</div><div class="v">jue <span>21 ago</span></div></div>
       <div class="meta-chip"><div class="k">Hora</div><div class="v">19:00 <span>AR</span></div></div>
       <div class="meta-chip"><div class="k">Formato</div><div class="v">Zoom · 90 min</div></div>
-      <div class="meta-chip"><div class="k">Cupo</div><div class="v">máximo <span>30</span></div></div>
+      <div class="meta-chip"><div class="k">Cupo</div><div class="v">máximo <span>25</span></div></div>
     </div>
 
     <div class="hero-actions">
       <a href="#registro" class="btn-primary">reservar mi lugar →</a>
     </div>
-    <p class="hero-free">Sin cargo · es una mesa de trabajo, no un webinar: máximo 30 lugares · quedás con la grabación</p>
+    <p class="hero-free">Sin cargo · es una mesa de trabajo, no un webinar: máximo 25 lugares · quedás con la grabación</p>
   </div>
 </section>
 
@@ -280,11 +291,26 @@
   </div>
 </section>
 
+<!-- QUIÉN -->
+<section class="section" style="padding-top:0">
+  <p class="section-label">quién la da</p>
+  <div class="quien-text">
+    <h2 style="text-transform:none;font-size:clamp(28px,4vw,42px);margin-bottom:4px">soy Juan Herrera.</h2>
+    <p>18 años en marketing: pasé por productoras de cine, una agencia global, y hasta comerciales que salieron en el Super Bowl. Después armé mi propio negocio para dejar de depender de que me contraten.</p>
+    <p><strong>Hoy ayudo a consultores a hacer lo mismo: que los clientes les lleguen sin perseguirlos.</strong> Sin poses de gurú ni fotos con autos — así pienso y así mentoreo, en crudo. Mirá:</p>
+  </div>
+  <div class="reels">
+    <video controls playsinline preload="none" poster="reel1.jpg"><source src="reel1.mp4" type="video/mp4"></video>
+    <video controls playsinline preload="none" poster="reel2.jpg"><source src="reel2.mp4" type="video/mp4"></video>
+    <video controls playsinline preload="none" poster="reel3.jpg"><source src="reel3.mp4" type="video/mp4"></video>
+  </div>
+</section>
+
 <!-- REGISTRO -->
 <section class="section" id="registro" style="text-align:center">
   <p class="section-label">reservá tu lugar</p>
   <h2 style="text-transform:none;margin-bottom:12px">Reservá tu lugar en la mesa</h2>
-  <p style="font-size:14px;color:var(--yellow);font-weight:900;letter-spacing:0.02em;margin-bottom:40px">Es gratis, pero es una mesa de trabajo: máximo 30 lugares. Te mando el link de Zoom por mail y WhatsApp.</p>
+  <p style="font-size:14px;color:var(--yellow);font-weight:900;letter-spacing:0.02em;margin-bottom:40px">Es gratis, pero es una mesa de trabajo: máximo 25 lugares. Te mando el link de Zoom por mail y WhatsApp.</p>
 
   <div class="form-wrap">
     <form id="taller-form" style="display:flex;flex-direction:column;gap:24px">
