@@ -138,8 +138,7 @@
   .reels { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; max-width: 700px; margin: 40px auto 0; }
   .reels video { width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 8px; border: 1px solid rgba(245,240,232,0.12); background: #000; display: block; }
   @media (max-width: 768px) {
-    .reels { display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; gap: 10px; padding-bottom: 8px; max-width: 100%; }
-    .reels video { flex: 0 0 62%; scroll-snap-align: center; }
+    .reels { grid-template-columns: 1fr; gap: 16px; max-width: 320px; }
   }
 
   /* FORM */
