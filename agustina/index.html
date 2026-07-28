@@ -61,7 +61,8 @@
   .small{margin-top:20px;color:var(--muted);font-size:15px}
   .small a{color:var(--gold);text-decoration:none}
   footer{padding:34px 0 60px;text-align:center;color:var(--muted);font-size:14px}
-  footer .brand{color:var(--cream);font-weight:800;letter-spacing:.05em}
+  footer .brand{color:var(--cream);font-weight:800;letter-spacing:.05em;text-decoration:none;display:inline-block}
+  footer .brand:hover{color:var(--gold)}
 
   @media(max-width:640px){
     .grid{grid-template-columns:1fr}
@@ -135,7 +136,7 @@
 
 <footer>
   <div class="wrap">
-    <div class="brand">BE THE BRAND</div>
+    <a class="brand" href="https://bethebrand.lat/">BE THE BRAND</a>
     <div style="margin-top:8px">Juan Herrera · negocios que corren sin vos</div>
   </div>
 </footer>
