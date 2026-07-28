@@ -1,1197 +1,753 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Be The Brand — Agendá tu llamada</title>
-<meta name="description" content="Si dependés del boca a boca, mirá esto. Captación para consultores. Agendá una llamada de diagnóstico de 30 minutos, sin compromiso.">
-<meta property="og:title" content="Si dependés del boca a boca, mirá esto.">
-<meta property="og:description" content="Por qué algunos consultores tienen la agenda llena sin perseguir clientes. No es talento, es un sistema.">
-<meta property="og:image" content="https://juanhrr-art.github.io/btb-landing/vsl-cover.jpg">
-<meta property="og:url" content="https://juanhrr-art.github.io/btb-landing/">
+<title>Be The Brand — Sistema de captación para consultores independientes</title>
+<meta name="description" content="Un piso de clientes fijo cada mes. Sistema de captación para consultores independientes: marca que atrae, captación predecible y conversión en llamada. Por Juan Herrera.">
+<meta property="og:title" content="Be The Brand — Sistema de captación para consultores">
+<meta property="og:description" content="Si vivís de tu conocimiento y tus ingresos son impredecibles, el problema no es tu capacidad. Es que no tenés un sistema.">
 <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;900&display=swap" rel="stylesheet">
+<meta property="og:url" content="/">
+<meta property="og:locale" content="es_AR">
+<meta name="theme-color" content="#1e1e1e">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231e1e1e'/><text x='50' y='68' font-size='52' font-weight='900' font-family='Arial' text-anchor='middle' fill='%23f5c842'>b</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;0,900;1,900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --cream: #F5F0E8;
-    --dark: #1C1C1A;
-    --yellow: #F0C93A;
-    --gray: #6B6B68;
-    --light-gray: #E8E3DA;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Figtree', sans-serif;
-    background: var(--dark);
-    color: var(--cream);
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 20px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: var(--dark);
-    border-bottom: 1px solid rgba(245,240,232,0.08);
-  }
-
-  .nav-logo {
-    font-weight: 900;
-    font-size: 14px;
-    letter-spacing: -0.02em;
-    color: var(--cream);
-    text-decoration: none;
-  }
-
-  .nav-logo span { color: var(--yellow); }
-
-  .nav-cta {
-    font-size: 13px;
-    font-weight: 900;
-    color: var(--dark);
-    background: var(--yellow);
-    padding: 10px 20px;
-    text-decoration: none;
-    letter-spacing: -0.02em;
-    transition: opacity 0.2s;
-  }
-
-  .nav-cta:hover { opacity: 0.85; }
-
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 120px 40px 80px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .hero-tag {
-    font-size: 11px;
-    font-weight: 900;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--yellow);
-    margin-bottom: 32px;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards 0.1s;
-  }
-
-  .hero h1 {
-    font-size: clamp(48px, 8vw, 88px);
-    font-weight: 900;
-    line-height: 0.95;
-    letter-spacing: -0.035em;
-    text-transform: lowercase;
-    margin-bottom: 40px;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards 0.2s;
-  }
-
-  .hero h1 em {
-    font-style: normal;
-    color: var(--yellow);
-  }
-
-  .hero-body {
-    font-size: clamp(16px, 2vw, 19px);
-    color: rgba(245,240,232,0.6);
-    line-height: 1.6;
-    max-width: 520px;
-    margin-bottom: 48px;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards 0.3s;
-  }
-
-  .hero-body strong { color: var(--cream); }
-
-  .hero-meta {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    margin-bottom: 32px;
-    flex-wrap: wrap;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards 0.35s;
-  }
-
-  .hero-price {
-    font-size: 40px;
-    font-weight: 900;
-    letter-spacing: -0.04em;
-    color: var(--cream);
-    line-height: 1;
-  }
-
-  .hero-price span {
-    font-size: 16px;
-    font-weight: 400;
-    opacity: 0.4;
-    margin-left: 4px;
-  }
-
-  .hero-scarcity {
-    font-size: 11px;
-    font-weight: 900;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(245,240,232,0.35);
-    border: 1px solid rgba(245,240,232,0.12);
-    padding: 8px 14px;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards 0.4s;
-  }
-
-  .btn-primary {
-    font-size: 14px;
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    color: var(--dark);
-    background: var(--yellow);
-    padding: 16px 32px;
-    text-decoration: none;
-    transition: opacity 0.2s, transform 0.2s;
-    display: inline-block;
-  }
-
-  .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
-
-  .btn-secondary {
-    font-size: 14px;
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    color: var(--cream);
-    background: transparent;
-    border: 1px solid rgba(245,240,232,0.2);
-    padding: 16px 32px;
-    text-decoration: none;
-    transition: border-color 0.2s;
-    display: inline-block;
-  }
-
-  .btn-secondary:hover { border-color: var(--cream); }
-
-  /* SECTIONS */
-  .section {
-    padding: 100px 40px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .section-label {
-    font-size: 11px;
-    font-weight: 900;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--yellow);
-    margin-bottom: 48px;
-  }
-
-  /* PROBLEMA */
-  .problema-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-  }
-
-  .problema-item {
-    background: rgba(245,240,232,0.04);
-    padding: 32px;
-    border-left: 2px solid transparent;
-    transition: border-color 0.2s, background 0.2s;
-  }
-
-  .problema-item:hover {
-    border-left-color: var(--yellow);
-    background: rgba(245,240,232,0.07);
-  }
-
-  .problema-item p {
-    font-size: clamp(15px, 1.8vw, 17px);
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    line-height: 1.35;
-    color: rgba(245,240,232,0.55);
-  }
-
-  .problema-item p strong {
-    color: var(--cream);
-    display: block;
-    margin-bottom: 6px;
-  }
-
-  /* QUÉ ES — cream bg */
-  .que-es {
-    background: var(--cream);
-    color: var(--dark);
-    padding: 100px 40px;
-  }
-
-  .que-es-inner {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .que-es .section-label { color: var(--dark); opacity: 0.4; }
-
-  .que-es h2 {
-    font-size: clamp(36px, 6vw, 72px);
-    font-weight: 900;
-    letter-spacing: -0.035em;
-    line-height: 0.95;
-    text-transform: lowercase;
-    margin-bottom: 40px;
-  }
-
-  .que-es h2 em {
-    font-style: normal;
-    color: var(--yellow);
-    -webkit-text-stroke: 1px var(--dark);
-  }
-
-  .que-es-body {
-    font-size: clamp(17px, 2vw, 20px);
-    color: rgba(28,28,26,0.65);
-    line-height: 1.65;
-    max-width: 620px;
-    margin-bottom: 48px;
-  }
-
-  .que-es-body strong { color: var(--dark); }
-
-  .especificos {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2px;
-    margin-top: 48px;
-  }
-
-  .especifico-item {
-    background: rgba(28,28,26,0.05);
-    padding: 24px 20px;
-  }
-
-  .especifico-num {
-    font-size: 10px;
-    font-weight: 900;
-    letter-spacing: 0.1em;
-    color: rgba(28,28,26,0.3);
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-
-  .especifico-item p {
-    font-size: 16px;
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    color: var(--dark);
-  }
-
-  /* INCLUYE */
-  .incluye {
-    padding: 100px 40px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .incluye h2 {
-    font-size: clamp(36px, 5vw, 64px);
-    font-weight: 900;
-    letter-spacing: -0.035em;
-    line-height: 0.95;
-    text-transform: lowercase;
-    margin-bottom: 64px;
-  }
-
-  .incluye h2 em {
-    font-style: normal;
-    color: var(--yellow);
-  }
-
-  .fase-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-  }
-
-  .fase-card {
-    background: rgba(245,240,232,0.04);
-    padding: 36px 32px;
-    position: relative;
-  }
-
-  .fase-card.destacada {
-    background: var(--yellow);
-    color: var(--dark);
-  }
-
-  .fase-card.wide {
-    grid-column: 1 / -1;
-  }
-
-  .fase-num {
-    font-size: 10px;
-    font-weight: 900;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(245,240,232,0.3);
-    margin-bottom: 16px;
-  }
-
-  .fase-card.destacada .fase-num { color: rgba(28,28,26,0.4); }
-
-  .fase-titulo {
-    font-size: 20px;
-    font-weight: 900;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    margin-bottom: 16px;
-    color: var(--cream);
-  }
-
-  .fase-card.destacada .fase-titulo { color: var(--dark); }
-
-  .fase-body {
-    font-size: 14px;
-    color: rgba(245,240,232,0.55);
-    line-height: 1.65;
-  }
-
-  .fase-card.destacada .fase-body { color: rgba(28,28,26,0.65); }
-
-  .fase-lista {
-    list-style: none;
-    margin-top: 20px;
-  }
-
-  .fase-lista li {
-    font-size: 14px;
-    color: rgba(245,240,232,0.7);
-    padding: 8px 0;
-    padding-left: 20px;
-    position: relative;
-    border-bottom: 1px solid rgba(245,240,232,0.06);
-    line-height: 1.5;
-  }
-
-  .fase-card.destacada .fase-lista li {
-    color: rgba(28,28,26,0.75);
-    border-bottom-color: rgba(28,28,26,0.08);
-  }
-
-  .fase-lista li:last-child { border-bottom: none; }
-
-  .fase-lista li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    font-weight: 900;
-    color: var(--yellow);
-  }
-
-  .fase-card.destacada .fase-lista li::before { color: var(--dark); }
-
-  .fase-badge {
-    display: inline-block;
-    background: rgba(240,201,58,0.15);
-    border: 1px solid rgba(240,201,58,0.3);
-    color: var(--yellow);
-    font-size: 11px;
-    font-weight: 900;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 6px 12px;
-    margin-top: 20px;
-  }
-
-  /* PRECIO CARD */
-  .precio-card {
-    grid-column: 1 / -1;
-    background: rgba(245,240,232,0.04);
-    border: 1px solid rgba(245,240,232,0.1);
-    padding: 48px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    flex-wrap: wrap;
-    margin-top: 2px;
-  }
-
-  .precio-left .precio-num {
-    font-size: 56px;
-    font-weight: 900;
-    letter-spacing: -0.04em;
-    color: var(--cream);
-    line-height: 1;
-  }
-
-  .precio-left .precio-nota {
-    font-size: 13px;
-    color: rgba(245,240,232,0.35);
-    margin-top: 6px;
-    font-weight: 900;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-
-  /* PARA QUIÉN */
-  .paraquien {
-    background: var(--cream);
-    color: var(--dark);
-    padding: 100px 40px;
-  }
-
-  .paraquien-inner {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .paraquien h2 {
-    font-size: clamp(36px, 5vw, 64px);
-    font-weight: 900;
-    letter-spacing: -0.035em;
-    line-height: 0.95;
-    text-transform: lowercase;
-    margin-bottom: 64px;
-  }
-
-  .paraquien-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
-
-  .paraquien-col h3 {
-    font-size: 13px;
-    font-weight: 900;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-    opacity: 0.4;
-  }
-
-  .paraquien-list {
-    list-style: none;
-  }
-
-  .paraquien-list li {
-    font-size: 16px;
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    padding: 14px 0;
-    border-bottom: 1px solid rgba(28,28,26,0.1);
-    display: flex;
-    gap: 12px;
-    line-height: 1.3;
-  }
-
-  .paraquien-list.si li::before {
-    content: '✓';
-    color: #2D7A4F;
-    flex-shrink: 0;
-  }
-
-  .paraquien-list.no li::before {
-    content: '✗';
-    color: #C0392B;
-    flex-shrink: 0;
-  }
-
-  /* JUAN */
-  .juan {
-    padding: 100px 40px;
-    max-width: 900px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 340px 1fr;
-    gap: 64px;
-    align-items: start;
-  }
-
-  .juan-foto {
-    width: 100%;
-    aspect-ratio: 3/4;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
-  }
-
-  .juan-text .section-label { margin-bottom: 24px; }
-
-  .juan-text h2 {
-    font-size: clamp(32px, 4vw, 52px);
-    font-weight: 900;
-    letter-spacing: -0.035em;
-    line-height: 0.95;
-    text-transform: lowercase;
-    margin-bottom: 24px;
-  }
-
-  .juan-text p {
-    font-size: 15px;
-    color: rgba(245,240,232,0.6);
-    line-height: 1.7;
-    margin-bottom: 16px;
-  }
-
-  .juan-text p strong { color: var(--cream); }
-
-  .juan-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    margin-top: 48px;
-  }
-
-  .juan-stat {
-    padding: 24px;
-    background: rgba(245,240,232,0.04);
-  }
-
-  .juan-stat-num {
-    font-size: 32px;
-    font-weight: 900;
-    letter-spacing: -0.04em;
-    color: var(--yellow);
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-
-  .juan-stat-label {
-    font-size: 12px;
-    color: rgba(245,240,232,0.4);
-    line-height: 1.4;
-  }
-
-  /* TESTIMONIOS */
-  .testimonios {
-    background: var(--cream);
-    color: var(--dark);
-    padding: 100px 40px;
-  }
-
-  .testimonios-inner {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .testimonios .section-label { color: var(--dark); opacity: 0.4; }
-
-  .testimonios h2 {
-    font-size: clamp(32px, 4vw, 52px);
-    font-weight: 900;
-    letter-spacing: -0.035em;
-    line-height: 0.95;
-    text-transform: lowercase;
-    margin-bottom: 64px;
-  }
-
-  .testimonios-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2px;
-  }
-
-  .testimonio {
-    background: rgba(28,28,26,0.05);
-    padding: 32px;
-  }
-
-  .testimonio-quote {
-    font-size: 16px;
-    line-height: 1.65;
-    color: rgba(28,28,26,0.75);
-    margin-bottom: 24px;
-    font-style: italic;
-  }
-
-  .testimonio-autor {
-    font-size: 13px;
-    font-weight: 900;
-    letter-spacing: -0.01em;
-    color: var(--dark);
-  }
-
-  .testimonio-rol {
-    font-size: 12px;
-    color: rgba(28,28,26,0.4);
-    margin-top: 2px;
-    font-weight: 900;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-
-  /* GARANTÍA */
-  .garantia {
-    padding: 100px 40px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .garantia-block {
-    background: rgba(45,122,79,0.08);
-    border: 1px solid rgba(45,122,79,0.2);
-    padding: 56px 48px;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 40px;
-    align-items: start;
-  }
-
-  .garantia-icono {
-    font-size: 40px;
-    line-height: 1;
-  }
-
-  .garantia-titulo {
-    font-size: 22px;
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    color: #4ade80;
-    margin-bottom: 16px;
-    text-transform: lowercase;
-  }
-
-  .garantia-body {
-    font-size: 16px;
-    color: rgba(245,240,232,0.6);
-    line-height: 1.65;
-  }
-
-  .garantia-body strong { color: var(--cream); }
-
-  /* FAQ */
-  .faq {
-    background: var(--cream);
-    color: var(--dark);
-    padding: 100px 40px;
-  }
-
-  .faq-inner {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .faq .section-label { color: var(--dark); opacity: 0.4; }
-
-  .faq h2 {
-    font-size: clamp(32px, 4vw, 52px);
-    font-weight: 900;
-    letter-spacing: -0.035em;
-    line-height: 0.95;
-    text-transform: lowercase;
-    margin-bottom: 64px;
-  }
-
-  .faq-item {
-    border-bottom: 1px solid rgba(28,28,26,0.1);
-    padding: 24px 0;
-  }
-
-  .faq-item:first-of-type { border-top: 1px solid rgba(28,28,26,0.1); }
-
-  .faq-q {
-    font-size: 17px;
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    color: var(--dark);
-    margin-bottom: 10px;
-    line-height: 1.3;
-  }
-
-  .faq-a {
-    font-size: 15px;
-    color: rgba(28,28,26,0.55);
-    line-height: 1.65;
-  }
-
-  .faq-a a { color: var(--dark); font-weight: 900; }
-
-  /* CTA FINAL */
-  .cta-final {
-    background: var(--yellow);
-    color: var(--dark);
-    padding: 100px 40px;
-    text-align: center;
-  }
-
-  .cta-final h2 {
-    font-size: clamp(40px, 7vw, 80px);
-    font-weight: 900;
-    letter-spacing: -0.035em;
-    line-height: 0.95;
-    text-transform: lowercase;
-    margin-bottom: 16px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .cta-final-precio {
-    font-size: 52px;
-    font-weight: 900;
-    letter-spacing: -0.04em;
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-
-  .cta-final p {
-    font-size: 15px;
-    opacity: 0.55;
-    margin-bottom: 48px;
-    font-weight: 900;
-    letter-spacing: 0.02em;
-  }
-
-  .btn-dark {
-    display: inline-block;
-    background: var(--dark);
-    color: var(--cream);
-    font-size: 16px;
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    padding: 20px 48px;
-    text-decoration: none;
-    transition: opacity 0.2s;
-  }
-
-  .btn-dark:hover { opacity: 0.85; }
-
-  .cta-final-nota {
-    margin-top: 24px;
-    font-size: 13px;
-    opacity: 0.45;
-    font-weight: 900;
-  }
-
-  .cta-final-nota a { color: var(--dark); }
-
-  /* FOOTER */
-  footer {
-    padding: 40px;
-    border-top: 1px solid rgba(245,240,232,0.08);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 12px;
-    color: rgba(245,240,232,0.3);
-  }
-
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    nav { padding: 16px 20px; }
-    .hero { padding: 100px 20px 60px; }
-    .section { padding: 60px 20px; }
-    .problema-grid { grid-template-columns: 1fr; }
-    .que-es { padding: 60px 20px; }
-    .especificos { grid-template-columns: 1fr 1fr; }
-    .incluye { padding: 60px 20px; }
-    .fase-grid { grid-template-columns: 1fr; }
-    .precio-card { flex-direction: column; gap: 24px; }
-    .paraquien { padding: 60px 20px; }
-    .paraquien-grid { grid-template-columns: 1fr; }
-    .juan { padding: 60px 20px; grid-template-columns: 1fr; gap: 40px; }
-    .juan-foto { max-height: 420px; width: 100%; object-fit: cover; object-position: center top; }
-    .juan-stats { grid-template-columns: 1fr 1fr; }
-    .testimonios { padding: 60px 20px; }
-    .testimonios-grid { grid-template-columns: 1fr; }
-    .garantia { padding: 60px 20px; }
-    .garantia-block { grid-template-columns: 1fr; gap: 24px; padding: 40px 28px; }
-    .faq { padding: 60px 20px; }
-    .cta-final { padding: 60px 20px; }
-    footer { padding: 24px 20px; flex-direction: column; gap: 8px; text-align: center; }
-  }
-
-  /* Tarjetas de testimonio */
-  .testi-card {
-    background: rgba(245,240,232,0.04);
-    border: 1px solid rgba(245,240,232,0.08);
-    border-radius: 10px;
-    padding: 44px 32px 32px;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-  }
-  .testi-card::before {
-    content: '\201C';
-    position: absolute;
-    top: 10px;
-    left: 22px;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 96px;
-    line-height: 1;
-    color: var(--yellow);
-    opacity: 0.22;
-    pointer-events: none;
-  }
-  .testi-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(240,201,58,0.35);
-    background: rgba(245,240,232,0.06);
-  }
-  .testi-quote {
-    font-size: 16px;
-    line-height: 1.6;
-    color: rgba(245,240,232,0.85);
-    margin-bottom: 20px;
-    position: relative;
-  }
-  .testi-author {
-    font-size: 13px;
-    font-weight: 900;
-    color: var(--yellow);
-    letter-spacing: 0.02em;
-  }
-
-  /* CTA fijo en mobile */
-  .sticky-cta { display: none; }
-  @media (max-width: 768px) {
-    .sticky-cta {
-      display: block;
-      position: fixed;
-      bottom: 0; left: 0; right: 0;
-      z-index: 200;
-      padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
-      background: rgba(28,28,26,0.96);
-      border-top: 1px solid rgba(245,240,232,0.1);
-      -webkit-backdrop-filter: blur(8px);
-      backdrop-filter: blur(8px);
-    }
-    .sticky-cta a {
-      display: block;
-      text-align: center;
-      background: var(--yellow);
-      color: var(--dark);
-      font-weight: 900;
-      font-size: 16px;
-      letter-spacing: -0.02em;
-      padding: 16px;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-  }
+:root{
+  --dark:#1e1e1e;
+  --dark-2:#262622;
+  --dark-3:#2e2e28;
+  --cream:#ece8db;
+  --cream-2:#e2ddcc;
+  --yellow:#f5c842;
+  --ink-soft:rgba(30,30,30,.68);
+  --paper-soft:rgba(236,232,219,.68);
+  --line-dark:rgba(30,30,30,.15);
+  --line-light:rgba(236,232,219,.14);
+  --safe:clamp(20px,5vw,72px);
+  --mono:'Space Mono',monospace;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+  font-family:'Figtree',system-ui,sans-serif;
+  background:var(--cream);color:var(--dark);
+  font-size:17px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+/* grain */
+body::after{
+  content:"";position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:2000;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity:.035;
+}
+::selection{background:var(--yellow);color:var(--dark)}
+h1,h2,h3{font-weight:900;text-transform:lowercase;letter-spacing:-.035em;line-height:.98}
+h2{font-size:clamp(2.2rem,6vw,4.2rem);margin-bottom:.55em}
+h3{font-size:clamp(1.3rem,2.6vw,1.8rem)}
+em{font-style:normal;position:relative;white-space:nowrap;z-index:0}
+em::after{
+  content:"";position:absolute;left:-2%;right:-2%;bottom:.09em;height:.3em;
+  background:var(--yellow);z-index:-1;transform:skewX(-8deg) scaleX(1);transform-origin:left;
+}
+p{max-width:58ch}
+a{color:inherit}
+
+/* ---------- utility type ---------- */
+.eyebrow{
+  font-family:var(--mono);font-size:.72rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.18em;
+  display:inline-flex;align-items:center;gap:12px;margin-bottom:26px;opacity:.9;
+}
+.eyebrow::before{content:"";width:30px;height:2px;background:var(--yellow)}
+.mono{font-family:var(--mono)}
+
+/* ---------- layout ---------- */
+section{padding:clamp(80px,11vw,150px) var(--safe);position:relative}
+.wrap{max-width:1200px;margin:0 auto}
+.dark{background:var(--dark);color:var(--cream)}
+.dark p{color:var(--paper-soft)}
+
+/* ---------- progress + nav ---------- */
+.progress{position:fixed;top:0;left:0;height:3px;background:var(--yellow);width:0;z-index:300}
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px var(--safe);
+  background:rgba(30,30,30,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  color:var(--cream);border-bottom:1px solid var(--line-light);
+}
+.logo{font-weight:900;text-transform:lowercase;letter-spacing:-.035em;font-size:1.3rem;text-decoration:none}
+.logo span{color:var(--yellow)}
+.nav-links{display:flex;align-items:center;gap:28px;font-size:.86rem;font-weight:600}
+.nav-links a{text-decoration:none;opacity:.8;transition:opacity .2s;position:relative}
+.nav-links a:not(.cta-mini):hover{opacity:1}
+.nav-links a:not(.cta-mini)::after{
+  content:"";position:absolute;left:0;right:100%;bottom:-4px;height:2px;background:var(--yellow);transition:right .25s var(--ease);
+}
+.nav-links a:not(.cta-mini):hover::after{right:0}
+.cta-mini{
+  background:var(--yellow);color:var(--dark);padding:10px 20px;border-radius:999px;opacity:1;font-weight:800;
+}
+@media(max-width:780px){.nav-links a:not(.cta-mini){display:none}}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-weight:800;text-decoration:none;font-size:1rem;letter-spacing:-.01em;
+  padding:17px 32px;border-radius:999px;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease);
+  will-change:transform;
+}
+.btn:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+.btn-yellow{background:var(--yellow);color:var(--dark);box-shadow:0 10px 30px rgba(245,200,66,.3)}
+.btn-dark{background:var(--dark);color:var(--cream)}
+.btn-ghost-light{border:2px solid var(--line-light);color:var(--cream)}
+.btn .arrow{transition:transform .25s var(--ease)}
+.btn:hover .arrow{transform:translateX(5px)}
+
+/* ---------- hero ---------- */
+.hero{
+  min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+  padding-top:140px;padding-bottom:60px;
+  background:
+    radial-gradient(1000px 600px at 88% 8%,rgba(245,200,66,.16),transparent 62%),
+    var(--cream);
+}
+.hero h1{font-size:clamp(2.9rem,9.5vw,7.2rem)}
+.hero .line{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
+.hero .line>span{display:inline-block;transform:translateY(115%);animation:rise 1s var(--ease) forwards}
+.hero .line:nth-child(2)>span{animation-delay:.12s}
+.hero h1 em::after{transform:skewX(-8deg) scaleX(0);animation:draw .7s var(--ease) 1s forwards}
+@keyframes rise{to{transform:translateY(0)}}
+@keyframes draw{to{transform:skewX(-8deg) scaleX(1)}}
+.hero .sub{
+  font-size:clamp(1.05rem,2vw,1.35rem);margin:34px 0 42px;color:var(--ink-soft);
+  opacity:0;animation:fade .8s ease 1.15s forwards;
+}
+.hero .sub strong{color:var(--dark)}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center;opacity:0;animation:fade .8s ease 1.3s forwards}
+.hero-note{margin-top:28px;font-size:.9rem;color:var(--ink-soft);opacity:0;animation:fade .8s ease 1.45s forwards}
+.hero-note a{font-weight:700}
+@keyframes fade{to{opacity:1}}
+.scroll-hint{
+  position:absolute;bottom:30px;left:var(--safe);
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);
+  display:flex;align-items:center;gap:10px;opacity:0;animation:fade 1s ease 1.8s forwards;
+}
+.scroll-hint::after{content:"";width:1px;height:34px;background:var(--dark);animation:drop 1.6s ease-in-out infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- ticker ---------- */
+.ticker{
+  background:var(--yellow);color:var(--dark);overflow:hidden;
+  padding:16px 0;border-top:3px solid var(--dark);border-bottom:3px solid var(--dark);
+  transform:rotate(-1.2deg) scale(1.02);position:relative;z-index:5;
+}
+.ticker-track{display:flex;width:max-content;animation:scroll 38s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker span{
+  font-weight:800;text-transform:lowercase;letter-spacing:-.02em;font-size:1.05rem;
+  padding:0 28px;white-space:nowrap;display:inline-flex;align-items:center;gap:28px;
+}
+.ticker span::after{content:"✺";font-size:1rem}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ---------- problema ---------- */
+#problema{padding-top:clamp(110px,14vw,180px)}
+.mirror-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:54px}
+.mirror{
+  border:1px solid var(--line-light);border-radius:20px;
+  padding:34px 30px;background:var(--dark-2);position:relative;overflow:hidden;
+  transition:transform .35s var(--ease),border-color .35s var(--ease);
+}
+.mirror::before{
+  content:attr(data-n);position:absolute;right:14px;top:6px;
+  font-family:var(--mono);font-weight:700;font-size:3.4rem;color:transparent;
+  -webkit-text-stroke:1px rgba(236,232,219,.14);
+  transition:color .35s var(--ease),-webkit-text-stroke .35s var(--ease);
+}
+.mirror:hover{transform:translateY(-5px);border-color:rgba(245,200,66,.5)}
+.mirror:hover::before{color:var(--yellow);-webkit-text-stroke:0px transparent}
+.mirror .q{font-family:var(--mono);color:var(--yellow);font-weight:700;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:16px}
+.mirror strong{display:block;font-size:1.14rem;color:var(--cream);margin-bottom:10px;letter-spacing:-.02em;line-height:1.3}
+.mirror p{font-size:.95rem}
+
+/* ---------- sistema: sticky stack ---------- */
+#sistema .intro{max-width:760px}
+.stack{margin-top:64px;display:flex;flex-direction:column;gap:26px}
+.panel{
+  position:sticky;background:var(--cream);
+  border:2px solid var(--dark);border-radius:26px;
+  padding:clamp(34px,5vw,60px);
+  display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(24px,4vw,60px);align-items:center;
+  box-shadow:0 -18px 40px rgba(30,30,30,.08);
+  min-height:380px;
+}
+.panel:nth-child(1){top:100px}
+.panel:nth-child(2){top:122px}
+.panel:nth-child(3){top:144px}
+.panel .num{
+  font-family:var(--mono);font-weight:700;font-size:.74rem;letter-spacing:.18em;
+  background:var(--dark);color:var(--yellow);padding:7px 16px;border-radius:999px;display:inline-block;margin-bottom:22px;
+}
+.panel h3{font-size:clamp(1.7rem,3.6vw,2.6rem);margin-bottom:14px}
+.panel p{font-size:1.04rem;color:var(--ink-soft)}
+.panel .glyph{justify-self:center;width:min(100%,260px)}
+.panel .glyph svg{width:100%;height:auto;display:block}
+.panel.alt{background:var(--yellow)}
+.panel.alt p{color:rgba(30,30,30,.75)}
+@media(max-width:820px){.panel{grid-template-columns:1fr;min-height:0}.panel .glyph{display:none}}
+.sistema-claim{
+  margin:64px auto 0;text-align:center;font-size:clamp(1.15rem,2.4vw,1.5rem);font-weight:700;letter-spacing:-.02em;max-width:30ch;
+}
+.sistema-claim mark{background:var(--yellow);padding:3px 10px;border-radius:8px}
+
+/* ---------- workspace ---------- */
+.ws{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(36px,6vw,80px);align-items:center}
+@media(max-width:920px){.ws{grid-template-columns:1fr}}
+.ws-points{list-style:none;margin:26px 0 34px}
+.ws-points li{padding:11px 0 11px 32px;position:relative;color:var(--paper-soft);font-size:1rem;border-bottom:1px dashed var(--line-light)}
+.ws-points li:last-child{border:none}
+.ws-points li::before{content:"→";position:absolute;left:0;color:var(--yellow);font-weight:900}
+.browser{
+  border-radius:18px;overflow:hidden;border:1px solid var(--line-light);
+  background:var(--dark-2);box-shadow:18px 18px 0 rgba(245,200,66,.9);
+  transform:rotate(.6deg);
+}
+.browser-bar{
+  display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line-light);background:var(--dark-3);
+}
+.browser-bar i{width:10px;height:10px;border-radius:50%;background:#5b584d;display:block}
+.browser-bar i:first-child{background:var(--yellow)}
+.browser-bar .url{
+  font-family:var(--mono);font-size:.68rem;color:var(--paper-soft);
+  background:var(--dark);border-radius:6px;padding:5px 14px;margin-left:10px;letter-spacing:.04em;
+}
+.browser-body{display:grid;grid-template-columns:88px 1fr;min-height:330px}
+.ws-side{border-right:1px solid var(--line-light);padding:18px 0;display:flex;flex-direction:column;align-items:center;gap:14px}
+.ws-side b{width:38px;height:38px;border-radius:10px;background:var(--dark-3);display:block}
+.ws-side b.on{background:var(--yellow)}
+.ws-main{padding:24px}
+.ws-row{height:14px;border-radius:6px;background:var(--dark-3);margin-bottom:12px}
+.ws-row.w60{width:60%}.ws-row.w80{width:80%}.ws-row.w40{width:40%}
+.ws-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.ws-card{border:1px solid var(--line-light);border-radius:12px;padding:14px;background:var(--dark)}
+.ws-card .bar{height:8px;border-radius:4px;background:var(--dark-3);margin-bottom:8px}
+.ws-card .bar.fill{background:var(--yellow);width:70%}
+.ws-card:nth-child(2) .bar.fill{width:45%}
+.ws-card:nth-child(3) .bar.fill{width:90%}
+.ws-card .pct{font-family:var(--mono);font-size:.62rem;color:var(--paper-soft)}
+
+/* ---------- ofertas ---------- */
+.offers{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:60px;align-items:stretch}
+.offer{
+  background:var(--dark-2);border:1px solid var(--line-light);border-radius:24px;
+  padding:40px 34px;display:flex;flex-direction:column;position:relative;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease);
+}
+.offer:hover{transform:translateY(-6px)}
+.offer.featured{
+  border:2px solid var(--yellow);background:var(--dark-3);
+  transform:rotate(-.6deg);box-shadow:14px 14px 0 rgba(245,200,66,.25);
+}
+.offer.featured:hover{transform:rotate(-.6deg) translateY(-6px)}
+.badge{
+  position:absolute;top:-15px;left:30px;
+  background:var(--yellow);color:var(--dark);font-family:var(--mono);font-weight:700;font-size:.66rem;
+  text-transform:uppercase;letter-spacing:.14em;padding:7px 16px;border-radius:999px;
+}
+.offer .tag{font-family:var(--mono);font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.16em;color:var(--yellow);margin-bottom:16px}
+.offer h3{font-size:2rem;margin-bottom:6px}
+.offer .meta{font-family:var(--mono);font-size:.78rem;color:var(--paper-soft);margin-bottom:24px}
+.offer ul{list-style:none;margin:0 0 28px;flex:1}
+.offer li{padding:10px 0 10px 30px;position:relative;font-size:.95rem;color:var(--paper-soft);border-bottom:1px dashed var(--line-light)}
+.offer li:last-child{border:none}
+.offer li::before{content:"→";position:absolute;left:0;color:var(--yellow);font-weight:900}
+.guarantee{
+  background:rgba(245,200,66,.08);border:1px dashed rgba(245,200,66,.45);
+  border-radius:14px;padding:15px 17px;font-size:.86rem;color:var(--cream);margin-bottom:28px;
+}
+.guarantee b{color:var(--yellow)}
+.offer .btn{justify-content:center}
+
+/* ---------- comparativa ---------- */
+.compare-scroll{overflow-x:auto;margin-top:54px;-webkit-overflow-scrolling:touch;border-radius:18px}
+table{border-collapse:collapse;width:100%;min-width:660px;font-size:.95rem}
+th,td{padding:16px 20px;text-align:left;border-bottom:1px solid var(--line-dark)}
+thead th{font-weight:900;text-transform:lowercase;letter-spacing:-.02em;font-size:1.1rem;background:var(--dark);color:var(--yellow)}
+thead th.col-featured{background:var(--yellow);color:var(--dark)}
+thead th:first-child{background:var(--dark)}
+tbody th{font-family:var(--mono);font-weight:700;font-size:.68rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.12em}
+td{font-weight:600}
+td.yes::before{content:"✓ ";font-weight:900}
+.col-featured{background:rgba(245,200,66,.2)}
+
+/* ---------- para quién ---------- */
+.fit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:54px}
+.fit{border-radius:24px;padding:38px 34px}
+.fit.si{background:rgba(245,200,66,.09);border:1px solid rgba(245,200,66,.4)}
+.fit.no{background:var(--dark-2);border:1px solid var(--line-light)}
+.fit h3{margin-bottom:22px;display:flex;align-items:center;gap:12px}
+.fit h3 .dot{width:14px;height:14px;border-radius:50%}
+.fit.si .dot{background:var(--yellow)}
+.fit.no .dot{background:#6b675c}
+.fit ul{list-style:none}
+.fit li{padding:10px 0 10px 28px;position:relative;font-size:.97rem;color:var(--paper-soft)}
+.fit.si li::before{content:"✓";position:absolute;left:0;color:var(--yellow);font-weight:900}
+.fit.no li::before{content:"✕";position:absolute;left:0;color:#6b675c;font-weight:900}
+.fit li a{color:var(--yellow);font-weight:700}
+
+/* ---------- juan ---------- */
+.bio{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(36px,6vw,80px);align-items:center}
+@media(max-width:880px){.bio{grid-template-columns:1fr}}
+.bio p{margin-bottom:18px;font-size:1.06rem}
+.stats{display:flex;gap:44px;margin-top:38px;flex-wrap:wrap}
+.stat .n{font-weight:900;font-size:clamp(2.6rem,5vw,3.8rem);letter-spacing:-.04em;line-height:1}
+.stat .l{font-family:var(--mono);font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-soft);margin-top:8px}
+.video-frame{
+  position:relative;border-radius:22px;overflow:hidden;background:var(--dark);
+  border:3px solid var(--dark);box-shadow:16px 16px 0 var(--yellow);aspect-ratio:16/10;transform:rotate(-.6deg);
+}
+.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.ig-handle{margin-top:22px;font-weight:700;font-size:.95rem}
+.ig-handle a{text-decoration:none;border-bottom:2px solid var(--yellow)}
+
+/* ---------- faq ---------- */
+.faq{max-width:840px;margin:54px auto 0}
+details{border-bottom:1px solid var(--line-light)}
+summary{
+  cursor:pointer;list-style:none;padding:26px 60px 26px 0;position:relative;
+  font-weight:800;font-size:1.12rem;letter-spacing:-.02em;color:var(--cream);
+  display:flex;gap:18px;align-items:baseline;
+}
+summary::-webkit-details-marker{display:none}
+summary .n{font-family:var(--mono);font-size:.7rem;color:var(--yellow);min-width:30px}
+summary::after{
+  content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);
+  font-weight:400;font-size:1.7rem;color:var(--yellow);transition:transform .3s var(--ease);
+}
+details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+details .a{padding:0 0 28px 48px;font-size:.99rem;color:var(--paper-soft);max-width:62ch}
+details .a a{color:var(--yellow);font-weight:700}
+
+/* ---------- final ---------- */
+.final{
+  background:var(--yellow);color:var(--dark);text-align:center;
+  padding:clamp(90px,13vw,170px) var(--safe);overflow:hidden;
+}
+.final .eyebrow{justify-content:center}
+.final .eyebrow::before{background:var(--dark)}
+.final h2{font-size:clamp(2.6rem,8vw,6rem)}
+.final p{margin:14px auto 42px;font-weight:600;font-size:1.12rem}
+.final .keywords{margin-top:28px;font-family:var(--mono);font-size:.78rem;font-weight:700;opacity:.85}
+.final .keywords code{background:var(--dark);color:var(--yellow);padding:4px 12px;border-radius:6px;font-family:inherit}
+
+/* ---------- footer ---------- */
+footer{background:var(--dark);color:var(--paper-soft);padding:60px var(--safe) 40px}
+.foot-big{
+  font-weight:900;text-transform:lowercase;letter-spacing:-.045em;line-height:.9;
+  font-size:clamp(3.4rem,12vw,9.5rem);color:transparent;-webkit-text-stroke:1.5px rgba(236,232,219,.35);
+  transition:color .4s var(--ease);user-select:none;display:block;margin-bottom:40px;border-bottom:none;text-decoration:none;
+}
+.foot-big:hover{color:var(--cream);-webkit-text-stroke:0 transparent}
+.foot-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.86rem;border-top:1px solid var(--line-light);padding-top:26px}
+footer a{color:var(--cream);font-weight:700;text-decoration:none;border-bottom:1px solid var(--line-light)}
+
+/* ---------- sticky mobile cta ---------- */
+.sticky-cta{
+  position:fixed;bottom:0;left:0;right:0;z-index:150;display:none;
+  padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  background:rgba(30,30,30,.92);backdrop-filter:blur(10px);border-top:1px solid var(--line-light);
+}
+.sticky-cta .btn{width:100%;justify-content:center;padding:15px}
+@media(max-width:780px){.sticky-cta{display:block}body{padding-bottom:76px}}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+  .reveal,.hero .sub,.hero-ctas,.hero-note,.scroll-hint{opacity:1;transform:none}
+  .hero .line>span{transform:none}
+  .ticker-track{flex-wrap:wrap;width:auto}
+  .ticker{transform:none}
+}
 </style>
-
-<!-- Meta Pixel Code -->
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  // Capturar fbclid del anuncio y persistirlo como cookie _fbc (para CAPI + matching de Meta)
-  (function(){
-    try {
-      var fbclid = new URLSearchParams(window.location.search).get('fbclid');
-      if (fbclid && !/(^|; )_fbc=/.test(document.cookie)) {
-        document.cookie = '_fbc=fb.1.' + Date.now() + '.' + fbclid + '; path=/; max-age=7776000';
-      }
-    } catch(e){}
-  })();
-  fbq('init', '1514394006799758');
-  fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1514394006799758&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 </head>
 <body>
 
-<!-- NAV -->
+<div class="progress" id="progress"></div>
+
 <nav>
-  <a href="#" class="nav-logo">be the <span>brand</span></a>
-  <a href="#formulario" class="nav-cta">agenda tu llamada</a>
+  <a class="logo" href="#top">be the brand<span>.</span></a>
+  <div class="nav-links">
+    <a href="#sistema">el sistema</a>
+    <a href="#workspace">workspace</a>
+    <a href="#ofertas">programas</a>
+    <a href="#faq">preguntas</a>
+    <a class="cta-mini btn-mag" href="https://ig.me/m/juanhrr.mkt">escribime por dm →</a>
+  </div>
 </nav>
 
-<!-- HERO + VSL -->
-<section>
-  <div class="hero">
-    <p class="hero-tag">Be The Brand · Pre-Call</p>
-    <h1>si dependés del<br>boca a boca, mirá esto.</h1>
-    <p class="hero-body">
-      En menos de 2 minutos te explico por qué algunos consultores tienen agenda llena sin invertir en ads, mientras otros esperan a que suene el teléfono.<br>
-      <strong>La diferencia no es talento. Es un sistema.</strong><br>
-      <span style="display:inline-block;margin-top:12px;font-size:14px;color:rgba(245,240,232,0.45);font-weight:900;letter-spacing:0.01em">Sin ser influencer, sin vivir pegado al celular, sin perseguir a nadie.</span>
-    </p>
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">be the brand · sistema de captación para consultores</div>
+    <h1>
+      <span class="line"><span>un piso de clientes</span></span>
+      <span class="line"><span><em>fijo</em> cada mes.</span></span>
+    </h1>
+    <p class="sub">Si vivís de tu conocimiento y tus ingresos son impredecibles, el problema no es tu capacidad. <strong>Es que no tenés un sistema.</strong></p>
+    <div class="hero-ctas">
+      <a class="btn btn-dark btn-mag" href="#sistema">ver cómo funciona <span class="arrow">↓</span></a>
+      <a class="btn btn-yellow btn-mag" href="https://ig.me/m/juanhrr.mkt">escribime por dm <span class="arrow">→</span></a>
+    </div>
+    <p class="hero-note">¿no sabés cuánto invertir en anuncios? <a href="/calculadora/">usá la calculadora de roi gratuita →</a></p>
+  </div>
+  <div class="scroll-hint">scroll</div>
+</section>
 
-    <!-- VSL — reproductor propio (sin branding de YouTube) -->
-    <video
-      id="vsl-video"
-      controls
-      playsinline
-      preload="metadata"
-      poster="./vsl-cover.jpg"
-      style="width:100%;max-width:780px;height:auto;margin:40px auto 16px;border-radius:10px;box-shadow:0 18px 55px rgba(0,0,0,0.5);display:block;background:#000;border:1px solid rgba(240,201,58,0.18)">
-      <source src="./vsl.mp4" type="video/mp4">
-      Tu navegador no soporta el video.
-    </video>
-    <p style="font-size:13px;color:rgba(245,240,232,0.45);font-weight:900;letter-spacing:0.04em;margin-bottom:32px">Juan Herrera · 18 años en marketing</p>
-    <script>
-      // Evento Meta: empezó a ver el VSL (señal de interés)
-      (function(){
-        var v = document.getElementById('vsl-video');
-        var fired = false;
-        v.addEventListener('play', function(){
-          if (!fired && window.fbq) { fbq('track', 'ViewContent', { content_name: 'VSL PreCall' }); fired = true; }
-        });
-      })();
-    </script>
+<!-- ============ TICKER ============ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>likes que no se convierten en clientes</span>
+    <span>cada mes arrancás de cero</span>
+    <span>el boca a boca para… y para todo</span>
+    <span>publicás y publicás sin saber si sirve</span>
+    <span>sabés hacer tu trabajo, no perseguir gente</span>
+    <span>"algún mes bueno" no es un plan</span>
+    <span>likes que no se convierten en clientes</span>
+    <span>cada mes arrancás de cero</span>
+    <span>el boca a boca para… y para todo</span>
+    <span>publicás y publicás sin saber si sirve</span>
+    <span>sabés hacer tu trabajo, no perseguir gente</span>
+    <span>"algún mes bueno" no es un plan</span>
+  </div>
+</div>
 
-    <div class="hero-actions" style="flex-direction:column;align-items:center;gap:10px">
-      <a href="#formulario" class="btn-primary" style="font-size:16px;padding:18px 44px">agendá tu llamada →</a>
-      <span style="font-size:13px;color:rgba(245,240,232,0.5);font-weight:900;letter-spacing:0.02em;line-height:1.5;max-width:440px;text-align:center">30 min · miramos tu caso y salís con un plan · no te vendo nada</span>
+<!-- ============ PROBLEMA ============ -->
+<section class="dark" id="problema">
+  <div class="wrap">
+    <div class="eyebrow">el problema</div>
+    <h2>si te suena familiar,<br><em>no es casualidad.</em></h2>
+    <div class="mirror-grid">
+      <div class="mirror reveal" data-n="01">
+        <span class="q">síntoma 01</span>
+        <strong>tus ingresos dependen del boca a boca.</strong>
+        <p>Cuando las recomendaciones paran, para todo. Y no controlás cuándo paran.</p>
+      </div>
+      <div class="mirror reveal d1" data-n="02">
+        <span class="q">síntoma 02</span>
+        <strong>publicás contenido sin resultados.</strong>
+        <p>Likes, algún comentario, cero clientes nuevos. El algoritmo no te debe nada.</p>
+      </div>
+      <div class="mirror reveal d2" data-n="03">
+        <span class="q">síntoma 03</span>
+        <strong>no sabés de dónde viene el próximo cliente.</strong>
+        <p>Cada mes arrancás de cero. Vendés, entregás, y volvés a vender desde el principio.</p>
+      </div>
+      <div class="mirror reveal d3" data-n="04">
+        <span class="q">la verdad incómoda</span>
+        <strong>el conocimiento ya lo tenés.</strong>
+        <p>Lo que te falta es el sistema que lo convierte en clientes, todos los meses, sin depender de la suerte.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- VALIDACIÓN -->
-<section class="section" style="text-align:center;padding-bottom:20px">
-  <p class="section-label">lo que dicen</p>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:1040px;margin:0 auto;text-align:left">
-    <div class="testi-card">
-      <p class="testi-quote">"No es un 'hacé esto y vas a tener clientes'. Te ayuda a repensarte y a verte a vos misma como un negocio. Muy completo, te lleva de la mano."</p>
-      <p class="testi-author">Agos Milocco · Consultora agroindustrial</p>
+<!-- ============ SISTEMA (sticky stack) ============ -->
+<section id="sistema">
+  <div class="wrap">
+    <div class="intro">
+      <div class="eyebrow">el sistema btb</div>
+      <h2>tres piezas.<br><em>un resultado.</em></h2>
+      <p>No es un curso. Es un sistema que se instala en tu negocio y queda funcionando. Las tres piezas trabajan juntas, en este orden:</p>
     </div>
-    <div class="testi-card">
-      <p class="testi-quote">"No hablamos solo de redes — analizamos el negocio desde la raíz. Juan nos hace preguntas que dábamos por obvias y nos ordena las ideas y los próximos pasos."</p>
-      <p class="testi-author">Lucila · Nicca Estudio</p>
+    <div class="stack">
+      <article class="panel">
+        <div>
+          <span class="num">PIEZA 01</span>
+          <h3>marca que atrae</h3>
+          <p>Tu perfil y tu contenido trabajan para vos. Cada post filtra y califica al cliente ideal antes de que te escriba. El que llega, llega entendiendo qué hacés y para quién.</p>
+        </div>
+        <div class="glyph" aria-hidden="true">
+          <svg viewBox="0 0 200 200" fill="none">
+            <circle cx="100" cy="100" r="34" fill="#f5c842" stroke="#1e1e1e" stroke-width="3"/>
+            <g stroke="#1e1e1e" stroke-width="3" stroke-linecap="round">
+              <line x1="100" y1="22" x2="100" y2="48"/><line x1="100" y1="152" x2="100" y2="178"/>
+              <line x1="22" y1="100" x2="48" y2="100"/><line x1="152" y1="100" x2="178" y2="100"/>
+              <line x1="45" y1="45" x2="63" y2="63"/><line x1="137" y1="137" x2="155" y2="155"/>
+              <line x1="155" y1="45" x2="137" y2="63"/><line x1="63" y1="137" x2="45" y2="155"/>
+            </g>
+          </svg>
+        </div>
+      </article>
+      <article class="panel alt">
+        <div>
+          <span class="num">PIEZA 02</span>
+          <h3>captación predecible</h3>
+          <p>Un flujo constante de conversaciones con prospectos calificados. Sin perseguir a nadie, sin mensajes en frío, sin depender del humor del algoritmo.</p>
+        </div>
+        <div class="glyph" aria-hidden="true">
+          <svg viewBox="0 0 200 200" fill="none">
+            <path d="M30 40 H170 L120 105 V160 L80 175 V105 Z" fill="#ece8db" stroke="#1e1e1e" stroke-width="3" stroke-linejoin="round"/>
+            <circle cx="60" cy="25" r="6" fill="#1e1e1e"/><circle cx="100" cy="18" r="6" fill="#1e1e1e"/><circle cx="140" cy="25" r="6" fill="#1e1e1e"/>
+          </svg>
+        </div>
+      </article>
+      <article class="panel">
+        <div>
+          <span class="num">PIEZA 03</span>
+          <h3>conversión en llamada</h3>
+          <p>Un proceso de venta que cierra sin presionar. El prospecto correcto dice que sí porque entendió exactamente qué va a lograr — antes de entrar a la llamada.</p>
+        </div>
+        <div class="glyph" aria-hidden="true">
+          <svg viewBox="0 0 200 200" fill="none">
+            <rect x="35" y="55" width="130" height="90" rx="16" fill="#f5c842" stroke="#1e1e1e" stroke-width="3"/>
+            <path d="M70 100 L92 122 L135 80" stroke="#1e1e1e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+      </article>
     </div>
-    <div class="testi-card">
-      <p class="testi-quote">"Por fin encontré un orden de lo que tengo y lo que me falta para mis objetivos. Lo veo como un sistema personalizado, con el acompañamiento de alguien que sabe y está presente en cada paso."</p>
-      <p class="testi-author">Flor Guaji · Wellness Creator</p>
-    </div>
-  </div>
-  <p style="font-size:12px;color:rgba(245,240,232,0.3);margin-top:24px">Casos reales de clientes. Cada situación es distinta.</p>
-</section>
-
-<!-- QUÉ PASA EN LA LLAMADA -->
-<section class="section" style="text-align:center;padding-top:40px;padding-bottom:40px">
-  <p class="section-label">qué pasa en la llamada</p>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:860px;margin:0 auto;text-align:left">
-    <div style="padding:20px 24px;border-left:2px solid var(--yellow)">
-      <p style="font-size:16px;font-weight:900;color:var(--cream);line-height:1.4">Vemos tu situación real</p>
-    </div>
-    <div style="padding:20px 24px;border-left:2px solid var(--yellow)">
-      <p style="font-size:16px;font-weight:900;color:var(--cream);line-height:1.4">Detectamos qué te está trabando</p>
-    </div>
-    <div style="padding:20px 24px;border-left:2px solid var(--yellow)">
-      <p style="font-size:16px;font-weight:900;color:var(--cream);line-height:1.4">Salís con el primer paso concreto</p>
-    </div>
-  </div>
-  <p style="font-size:14px;color:rgba(245,240,232,0.5);margin-top:28px;font-weight:900">30 minutos. No es una venta.</p>
-</section>
-
-<!-- FAQ -->
-<section class="faq">
-  <div class="faq-inner">
-    <p class="section-label">antes de agendar</p>
-    <h2>lo que solés<br>preguntarte.</h2>
-
-    <div class="faq-item">
-      <div class="faq-q">¿La llamada tiene algún costo?</div>
-      <div class="faq-a">No. Son 30 minutos gratis. Vemos tu caso y salís con un primer paso concreto, decidas lo que decidas después.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">¿Me vas a querer vender algo?</div>
-      <div class="faq-a">No es una llamada de venta, es un diagnóstico. Si veo que te puedo ayudar en serio, te cuento cómo trabajo. Si no, te lo digo igual y salís con claridad.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">¿Es para vos?</div>
-      <div class="faq-a">Si tenés un servicio o una consultoría y te cansaste de depender del boca a boca, sí. Si buscás una fórmula mágica o todavía no tenés un servicio definido, no — prefiero ser honesto. No trabajo con cualquiera.</div>
-    </div>
-
+    <p class="sistema-claim reveal">cuando las tres piezas funcionan juntas, el resultado es uno: <mark>un piso de clientes fijo, todos los meses.</mark></p>
   </div>
 </section>
 
-<!-- FORMULARIO -->
-<section class="section" id="formulario" style="text-align:center">
-  <p class="section-label">siguiente paso</p>
-  <h2 style="font-size:48px;font-weight:900;margin-bottom:16px;color:var(--cream)">agendá tu llamada</h2>
-  <p style="font-size:14px;color:var(--yellow);font-weight:900;letter-spacing:0.02em;margin-bottom:40px">Tomo pocas llamadas por semana. Si ves un horario libre, es real.</p>
+<!-- ============ WORKSPACE ============ -->
+<section class="dark" id="workspace">
+  <div class="wrap ws">
+    <div>
+      <div class="eyebrow">incluido en el programa</div>
+      <h2>tu centro de<br><em>operaciones.</em></h2>
+      <p>Nada de PDFs perdidos en el mail ni links sueltos por WhatsApp. Todo el programa vive en tu workspace BTB: un espacio propio donde trabajamos juntos.</p>
+      <ul class="ws-points">
+        <li>Tus módulos y clases, organizados y siempre disponibles</li>
+        <li>Plantillas, guiones y herramientas listas para usar</li>
+        <li>Tu avance visible, semana a semana</li>
+      </ul>
+    </div>
+    <div class="browser reveal" aria-hidden="true">
+      <div class="browser-bar"><i></i><i></i><i></i><span class="url">workspace · be the brand</span></div>
+      <div class="browser-body">
+        <div class="ws-side"><b class="on"></b><b></b><b></b><b></b></div>
+        <div class="ws-main">
+          <div class="ws-row w40"></div>
+          <div class="ws-row w80"></div>
+          <div class="ws-row w60"></div>
+          <div class="ws-cards">
+            <div class="ws-card"><div class="bar"></div><div class="bar fill"></div><span class="pct">70%</span></div>
+            <div class="ws-card"><div class="bar"></div><div class="bar fill"></div><span class="pct">45%</span></div>
+            <div class="ws-card"><div class="bar"></div><div class="bar fill"></div><span class="pct">90%</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <div style="max-width:560px;margin:0 auto;text-align:left;background:rgba(245,240,232,0.04);padding:48px;border:1px solid rgba(245,240,232,0.1);border-radius:8px">
-    <form id="precall-form" style="display:flex;flex-direction:column;gap:24px">
+<!-- ============ OFERTAS ============ -->
+<section id="ofertas">
+  <div class="wrap">
+    <div class="eyebrow">elegí por dónde arrancás</div>
+    <h2>tres caminos.<br><em>un destino.</em></h2>
+    <div class="offers">
 
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <label for="nombre" style="font-size:14px;font-weight:900;letter-spacing:-0.02em;color:var(--cream)">nombre</label>
-        <input
-          type="text"
-          id="nombre"
-          name="nombre"
-          required
-          placeholder="tu nombre"
-          style="background:rgba(28,28,26,0.3);border:1px solid rgba(245,240,232,0.1);color:var(--cream);padding:12px 16px;font-size:14px;font-family:inherit;border-radius:4px"
-        >
+      <div class="offer reveal">
+        <span class="tag">primer paso · sin cargo</span>
+        <h3>el taller</h3>
+        <p class="meta">MESA DE TRABAJO EN VIVO · MÁX 25</p>
+        <ul>
+          <li>Diagnostico en vivo cuál de las piezas de tu negocio te está frenando</li>
+          <li>Salís sabiendo qué mover primero, con tu caso</li>
+          <li>No es un webinar: es trabajo real, cámara prendida</li>
+        </ul>
+        <a class="btn btn-ghost-light btn-mag" href="/taller/">reservar mi lugar <span class="arrow">→</span></a>
       </div>
 
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <label for="negocio" style="font-size:14px;font-weight:900;letter-spacing:-0.02em;color:var(--cream)">¿a qué te dedicas?</label>
-        <select
-          id="negocio"
-          name="negocio"
-          required
-          style="background:rgba(28,28,26,0.3);border:1px solid rgba(245,240,232,0.1);color:var(--cream);padding:12px 16px;font-size:14px;font-family:inherit;border-radius:4px;cursor:pointer"
-        >
-          <option value="" style="background:var(--dark)">selecciona</option>
-          <option value="consultor" style="background:var(--dark)">consultor independiente</option>
-          <option value="agencia" style="background:var(--dark)">agencia pequeña</option>
-          <option value="freelancer" style="background:var(--dark)">freelancer</option>
-          <option value="coach" style="background:var(--dark)">coach/mentoría</option>
-          <option value="servicios" style="background:var(--dark)">servicios profesionales</option>
-          <option value="otro" style="background:var(--dark)">otro</option>
-        </select>
+      <div class="offer featured reveal d1">
+        <span class="badge">el programa</span>
+        <span class="tag">mentoría 1 a 1</span>
+        <h3>proceso btb</h3>
+        <p class="meta">12 SEMANAS · 1 SESIÓN POR SEMANA</p>
+        <ul>
+          <li>Ordenamos las 6 piezas de tu negocio: oferta, orgánica, ventas, ads, entrega y sistema</li>
+          <li>Encontramos la pieza que te frena y la destrabamos primero</li>
+          <li>Vos ejecutás, yo corrijo — una sesión 1:1 por semana</li>
+          <li>Salís con captación que no depende de que te recomienden</li>
+        </ul>
+        <div class="guarantee"><b>garantía:</b> si en las primeras 4 semanas no ves avance concreto y verificable, te devuelvo el dinero. Sin preguntas.</div>
+        <a class="btn btn-yellow btn-mag" href="https://ig.me/m/juanhrr.mkt">escribime PROCESO <span class="arrow">→</span></a>
       </div>
 
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <label for="email" style="font-size:14px;font-weight:900;letter-spacing:-0.02em;color:var(--cream)">email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          placeholder="tu@email.com"
-          style="background:rgba(28,28,26,0.3);border:1px solid rgba(245,240,232,0.1);color:var(--cream);padding:12px 16px;font-size:14px;font-family:inherit;border-radius:4px"
-        >
+      <div class="offer reveal d2">
+        <span class="tag">continuidad</span>
+        <h3>membresía btb</h3>
+        <p class="meta">COMUNIDAD + SOPORTE MENSUAL</p>
+        <ul>
+          <li>Para seguir creciendo después del Proceso</li>
+          <li>Sesión grupal en vivo todos los meses</li>
+          <li>Material para avanzar a tu ritmo + canal privado</li>
+          <li>Acompañamiento sostenido, sin volver a arrancar de cero</li>
+        </ul>
+        <a class="btn btn-ghost-light btn-mag" href="https://ig.me/m/juanhrr.mkt">preguntar por la membresía <span class="arrow">→</span></a>
       </div>
 
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <label for="whatsapp" style="font-size:14px;font-weight:900;letter-spacing:-0.02em;color:var(--cream)">whatsapp</label>
-        <input
-          type="tel"
-          id="whatsapp"
-          name="whatsapp"
-          required
-          placeholder="+54 9 1234567890"
-          style="background:rgba(28,28,26,0.3);border:1px solid rgba(245,240,232,0.1);color:var(--cream);padding:12px 16px;font-size:14px;font-family:inherit;border-radius:4px"
-        >
-      </div>
-
-      <button
-        type="submit"
-        class="btn-primary"
-        style="margin-top:16px;width:100%;cursor:pointer;border:none"
-      >
-        agendar llamada →
-      </button>
-
-      <p style="font-size:12px;color:rgba(245,240,232,0.4);text-align:center;margin-top:8px">
-        30 minutos de diagnóstico sin compromiso. Si es un fit, hablamos de los próximos pasos.
-      </p>
-
-    </form>
+    </div>
   </div>
-
-  <script>
-    // URL del webhook n8n (Cloud). Workflow "BTB — CAPI Lead": guarda en Sheet + dispara Lead por CAPI.
-    const N8N_WEBHOOK_URL = 'https://bethebrand.app.n8n.cloud/webhook/capi-lead';
-
-    // Al enviar el form, redirige a Calendly para agendar en el momento.
-    const CALENDLY_URL = 'https://calendly.com/juanhrr/60min';
-
-    const form = document.getElementById('precall-form');
-    const btn = form.querySelector('button[type="submit"]');
-
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-
-      function getCookie(name){ var m = document.cookie.match('(^|; )' + name + '=([^;]*)'); return m ? m[2] : ''; }
-      const eventId = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : ('lead-' + Date.now() + '-' + Math.random().toString(36).slice(2));
-
-      const formData = {
-        nombre: document.getElementById('nombre').value,
-        negocio: document.getElementById('negocio').value,
-        email: document.getElementById('email').value,
-        whatsapp: document.getElementById('whatsapp').value,
-        event_id: eventId,
-        fbp: getCookie('_fbp'),
-        fbc: getCookie('_fbc'),
-        timestamp: new Date().toISOString(),
-        source: 'btb-landing-precall'
-      };
-
-      const originalLabel = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = 'enviando…';
-
-      try {
-        const res = await fetch(N8N_WEBHOOK_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData)
-        });
-
-        if (!res.ok) throw new Error('Respuesta no OK: ' + res.status);
-
-        // Evento Meta: lead capturado (Meta aprende de este perfil)
-        if (window.fbq) {
-          fbq('track', 'Lead', {
-            content_name: 'PreCall Form',
-            content_category: formData.negocio
-          }, { eventID: eventId });
-        }
-
-        // Éxito → a Calendly con nombre y email pre-cargados (el lead solo elige horario)
-        if (CALENDLY_URL) {
-          var url = CALENDLY_URL
-            + '?name=' + encodeURIComponent(formData.nombre)
-            + '&email=' + encodeURIComponent(formData.email);
-          window.location.href = url;
-          return;
-        }
-        form.innerHTML = '<div style="text-align:center;padding:24px 0"><div style="font-size:40px;margin-bottom:16px">✓</div><p style="font-size:18px;font-weight:900;color:var(--cream);margin-bottom:8px">¡Listo!</p><p style="font-size:14px;color:rgba(245,240,232,0.55);line-height:1.6">Recibimos tus datos. Te escribimos por WhatsApp en breve para coordinar la llamada.</p></div>';
-      } catch (err) {
-        console.error(err);
-        btn.disabled = false;
-        btn.textContent = originalLabel;
-        alert('Hubo un problema al enviar. Probá de nuevo o escribime a @juanhrr.mkt');
-      }
-    });
-  </script>
 </section>
 
 
-<!-- FOOTER -->
+
+<!-- ============ PARA QUIÉN ============ -->
+<section class="dark" id="paraquien">
+  <div class="wrap">
+    <div class="eyebrow">sin vueltas</div>
+    <h2>esto es para vos<br><em>si sos consultor.</em></h2>
+    <div class="fit-grid">
+      <div class="fit si reveal">
+        <h3><span class="dot"></span>sí es para vos</h3>
+        <ul>
+          <li>Consultor independiente con 1+ año en el mercado</li>
+          <li>Ingresos inconsistentes mes a mes</li>
+          <li>Tenés clientes pero no sabés cómo conseguir más</li>
+          <li>Querés escalar sin contratar un equipo grande</li>
+          <li>Estás dispuesto a trabajar el proceso</li>
+        </ul>
+      </div>
+      <div class="fit no reveal d1">
+        <h3><span class="dot"></span>no es para vos</h3>
+        <ul>
+          <li>Coaches de vida, mindset o bienestar personal</li>
+          <li>Infoproductores que venden cursos masivos</li>
+          <li>Agencias con equipo de ventas propio</li>
+          <li>Buscás resultados sin implementar el proceso</li>
+          <li>Recién empezás sin clientes anteriores → <a href="/taller/">btb kickoff es tu punto de entrada</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ JUAN ============ -->
+<section id="juan">
+  <div class="wrap bio">
+    <div>
+      <div class="eyebrow">quién lo construyó</div>
+      <h2>juan herrera.</h2>
+      <p><strong>18 años trabajando en marketing para empresas.</strong> Hace 2 años decidí aplicar todo eso a negocios de una sola persona.</p>
+      <p>Construí BTB porque vi algo que se repetía: los consultores más capaces eran los que menos clientes tenían. El problema nunca fue el conocimiento. <strong>Siempre fue el sistema.</strong></p>
+      <div class="stats">
+        <div class="stat reveal"><div class="n">18</div><div class="l">años en marketing</div></div>
+        <div class="stat reveal d1"><div class="n">1</div><div class="l">sistema probado</div></div>
+        <div class="stat reveal d2"><div class="n">3</div><div class="l">países · ar mx co</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="video-frame reveal">
+        <iframe src="https://www.loom.com/embed/d4d7ff8e5ca042b9a41431c3e61eac5b?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true" title="Juan Herrera — Be The Brand" loading="lazy" allowfullscreen></iframe>
+      </div>
+      <p class="ig-handle">en instagram → <a href="https://instagram.com/juanhrr.mkt">@juanhrr.mkt</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="dark" id="faq">
+  <div class="wrap">
+    <div class="eyebrow">antes de escribirme</div>
+    <h2>preguntas <em>frecuentes.</em></h2>
+    <div class="faq">
+      <details>
+        <summary><span class="n">01</span>¿cuánto cuesta?</summary>
+        <div class="a">Depende del programa y de tu punto de partida, por eso lo hablamos en una conversación corta por DM. Lo que sí te adelanto: cada programa tiene garantía concreta — si no avanza, no pagás o seguimos sin costo. El riesgo lo tomo yo.</div>
+      </details>
+      <details>
+        <summary><span class="n">02</span>¿necesito invertir en publicidad?</summary>
+        <div class="a">En Kickoff y Proceso BTB, no: el sistema arranca con contenido orgánico y captación por DM. En BTB Full sí trabajamos con Meta Ads, con presupuestos que definimos juntos según tu margen. Si querés un número antes de hablar, <a href="/calculadora/">usá la calculadora de ROI</a>.</div>
+      </details>
+      <details>
+        <summary><span class="n">03</span>ya publiqué contenido un montón de tiempo y no funcionó. ¿en qué es distinto esto?</summary>
+        <div class="a">Publicar no es un sistema. El contenido de BTB tiene un trabajo específico: filtrar y calificar a tu cliente ideal antes de que te escriba. Cada pieza conecta con un flujo de captación y un proceso de venta. No medimos likes, medimos conversaciones calificadas.</div>
+      </details>
+      <details>
+        <summary><span class="n">04</span>¿cuánto tiempo me lleva por semana?</summary>
+        <div class="a">En Proceso BTB, contá entre 3 y 5 horas semanales entre la sesión 1:1 y la implementación. En BTB Full la carga es mínima: nosotros producimos y ejecutamos, vos aparecés en las 2 sesiones mensuales de revisión y grabás el material que definimos juntos.</div>
+      </details>
+      <details>
+        <summary><span class="n">05</span>¿funciona para mi nicho?</summary>
+        <div class="a">Si sos consultor independiente y vendés servicios de conocimiento a empresas o profesionales, sí: el sistema se adapta a tu nicho, no al revés. Si trabajás en coaching de vida o vendés cursos masivos, no es para vos — y te lo voy a decir en la primera conversación.</div>
+      </details>
+      <details>
+        <summary><span class="n">06</span>¿qué pasa si no veo resultados?</summary>
+        <div class="a">Cada programa tiene su garantía escrita: en Kickoff, devolución total si no salís con 3 acciones concretas. En Proceso, devolución si no hay avance verificable en 4 semanas. En Full, seguimos trabajando sin costo hasta generar 3 conversaciones calificadas por semana. Sin letra chica.</div>
+      </details>
+      <details>
+        <summary><span class="n">07</span>¿qué pasa cuando termina el programa?</summary>
+        <div class="a">El sistema queda instalado en tu negocio y funcionando: tu contenido, tu flujo de captación, tu guión de venta — todo en tu workspace BTB. No alquilás un resultado, te llevás la máquina. La idea es que no me necesites para siempre.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="final">
+  <div class="eyebrow">último paso</div>
+  <h2>el próximo paso es<br>una conversación.</h2>
+  <p>Escribime por Instagram y te digo, sin vueltas, si BTB es para vos y cuál de los tres caminos aplica a tu situación.</p>
+  <a class="btn btn-dark btn-mag" href="https://ig.me/m/juanhrr.mkt">escribime ahora <span class="arrow">→</span></a>
+  <p class="keywords">INSTAGRAM · @JUANHRR.MKT · ESCRIBÍ <code>PROCESO</code> O <code>SISTEMA</code></p>
+</section>
+
 <footer>
-  <span>© 2026 Be The Brand · Juan Herrera</span>
-  <span>@juanhrr.mkt</span>
+  <a class="foot-big" href="https://ig.me/m/juanhrr.mkt" aria-label="Escribime por Instagram">be the brand.</a>
+  <div class="foot-row">
+    <div>© 2026 be the brand · juan herrera</div>
+    <div>
+      <a href="https://instagram.com/juanhrr.mkt">@juanhrr.mkt</a> ·
+      <a href="/calculadora/">calculadora de roi</a> ·
+      <a href="/taller/">btb kickoff</a>
+    </div>
+  </div>
 </footer>
 
-<!-- CTA fijo mobile -->
-<div class="sticky-cta"><a href="#formulario">agendá tu llamada →</a></div>
+<div class="sticky-cta">
+  <a class="btn btn-yellow" href="https://ig.me/m/juanhrr.mkt">escribime por dm →</a>
+</div>
+
+<script>
+/* reveal */
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* progress bar */
+const bar=document.getElementById('progress');
+addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+},{passive:true});
+
+/* magnetic buttons (solo desktop + sin reduced motion) */
+if(matchMedia('(hover:hover) and (prefers-reduced-motion:no-preference)').matches){
+  document.querySelectorAll('.btn-mag').forEach(b=>{
+    b.addEventListener('mousemove',e=>{
+      const r=b.getBoundingClientRect();
+      b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.18}px,${(e.clientY-r.top-r.height/2)*.35}px)`;
+    });
+    b.addEventListener('mouseleave',()=>{b.style.transform=''});
+  });
+}
+</script>
 
 </body>
 </html>

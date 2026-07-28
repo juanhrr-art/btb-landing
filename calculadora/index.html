@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora ROI — Be The Brand</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --dark: #1C1C1A;
+    --yellow: #F0C93A;
+    --gray: #6B6B68;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Figtree', sans-serif;
+    background: var(--dark);
+    color: var(--cream);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--dark);
+    border-bottom: 1px solid rgba(245,240,232,0.08);
+  }
+
+  .nav-logo {
+    font-weight: 900;
+    font-size: 14px;
+    letter-spacing: -0.02em;
+    color: var(--cream);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--yellow); }
+
+  .nav-back {
+    font-size: 13px;
+    font-weight: 900;
+    color: rgba(245,240,232,0.45);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .nav-back:hover { color: var(--cream); }
+
+  /* MAIN */
+  main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 40px 80px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .page-tag {
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards 0.1s;
+  }
+
+  h1 {
+    font-size: clamp(48px, 8vw, 80px);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    text-transform: lowercase;
+    margin-bottom: 16px;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards 0.2s;
+  }
+
+  h1 em {
+    font-style: normal;
+    color: var(--yellow);
+  }
+
+  .page-sub {
+    font-size: 15px;
+    font-weight: 900;
+    color: rgba(245,240,232,0.3);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 56px;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards 0.25s;
+  }
+
+  /* GRID */
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards 0.3s;
+  }
+
+  /* INPUTS */
+  .calc-inputs {
+    background: rgba(245,240,232,0.04);
+    padding: 40px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .input-group label {
+    display: block;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.35);
+    margin-bottom: 10px;
+  }
+
+  .input-wrap {
+    display: flex;
+    align-items: center;
+    background: rgba(245,240,232,0.06);
+    border: 1px solid rgba(245,240,232,0.12);
+    transition: border-color 0.2s;
+  }
+
+  .input-wrap:focus-within { border-color: var(--yellow); }
+
+  .input-prefix, .input-suffix {
+    font-size: 13px;
+    font-weight: 900;
+    color: rgba(245,240,232,0.3);
+    padding: 0 14px;
+    flex-shrink: 0;
+  }
+
+  .input-wrap input {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: 'Figtree', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    color: var(--cream);
+    padding: 16px 0;
+    width: 100%;
+  }
+
+  .input-wrap input[type=number]::-webkit-inner-spin-button,
+  .input-wrap input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; }
+
+  /* RESULTS */
+  .calc-results {
+    background: var(--yellow);
+    padding: 40px 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .result-main .result-label {
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(28,28,26,0.45);
+    margin-bottom: 8px;
+  }
+
+  .result-main .result-num {
+    font-size: clamp(56px, 7vw, 80px);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: var(--dark);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .result-main .result-desc {
+    font-size: 13px;
+    font-weight: 900;
+    color: rgba(28,28,26,0.5);
+  }
+
+  .result-secondary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .result-item {
+    background: rgba(28,28,26,0.07);
+    padding: 18px 16px;
+  }
+
+  .result-item-num {
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: var(--dark);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .result-item-label {
+    font-size: 11px;
+    font-weight: 900;
+    color: rgba(28,28,26,0.45);
+    line-height: 1.3;
+  }
+
+  /* FORMULA LINE */
+  .formula-line {
+    margin-top: 20px;
+    padding: 16px 20px;
+    background: rgba(245,240,232,0.04);
+    border-left: 2px solid var(--yellow);
+    font-size: 13px;
+    font-weight: 900;
+    color: rgba(245,240,232,0.35);
+    letter-spacing: 0.04em;
+    font-family: monospace;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards 0.4s;
+  }
+
+  .formula-line span { color: var(--yellow); }
+
+  /* CTA */
+  .calc-cta {
+    margin-top: 48px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards 0.5s;
+  }
+
+  .btn-primary {
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    color: var(--dark);
+    background: var(--yellow);
+    padding: 16px 32px;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+
+  .cta-note {
+    font-size: 13px;
+    font-weight: 900;
+    color: rgba(245,240,232,0.25);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    main { padding: 100px 20px 60px; }
+    .calc-grid { grid-template-columns: 1fr; }
+    .result-secondary { grid-template-columns: 1fr 1fr; }
+    .calc-inputs { padding: 32px 24px; }
+    .calc-results { padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class='nav-logo' href='/'>be the <span>brand</span></a>
+  <a class='nav-back' href='/'>← volver</a>
+</nav>
+
+<main>
+  <p class="page-tag">Be The Brand · Calculadora</p>
+  <h1>¿cuánto podés<br>pagar por un <em>lead?</em></h1>
+  <p class="page-sub">ticket × tasa de cierre = tu número</p>
+
+  <div class="calc-grid">
+    <div class="calc-inputs">
+      <div class="input-group">
+        <label>tu ticket promedio</label>
+        <div class="input-wrap">
+          <span class="input-prefix">USD</span>
+          <input type="number" id="ticket" value="1000" min="0">
+        </div>
+      </div>
+      <div class="input-group">
+        <label>tasa de cierre</label>
+        <div class="input-wrap">
+          <input type="number" id="tasa" value="20" min="0" max="100">
+          <span class="input-suffix">%</span>
+        </div>
+      </div>
+      <div class="input-group">
+        <label>presupuesto mensual en ads</label>
+        <div class="input-wrap">
+          <span class="input-prefix">USD</span>
+          <input type="number" id="presupuesto" value="500" min="0">
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-results">
+      <div class="result-main">
+        <div class="result-label">podés pagar hasta</div>
+        <div class="result-num" id="cpl-max">$200</div>
+        <div class="result-desc">por lead y seguir siendo rentable</div>
+      </div>
+      <div class="result-secondary">
+        <div class="result-item">
+          <div class="result-item-num" id="leads-mes">2</div>
+          <div class="result-item-label">leads/mes con ese presupuesto</div>
+        </div>
+        <div class="result-item">
+          <div class="result-item-num" id="ingresos">$400</div>
+          <div class="result-item-label">ingresos proyectados/mes</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="formula-line" id="formula-display">$1.000 × 20% = <span>$200 por lead</span></p>
+
+  <div class="calc-cta">
+    <a class='btn-primary' href='/kickoff#comprar'>quiero construir este sistema →</a>
+    <span class="cta-note">BTB Kickoff · USD 147</span>
+  </div>
+</main>
+
+<script>
+  function calcROI() {
+    const ticket = parseFloat(document.getElementById('ticket').value) || 0;
+    const tasa = parseFloat(document.getElementById('tasa').value) || 0;
+    const presupuesto = parseFloat(document.getElementById('presupuesto').value) || 0;
+
+    const cplMax = ticket * (tasa / 100);
+    const leadsMes = cplMax > 0 ? Math.floor(presupuesto / cplMax) : 0;
+    const ingresos = leadsMes * (tasa / 100) * ticket;
+
+    const fmt = n => '$' + n.toLocaleString('es-AR', { maximumFractionDigits: 0 });
+
+    document.getElementById('cpl-max').textContent = fmt(cplMax);
+    document.getElementById('leads-mes').textContent = leadsMes.toLocaleString('es-AR');
+    document.getElementById('ingresos').textContent = fmt(ingresos);
+    document.getElementById('formula-display').innerHTML =
+      fmt(ticket) + ' × ' + tasa + '% = <span>' + fmt(cplMax) + ' por lead</span>';
+  }
+
+  ['ticket', 'tasa', 'presupuesto'].forEach(id => {
+    document.getElementById(id).addEventListener('input', calcROI);
+  });
+
+  calcROI();
+</script>
+</body>
+</html>
