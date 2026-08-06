@@ -320,7 +320,8 @@
 <section class="section" id="registro" style="text-align:center">
   <p class="section-label">reservá tu lugar</p>
   <h2 style="text-transform:none;margin-bottom:12px">Reservá tu lugar en la mesa</h2>
-  <p style="font-size:14px;color:var(--yellow);font-weight:900;letter-spacing:0.02em;margin-bottom:40px">Es gratis, pero es una mesa de trabajo: máximo 25 lugares. Te mando el link de Zoom por WhatsApp.</p>
+  <p style="font-size:14px;color:var(--yellow);font-weight:900;letter-spacing:0.02em;margin-bottom:16px">Es gratis, pero es una mesa de trabajo: máximo 25 lugares. Te mando el link de Zoom por WhatsApp.</p>
+  <p style="font-size:14px;color:rgba(245,240,232,0.6);max-width:520px;margin:0 auto 36px;line-height:1.5">Es para consultores, coaches y profesionales que viven de su conocimiento y quieren un piso de clientes fijo cada mes. Si sos de otro palo, capaz no es para vos — y está perfecto.</p>
 
   <div class="form-wrap">
     <form id="taller-form" style="display:flex;flex-direction:column;gap:24px">
@@ -346,18 +347,6 @@
       </div>
 
       <div class="form-field">
-        <label for="facturacion">¿cuánto facturás por mes hoy? <span class="hint">— aproximado, en USD. Me ayuda a que el diagnóstico del taller te sirva de verdad.</span></label>
-        <select id="facturacion" name="facturacion" required>
-          <option value="">seleccioná</option>
-          <option value="recien_arranco">todavía no facturo / recién arranco</option>
-          <option value="menos_500">menos de 500</option>
-          <option value="500_2000">entre 500 y 2.000</option>
-          <option value="2000_5000">entre 2.000 y 5.000</option>
-          <option value="mas_5000">más de 5.000</option>
-        </select>
-      </div>
-
-      <div class="form-field">
         <label for="email">email</label>
         <input type="email" id="email" name="email" required placeholder="tu@email.com">
       </div>
@@ -365,11 +354,6 @@
       <div class="form-field">
         <label for="whatsapp">whatsapp</label>
         <input type="tel" id="whatsapp" name="whatsapp" required placeholder="+54 9 11 1234 5678">
-      </div>
-
-      <div class="form-field">
-        <label for="oferta">¿qué hacés y qué es lo que más te cuesta para conseguir clientes? <span class="hint">— en una o dos líneas. Con esto elijo los casos que trabajo en vivo.</span></label>
-        <textarea id="oferta" name="oferta" required placeholder="Ej: Soy… ayudo a… Lo que más me cuesta es…"></textarea>
       </div>
 
       <button type="submit" class="btn-primary" style="margin-top:8px;width:100%">reservar mi lugar →</button>
@@ -429,10 +413,10 @@
       const formData = {
         nombre: document.getElementById('nombre').value,
         rubro: document.getElementById('rubro').value,
-        facturacion: document.getElementById('facturacion').value,
+        facturacion: '',
         email: document.getElementById('email').value,
         whatsapp: document.getElementById('whatsapp').value,
-        oferta: document.getElementById('oferta').value,
+        oferta: '',
         event_id: eventId,
         fbp: getCookie('_fbp'),
         fbc: getCookie('_fbc'),
