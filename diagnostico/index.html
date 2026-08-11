@@ -124,6 +124,7 @@ src="https://www.facebook.com/tr?id=1514394006799758&ev=PageView&noscript=1"/></
       <p>Te mando el diagnóstico detallado de las 6 áreas + los 3 primeros movimientos para tu caso. Sin cargo.</p>
       <input id="lnombre" placeholder="Tu nombre">
       <input id="lcontacto" placeholder="Email o WhatsApp">
+      <input id="linstagram" placeholder="Tu Instagram (así miro tu caso)">
       <button onclick="enviarLead()">quiero mi reporte</button>
     </div>
     <div class="done" id="leadDone">✓ ¡Listo! Te llega tu reporte en breve.</div>
@@ -183,9 +184,9 @@ function result(){
 }
 const WEBHOOK='https://bethebrand.app.n8n.cloud/webhook/btb-diag-lead';
 function enviarLead(){
-  const nombre=$('lnombre').value.trim(), contacto=$('lcontacto').value.trim();
+  const nombre=$('lnombre').value.trim(), contacto=$('lcontacto').value.trim(), instagram=$('linstagram').value.trim();
   if(!nombre||!contacto){ alert('Completá tu nombre y un contacto para recibir el reporte.'); return; }
-  const lead={nombre,contacto,puntaje:$('scoreBig').textContent,area:$('weakTitle').textContent,respuestas:ans};
+  const lead={nombre,contacto,instagram,puntaje:$('scoreBig').textContent,area:$('weakTitle').textContent,respuestas:ans};
   fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(lead),keepalive:true}).catch(()=>{});
   const all=JSON.parse(localStorage.getItem('btb_leads')||'[]'); all.push({...lead,ts:new Date().toISOString()});
   localStorage.setItem('btb_leads',JSON.stringify(all));
@@ -193,7 +194,7 @@ function enviarLead(){
   $('leadBox').style.display='none'; $('leadDone').style.display='block';
 }
 function restart(){ step=0; ans=Array(QS.length).fill(null); $('result').classList.remove('show');
-  $('leadBox').style.display='block'; $('leadDone').style.display='none'; $('lnombre').value=''; $('lcontacto').value='';
+  $('leadBox').style.display='block'; $('leadDone').style.display='none'; $('lnombre').value=''; $('lcontacto').value=''; $('linstagram').value='';
   $('intro').style.display='block'; }
 </script>
 </body>
