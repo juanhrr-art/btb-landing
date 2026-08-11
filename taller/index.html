@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mesa de trabajo en vivo — El problema que no estás viendo · Be The Brand</title>
-<meta name="description" content="Una mesa de trabajo en vivo (máximo 35) para consultores estancados. Hay algo frenando tu negocio que desde adentro no ves. En la sala te lo nombramos, con tu caso real. Miércoles 19 de agosto, 19:00 AR, por Zoom.">
+<meta name="description" content="Cupo completo. Mesa de trabajo en vivo para consultores estancados — los 35 lugares ya están tomados. Sumate a la lista de espera: si se libera un lugar te avisamos, y si no, entrás primero a la próxima. Miércoles 19 de agosto, 19:00 AR, por Zoom.">
 <meta property="og:title" content="Hay algo frenándote que no estás viendo — mesa de trabajo en vivo">
-<meta property="og:description" content="Estás tan adentro de tu negocio que el problema se te vuelve invisible. 90 minutos de trabajo real, tu caso diagnosticado en vivo, cupo de 35. Miércoles 19/8, 19:00 AR.">
+<meta property="og:description" content="Cupo completo — los 35 lugares ya están tomados. Sumate a la lista de espera del taller. 90 minutos de trabajo real, tu caso diagnosticado en vivo. Miércoles 19/8, 19:00 AR.">
 <meta property="og:image" content="https://bethebrand.lat/taller/og.jpg?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -209,13 +209,13 @@
 
 <nav>
   <a href="https://bethebrand.lat/" class="nav-logo">be the <span>brand</span></a>
-  <a href="#registro" class="nav-cta">registrarme</a>
+  <a href="#registro" class="nav-cta">lista de espera</a>
 </nav>
 
 <!-- HERO -->
 <section>
   <div class="hero">
-    <p class="hero-tag">Mesa de trabajo en vivo · máximo 35 · por Zoom</p>
+    <p class="hero-tag">Cupo completo (35/35) · lista de espera abierta</p>
     <h1>hay algo <em>frenándote</em> que no ves.</h1>
     <p class="hero-body">
       Llega un punto en que por más que empujás, el negocio no se mueve. No es por falta de esfuerzo — es que hay algo puntual frenándote que, de tan adentro que estás, no llegás a ver.<br>
@@ -226,13 +226,13 @@
       <div class="meta-chip"><div class="k">Cuándo</div><div class="v">mié <span>19 ago</span></div></div>
       <div class="meta-chip"><div class="k">Hora</div><div class="v">19:00 <span>AR</span></div></div>
       <div class="meta-chip"><div class="k">Formato</div><div class="v">Zoom · 90 min</div></div>
-      <div class="meta-chip"><div class="k">Cupo</div><div class="v">máximo <span>35</span></div></div>
+      <div class="meta-chip"><div class="k">Cupo</div><div class="v"><span>completo</span></div></div>
     </div>
 
     <div class="hero-actions">
-      <a href="#registro" class="btn-primary">reservar mi lugar →</a>
+      <a href="#registro" class="btn-primary">sumarme a la lista de espera →</a>
     </div>
-    <p class="hero-free">Sin cargo · es una mesa de trabajo, no un webinar: máximo 35 lugares · quedás con la grabación</p>
+    <p class="hero-free">Los 35 lugares ya están tomados. Dejá tus datos en la lista de espera: si se libera un lugar te aviso, y si no, entrás primero a la próxima.</p>
   </div>
 </section>
 
@@ -321,9 +321,9 @@
 
 <!-- REGISTRO -->
 <section class="section" id="registro" style="text-align:center">
-  <p class="section-label">reservá tu lugar</p>
-  <h2 style="text-transform:none;margin-bottom:12px">Reservá tu lugar en la mesa</h2>
-  <p style="font-size:14px;color:var(--yellow);font-weight:900;letter-spacing:0.02em;margin-bottom:16px">Es gratis, pero es una mesa de trabajo: máximo 35 lugares. Te mando el link de Zoom por WhatsApp.</p>
+  <p class="section-label">lista de espera</p>
+  <h2 style="text-transform:none;margin-bottom:12px">Se llenó. Sumate a la lista de espera</h2>
+  <p style="font-size:14px;color:var(--yellow);font-weight:900;letter-spacing:0.02em;margin-bottom:16px">Los 35 lugares ya están tomados. Si se libera uno te aviso primero a vos, y si no, entrás con prioridad a la próxima mesa.</p>
   <p style="font-size:14px;color:rgba(245,240,232,0.6);max-width:520px;margin:0 auto 36px;line-height:1.5">Es para consultores, coaches y profesionales que viven de su conocimiento y quieren un piso de clientes fijo cada mes. Si sos de otro palo, capaz no es para vos — y está perfecto.</p>
 
   <div class="form-wrap">
@@ -364,17 +364,17 @@
         <input type="text" id="instagram" name="instagram" required placeholder="@tucuenta">
       </div>
 
-      <button type="submit" class="btn-primary" style="margin-top:8px;width:100%">reservar mi lugar →</button>
+      <button type="submit" class="btn-primary" style="margin-top:8px;width:100%">sumarme a la lista de espera →</button>
 
       <p style="font-size:12px;color:rgba(245,240,232,0.4);text-align:center;margin-top:4px">
-        Miércoles 19 de agosto, 19:00 AR, por Zoom. Te llega el link a tu WhatsApp.
+        Taller: miércoles 19 de agosto, 19:00 AR. Si se libera un lugar te aviso por WhatsApp.
       </p>
     </form>
   </div>
 
   <script>
-    // Webhook n8n — workflow "BTB — Taller Registro" (Cloud/Railway) debe estar IMPORTADO y ACTIVO.
-    const N8N_WEBHOOK_URL = 'https://bethebrand.app.n8n.cloud/webhook/taller-registro';
+    // Webhook n8n — workflow "BTB — Taller Lista de Espera" (cupo completo). NO entra al nurture/recordatorios.
+    const N8N_WEBHOOK_URL = 'https://bethebrand.app.n8n.cloud/webhook/taller-lista-espera';
 
     // --- Captura de parámetros de atribución para el CAPI (dedup por event_id) ---
     function getCookie(name){
@@ -453,7 +453,7 @@
         // Evento Meta del navegador. Mismo event_id que el CAPI del servidor → Meta deduplica.
         if (window.fbq) {
           fbq('track', 'Lead', {
-            content_name: 'Mesa de trabajo — el problema que no ves',
+            content_name: 'Taller — lista de espera',
             content_category: formData.rubro
           }, { eventID: eventId });
         }
@@ -462,15 +462,14 @@
         form.innerHTML =
           '<div style="text-align:center;padding:16px 0">' +
             '<div style="font-size:44px;margin-bottom:16px">✓</div>' +
-            '<p style="font-size:20px;font-weight:900;color:var(--cream);margin-bottom:10px">¡Estás anotado!</p>' +
-            '<p style="font-size:15px;color:rgba(245,240,232,0.6);line-height:1.6;margin-bottom:24px">Te mandamos el link de Zoom a tu WhatsApp. Guardá la fecha:<br><strong style="color:var(--cream)">miércoles 19 de agosto, 19:00 AR.</strong></p>' +
-            '<a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mesa+de+trabajo+BTB+%E2%80%94+Be+The+Brand&dates=20260819T220000Z/20260819T233000Z&details=Taller+en+vivo+de+Be+The+Brand.+El+link+de+Zoom+te+llega+por+mail+y+WhatsApp." target="_blank" rel="noopener" style="display:inline-block;font-size:13px;font-weight:900;color:var(--yellow);text-decoration:none;border:1px solid rgba(240,201,58,0.4);padding:12px 22px">+ agendar en Google Calendar</a>' +
+            '<p style="font-size:20px;font-weight:900;color:var(--cream);margin-bottom:10px">Quedaste en la lista de espera.</p>' +
+            '<p style="font-size:15px;color:rgba(245,240,232,0.6);line-height:1.6;margin-bottom:24px">Si se libera un lugar para el <strong style="color:var(--cream)">miércoles 19</strong> te aviso por WhatsApp. Y si no llegás a entrar esta vez, tenés prioridad en la próxima mesa de trabajo.</p>' +
           '</div>';
       } catch (err) {
         console.error(err);
         btn.disabled = false;
         btn.textContent = originalLabel;
-        alert('Hubo un problema al reservar. Probá de nuevo o escribime a @juanhrr.mkt');
+        alert('Hubo un problema al sumarte a la lista. Probá de nuevo o escribime a @juanhrr.mkt');
       }
     });
   </script>
@@ -483,7 +482,7 @@
 </footer>
 
 <!-- CTA fijo mobile -->
-<div class="sticky-cta"><a href="#registro">reservar mi lugar →</a></div>
+<div class="sticky-cta"><a href="#registro">lista de espera →</a></div>
 
 </body>
 </html>
