@@ -127,7 +127,14 @@ src="https://www.facebook.com/tr?id=1514394006799758&ev=PageView&noscript=1"/></
       <input id="linstagram" placeholder="Tu Instagram (así miro tu caso)">
       <button onclick="enviarLead()">quiero mi reporte</button>
     </div>
-    <div class="done" id="leadDone">✓ ¡Listo! Te llega tu reporte en breve.</div>
+    <div class="done" id="leadDone">
+      <p style="color:var(--yl);font-weight:800;margin-bottom:18px">✓ ¡Listo! Te llega tu reporte por WhatsApp.</p>
+      <div style="border:1px solid rgba(245,206,94,.3);border-radius:16px;padding:22px;background:rgba(245,206,94,.05);text-align:left">
+        <h3 style="margin-bottom:8px">¿Querés que miremos tu caso juntos?</h3>
+        <p style="margin-bottom:18px;color:var(--muted)">Una llamada de diagnóstico de 45 minutos, sin costo. Miramos tu <b id="callArea">área</b> a fondo y salís con un primer plan concreto.</p>
+        <a id="callBtn" href="#" target="_blank" onclick="clickLlamada()" style="display:inline-block;background:var(--yl);color:#141210;font-weight:900;font-size:17px;padding:16px 32px;border-radius:12px;text-decoration:none">Quiero la llamada →</a>
+      </div>
+    </div>
     <span class="again" onclick="restart()">↺ hacer el diagnóstico de nuevo</span>
   </div>
 
@@ -183,16 +190,23 @@ function result(){
   setTimeout(()=>{ $('gFill').style.width=pct+'%'; },200);
 }
 const WEBHOOK='https://bethebrand.app.n8n.cloud/webhook/btb-diag-lead';
+const WA='5491168086631';
+function uid(){ try{return crypto.randomUUID();}catch(e){return 'l'+Date.now()+Math.random().toString(36).slice(2);} }
 function enviarLead(){
   const nombre=$('lnombre').value.trim(), contacto=$('lcontacto').value.trim(), instagram=$('linstagram').value.trim();
   if(!nombre||!contacto){ alert('Completá tu nombre y un contacto para recibir el reporte.'); return; }
-  const lead={nombre,contacto,instagram,puntaje:$('scoreBig').textContent,area:$('weakTitle').textContent,respuestas:ans};
+  const area=$('weakTitle').textContent, eid=uid();
+  const lead={nombre,contacto,instagram,puntaje:$('scoreBig').textContent,area,respuestas:ans,event_id:eid};
   fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(lead),keepalive:true}).catch(()=>{});
   const all=JSON.parse(localStorage.getItem('btb_leads')||'[]'); all.push({...lead,ts:new Date().toISOString()});
   localStorage.setItem('btb_leads',JSON.stringify(all));
-  window.fbq && fbq('track','Lead',{content_name:'Diagnostico sistema de clientes'});
+  window.fbq && fbq('track','Lead',{content_name:'Diagnostico sistema de clientes'},{eventID:eid});
+  $('callArea').textContent=area;
+  const txt=encodeURIComponent(`Hola Juan! Hice el diagnóstico, mi área más floja es ${area}. Quiero la llamada de diagnóstico.`);
+  $('callBtn').href=`https://wa.me/${WA}?text=${txt}`;
   $('leadBox').style.display='none'; $('leadDone').style.display='block';
 }
+function clickLlamada(){ window.fbq && fbq('track','Schedule',{content_name:'Llamada diagnostico'}); }
 function restart(){ step=0; ans=Array(QS.length).fill(null); $('result').classList.remove('show');
   $('leadBox').style.display='block'; $('leadDone').style.display='none'; $('lnombre').value=''; $('lcontacto').value=''; $('linstagram').value='';
   $('intro').style.display='block'; }
