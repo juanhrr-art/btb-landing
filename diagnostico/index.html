@@ -267,7 +267,7 @@ function result(){
     $('scoreBig').textContent=Math.round(pct*e)+'%'; if(p<1)requestAnimationFrame(anim);})(t0);
   setTimeout(()=>{ $('gFill').style.width=pct+'%'; },200);
 }
-const WEBHOOK='https://bethebrand.app.n8n.cloud/webhook/btb-diag-lead';
+const WEBHOOK='https://n8n-production-7217c.up.railway.app/webhook/btb-diag-lead';
 const WA='5491168086631';
 function uid(){ try{return crypto.randomUUID();}catch(e){return 'l'+Date.now()+Math.random().toString(36).slice(2);} }
 function cookie(n){ const m=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)'); return m?m.pop():''; }
