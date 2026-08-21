@@ -178,7 +178,7 @@ src="https://www.facebook.com/tr?id=1514394006799758&ev=PageView&noscript=1"/></
       <h3>Te mando el plan por WhatsApp</h3>
       <p>El reporte de tus 6 áreas + los 3 primeros movimientos, en orden, para esta semana.</p>
       <input id="lnombre" placeholder="Tu nombre">
-      <input id="lcontacto" placeholder="Tu WhatsApp">
+      <input id="lcontacto" inputmode="tel" placeholder="Tu WhatsApp (área + número, ej: 11 2345 6789)">
       <input id="linstagram" placeholder="Tu Instagram (así miro tu caso)">
       <button onclick="enviarLead()">mandame el plan</button>
     </div>
@@ -271,9 +271,21 @@ const WEBHOOK='https://n8n-production-7217c.up.railway.app/webhook/btb-diag-lead
 const WA='5491168086631';
 function uid(){ try{return crypto.randomUUID();}catch(e){return 'l'+Date.now()+Math.random().toString(36).slice(2);} }
 function cookie(n){ const m=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)'); return m?m.pop():''; }
+function normPhone(raw){
+  let d=(raw||'').replace(/\D/g,'');
+  let ar=d;
+  if(ar.startsWith('549')) ar=ar.slice(3); else if(ar.startsWith('54')) ar=ar.slice(2);
+  if(ar.startsWith('0')) ar=ar.slice(1);
+  ar=ar.replace(/^(\d{2,4})15(\d{6,8})$/,'$1$2');
+  if(ar.length===10) return '549'+ar;      // AR: área + número → normalizado
+  if(d.length>=11 && d.length<=14) return d; // internacional con código de país
+  return null;
+}
 function enviarLead(){
-  const nombre=$('lnombre').value.trim(), contacto=$('lcontacto').value.trim(), instagram=$('linstagram').value.trim();
-  if(!nombre||!contacto){ alert('Completá tu nombre y tu WhatsApp para recibir el plan.'); return; }
+  const nombre=$('lnombre').value.trim(), instagram=$('linstagram').value.trim();
+  if(!nombre){ alert('Completá tu nombre para recibir el plan.'); return; }
+  const contacto=normPhone($('lcontacto').value.trim());
+  if(!contacto){ alert('Revisá tu WhatsApp: poné el código de área + el número, sin el 0 ni el 15 (ej: 11 2345 6789).'); return; }
   const wi=QS.map((_,i)=>i).sort((a,b)=> ans[a]-ans[b] || a-b)[0];
   const eid=uid();
   const momTxt=momento!=null?MOMENTO.opts[momento]:'';
