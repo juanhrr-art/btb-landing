@@ -167,7 +167,7 @@ src="https://www.facebook.com/tr?id=1514394006799758&ev=PageView&noscript=1"/></
     <!-- CTA primario: la llamada -->
     <div class="callbox">
       <div class="who"><img src="juan.jpg" alt="Juan Herrera"><div><div class="nm">Juan Herrera</div><div class="rl">Trabajo 1:1 con consultores y marcas personales armando exactamente estas 6 áreas.</div></div></div>
-      <h3>Llamada de diagnóstico — 45 min, sin costo</h3>
+      <h3>Llamada de diagnóstico — 30 min, sin costo</h3>
       <p>El quiz te dice dónde está el agujero. En la llamada lo abrimos: miramos tu caso, vamos a fondo en <b id="callArea">tu área</b> y salís con un plan concreto para los próximos 30 días. Te lo llevás igual, trabajes conmigo o no. Y si tiene sentido, te cuento cómo trabajo en el Proceso; si no, quedamos ahí.</p>
       <a id="callBtn" href="#" target="_blank" onclick="clickLlamada()" class="callbtn">quiero la llamada →</a>
     </div>
@@ -256,10 +256,9 @@ function result(){
   $('weakMov').textContent=QS[wi].mov;
   // orden de trabajo (las 3 más flojas)
   $('orderRoute').innerHTML=idx.slice(0,3).map((i,n)=>`${n+1}) ${QS[i].area}`).join(' &nbsp;→&nbsp; ');
-  // CTA a la llamada (autocompletado con el área)
+  // CTA a la llamada → Calendly (30 min), con el área como UTM para atribución
   $('callArea').textContent=QS[wi].area;
-  const txt=encodeURIComponent(`Hola Juan! Hice el diagnóstico, mi área más floja es ${QS[wi].area}. Quiero la llamada de diagnóstico.`);
-  $('callBtn').href=`https://wa.me/${WA}?text=${txt}`;
+  $('callBtn').href=`https://calendly.com/juanhrr/sesion-de-entendimiento?utm_source=diagnostico&utm_content=${encodeURIComponent(QS[wi].area)}`;
   $('quiz').style.display='none'; $('result').classList.add('show');
   window.scrollTo({top:0,behavior:'smooth'});
   const t0=performance.now();
