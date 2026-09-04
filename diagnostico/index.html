@@ -267,7 +267,10 @@ function result(){
     $('scoreBig').textContent=Math.round(pct*e)+'%'; if(p<1)requestAnimationFrame(anim);})(t0);
   setTimeout(()=>{ $('gFill').style.width=pct+'%'; },200);
 }
-const WEBHOOK='https://n8n-production-7217c.up.railway.app/webhook/btb-diag-lead';
+// Captura propia (Vercel): guarda la fila y dispara el evento de Meta sin
+// depender de n8n. Antes esto era un fetch a n8n con .catch() vacio, asi que
+// cuando n8n se caia el lead se perdia en silencio y el visitante veia 'listo'.
+const WEBHOOK='https://btb-capture.vercel.app/api/diagnostico';
 const WA='5491168086631';
 function uid(){ try{return crypto.randomUUID();}catch(e){return 'l'+Date.now()+Math.random().toString(36).slice(2);} }
 function cookie(n){ const m=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)'); return m?m.pop():''; }
