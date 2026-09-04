@@ -375,7 +375,10 @@
 
   <script>
     // Webhook n8n (self-host) — workflow "BTB — Taller Registro" -> Sheet + CAPI Lead.
-    const N8N_WEBHOOK_URL = 'https://n8n-production-7217c.up.railway.app/webhook/taller-registro';
+    // Captura propia (Vercel). Guarda la fila y dispara el evento de Meta sin
+    // depender de n8n, que ademas avisa a Juan y manda la bienvenida cuando esta
+    // arriba. El 4/9/2026 n8n estuvo caido y se perdieron registros durante horas.
+    const N8N_WEBHOOK_URL = 'https://btb-capture.vercel.app/api/registro';
 
     // --- Captura de parámetros de atribución para el CAPI (dedup por event_id) ---
     function getCookie(name){
