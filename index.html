@@ -415,6 +415,38 @@ body{background:var(--dark);color:var(--cream)}
 th,td{border-bottom-color:var(--line-light)}
 mark{color:var(--dark)}
 .video-frame{border-color:var(--dark-3)}
+/* ---------- sobrio (21/9): el amarillo pasa a acento, sin rotaciones, sin sombras desplazadas, sin grano ---------- */
+body::after{display:none}
+.hero{background:var(--dark)}
+em::after{height:.12em;bottom:.02em;transform:none;left:0;right:0;opacity:.9}
+.hero h1 em::after{transform:scaleX(0);animation:draw .7s var(--ease) 1s forwards}
+@keyframes draw{to{transform:scaleX(1)}}
+.hero-photo,.hero-reel{transform:none;box-shadow:none;border:1px solid var(--line-light);border-radius:18px;max-width:340px;background:#000}
+.hero-reel video{display:block;width:100%;height:auto;aspect-ratio:9/16;object-fit:cover}
+.reel-sound{position:absolute;right:12px;bottom:12px;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;
+  background:rgba(30,30,30,.72);color:var(--cream);border:1px solid var(--line-light);border-radius:999px;padding:8px 12px;cursor:pointer}
+.reel-sound[aria-pressed="true"]{background:var(--cream);color:var(--dark)}
+@media(max-width:880px){.hero-photo,.hero-reel{max-width:260px;box-shadow:none;justify-self:center}}
+.ticker{transform:none;background:var(--dark-2);color:var(--paper-soft);border-top:1px solid var(--line-light);border-bottom:1px solid var(--line-light);padding:14px 0}
+.ticker span{font-weight:600;font-size:.95rem}
+.ticker span::after{content:"·";color:var(--yellow);font-size:1.2rem}
+.btn-yellow{box-shadow:none}
+.btn:hover{transform:none}
+.panel.alt{background:var(--dark-2);border:1px solid var(--line-light);color:var(--cream)}
+.panel.alt p{color:var(--paper-soft)}
+.panel.alt h3{color:var(--cream)}
+.panel.alt .num{background:var(--dark-3);color:var(--yellow)}
+.sistema-claim mark{background:transparent;color:var(--yellow);padding:0;border-radius:0}
+.browser{box-shadow:none;transform:none;border:1px solid var(--line-light)}
+.offer.featured,.offer.featured:hover{transform:none;box-shadow:none}
+.offer:hover{transform:none}
+.video-frame{transform:none;box-shadow:none;border:1px solid var(--line-light)}
+.final{background:#151513;color:var(--cream)}
+.final .eyebrow::before{background:var(--yellow)}
+.final p{color:var(--paper-soft)}
+.final .btn-dark{background:var(--yellow);color:var(--dark)}
+.final .keywords code{background:var(--dark-2);color:var(--yellow)}
+.foot-big{opacity:.35;font-size:clamp(3rem,10vw,7rem)}
 </style>
 
 <!-- Meta Pixel Code -->
@@ -466,7 +498,10 @@ mark{color:var(--dark)}
     </div>
     <p class="hero-note">¿no sabés cuánto invertir en anuncios? <a href="/calculadora/">usá la calculadora de roi gratuita →</a></p>
    </div>
-   <div class="hero-photo"><img src="/img/juan-hero.jpg" alt="Juan Herrera, fundador de Be the Brand" width="960" height="1200" fetchpriority="high"></div>
+   <div class="hero-photo hero-reel">
+     <video id="heroReel" src="/img/reel-hero.mp4" poster="/img/reel-hero.jpg" autoplay muted loop playsinline preload="metadata" width="720" height="1280" aria-label="Juan Herrera, fundador de Be the Brand"></video>
+     <button type="button" class="reel-sound" id="reelSound" aria-pressed="false">activar sonido</button>
+   </div>
   </div>
   <div class="scroll-hint">scroll</div>
 </section>
@@ -804,5 +839,10 @@ if(matchMedia('(hover:hover) and (prefers-reduced-motion:no-preference)').matche
 }
 </script>
 
+<script>
+(function(){var v=document.getElementById('heroReel'),b=document.getElementById('reelSound');if(!v||!b)return;
+b.addEventListener('click',function(){v.muted=!v.muted;b.setAttribute('aria-pressed',String(!v.muted));b.textContent=v.muted?'activar sonido':'silenciar';if(!v.muted)v.play();});
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause();}})();
+</script>
 </body>
 </html>
