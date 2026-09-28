@@ -493,9 +493,23 @@
         <select id="clientes" name="clientes" required>
           <option value="">seleccioná</option>
           <option value="ninguno">ninguno todavía</option>
-          <option value="1-3">entre 1 y 3</option>
+          <option value="1">uno</option>
+          <option value="2-3">entre 2 y 3</option>
           <option value="4-10">entre 4 y 10</option>
           <option value="10+">más de 10</option>
+        </select>
+      </div>
+
+      <div class="form-field">
+        <label for="ticket">¿cuánto te paga un cliente por un trabajo o proceso típico?</label>
+        <span class="hint">en dólares, aproximado. Me sirve para elegir los casos de la mesa.</span>
+        <select id="ticket" name="ticket" required>
+          <option value="">seleccioná</option>
+          <option value="menos_300">menos de USD 300</option>
+          <option value="300_1000">entre USD 300 y 1.000</option>
+          <option value="mas_1000">más de USD 1.000</option>
+          <option value="productos">vendo productos, no servicios</option>
+          <option value="sin_clientes">todavía no tengo clientes</option>
         </select>
       </div>
 
@@ -565,6 +579,17 @@
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
 
+      // Filtro de avatar (28/9): la mesa es para quien vende servicios y ya tiene al menos 2 clientes.
+      // Si vende productos o todavía no tiene clientes, no se registra ni dispara el pixel.
+      var tk = (document.getElementById('ticket') || {}).value, cl = document.getElementById('clientes').value;
+      if (tk === 'productos' || tk === 'sin_clientes' || cl === 'ninguno' || cl === '1') {
+        var nom = (document.getElementById('nombre').value || '').trim().split(' ')[0];
+        form.parentNode.innerHTML = '<div style="padding:8px 4px"><p style="font-weight:900;font-size:22px;line-height:1.25;margin-bottom:14px">Gracias' + (nom ? ', ' + nom.replace(/[<>&"]/g, '') : '') + '. Esta mesa no es para vos, y prefiero decírtelo ahora.</p>'
+          + '<p style="margin-bottom:12px">La mesa es para profesionales que venden servicios y ya tienen por lo menos dos clientes, porque trabajamos sobre casos reales, con clientes reales. Si vendés productos o todavía estás arrancando, te va a quedar lejos y no quiero que pierdas un lunes a la noche.</p>'
+          + '<p>Mientras tanto, en mi Instagram comparto cosas que sí te pueden servir ahora: <a href="https://instagram.com/juanhrr.mkt" target="_blank" rel="noopener" style="color:var(--yellow)">@juanhrr.mkt</a></p></div>';
+        return;
+      }
+
       const eventId = uuid();
       const attr = getAttribution();
       const formData = {
@@ -576,6 +601,7 @@
         pais: document.getElementById('pais').value,
         instagram: document.getElementById('instagram').value,
         clientes: document.getElementById('clientes').value,
+        ticket: document.getElementById('ticket').value,
         oferta: document.getElementById('oferta').value,
         event_id: eventId,
         fbp: getCookie('_fbp'),
