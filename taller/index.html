@@ -250,7 +250,7 @@
 
 <nav>
   <a href="https://bethebrand.lat/" class="nav-logo">● be the <span>brand</span></a>
-  <a href="#registro" class="nav-cta">reservar lugar</a>
+  <a href="#registro" class="nav-cta">anotarme</a>
 </nav>
 
 <!-- HERO -->
@@ -267,7 +267,7 @@
       Resuelvo tal problema, para tales personas, en tal tiempo. Si no te sale de corrido, ahí está lo que te frena, y se nota en cómo te llegan los clientes.
       <strong>El lunes 5 la escribimos en vivo, sobre casos reales, y te llevás la tuya terminada.</strong>
     </p>
-    <p class="hero-for">Para consultores y profesionales independientes de LATAM que ya tienen clientes.</p>
+    <p class="hero-for">Para consultores y profesionales independientes de LATAM que ya tienen clientes. Si la mesa no es para vos, te lo digo antes de que te anotes.</p>
 
     <div class="when">
       <div>
@@ -290,8 +290,8 @@
       </div>
     </div>
 
-    <a href="#registro" class="btn btn-block">quiero mi lugar en la mesa →</a>
-    <p class="btn-note">Dejás tus datos y ese mismo día te llega el link de Zoom por WhatsApp. Entrar es gratis. Lo que tiene límite es la mesa: son cinco casos, y salen de lo que escribís al anotarte.</p>
+    <a href="#registro" class="btn btn-block">ver si la mesa es para mí →</a>
+    <p class="btn-note">Te pregunto por tus clientes y en el momento te digo si la mesa es para vos. Si entrás, ese mismo día te llega el link de Zoom por WhatsApp. Es gratis.</p>
 
     <div class="hero-who">
       <div class="pic"><img src="reel1.jpg" alt="Juan Herrera"></div>
@@ -392,7 +392,7 @@
   <div class="wrap">
     <p class="label">Los cinco casos</p>
     <h2>Salen de lo que escribís al anotarte.</h2>
-    <p class="lead">Entrar a la sala es gratis. Lo que tiene límite es la mesa: hablan cinco, y los elijo el sábado 3 de octubre entre las oraciones que la gente deja en el formulario. Por eso conviene anotarse ahora y escribir tu oración como te sale hoy, sin corregirla: cuanto más se parece a lo que decís cuando te preguntan qué hacés, más chances tiene de ir a la mesa.</p>
+    <p class="lead">Entrar a la sala es gratis. En la mesa hablan cinco, y los elijo el sábado 3 de octubre entre las oraciones que la gente deja en el formulario. Escribí la tuya como te sale hoy, sin corregirla: cuanto más se parece a lo que decís cuando te preguntan qué hacés, más nos sirve para trabajarla.</p>
     <p class="lead" style="margin-top:16px"><strong>Si no te toca, trabajás igual sobre la tuya por el chat, y el martes te llega lo mismo que a los cinco.</strong></p>
     <p style="margin-top:28px"><a href="#registro" class="btn">dejar mi oración para la mesa →</a></p>
   </div>
@@ -429,18 +429,18 @@
 <!-- PARA QUIÉN -->
 <section class="block">
   <div class="wrap narrow">
-    <p class="label">Para quién es</p>
-    <p class="lead">Es para consultores, coaches y profesionales que viven de su conocimiento, ya tienen clientes, y hoy les llegan casi todos por recomendación. Si todavía no tenés ninguno, o vendés un producto, la mesa te va a quedar lejos, y prefiero decírtelo antes de que pierdas un lunes a la noche.</p>
+    <p class="label">Para quién es la mesa</p>
+    <p class="lead">Trabajamos sobre casos reales, con clientes reales, así que la mesa es para vos si vendés un servicio, hoy tenés por lo menos dos clientes que te pagan, tu servicio factura USD 500 o más por mes y casi todos tus clientes te llegaron por recomendación. Si todavía estás arrancando o vendés productos, el formulario te lo dice cuando lo mandás y no te anota. Prefiero eso a que pierdas un lunes a la noche en algo que todavía no te sirve.</p>
   </div>
 </section>
 
 <!-- REGISTRO -->
 <section class="block" id="registro">
   <div class="wrap narrow">
-    <p class="label">Reservá tu lugar</p>
-    <h2>Tu lugar en la mesa.</h2>
+    <p class="label">Anotarte</p>
+    <h2>¿La mesa es para vos?</h2>
     <p class="lead" style="margin-bottom:8px"><strong>Lunes 5 de octubre, 20:00 AR</strong> · 17:00 MX y CR · 18:00 CO y PA. En vivo, por Zoom, gratis.</p>
-    <p class="lead" style="margin-bottom:28px">Dos minutos para anotarte. El campo de la oración es el que más importa: de ahí salen los cinco casos.</p>
+    <p class="lead" style="margin-bottom:28px">Dos minutos. Con lo que me contás de tus clientes te digo en el momento si la mesa es para vos. Si entrás, la oración es lo que más importa: de ahí salen los cinco casos.</p>
 
   <div class="form-wrap">
     <form id="taller-form" style="display:flex;flex-direction:column;gap:22px">
@@ -458,6 +458,7 @@
           <option value="coach">coach / mentor</option>
           <option value="disenio">diseño / arquitectura</option>
           <option value="salud">salud / bienestar</option>
+          <option value="terapias">terapias holísticas o espirituales</option>
           <option value="servicios">servicios profesionales</option>
           <option value="agencia">agencia pequeña</option>
           <option value="freelancer">freelancer</option>
@@ -501,15 +502,16 @@
       </div>
 
       <div class="form-field">
-        <label for="ticket">¿cuánto te paga un cliente por un trabajo o proceso típico?</label>
-        <span class="hint">en dólares, aproximado. Me sirve para elegir los casos de la mesa.</span>
+        <label for="ticket">¿cuánto factura tu servicio por mes, en promedio?</label>
+        <span class="hint">en dólares o su equivalente, aproximado.</span>
         <select id="ticket" name="ticket" required>
           <option value="">seleccioná</option>
-          <option value="menos_300">menos de USD 300</option>
-          <option value="300_1000">entre USD 300 y 1.000</option>
-          <option value="mas_1000">más de USD 1.000</option>
+          <option value="sin_facturar">todavía no facturo con esto</option>
+          <option value="menos_500">menos de USD 500</option>
+          <option value="500_1500">entre USD 500 y 1.500</option>
+          <option value="1500_4000">entre USD 1.500 y 4.000</option>
+          <option value="mas_4000">más de USD 4.000</option>
           <option value="productos">vendo productos, no servicios</option>
-          <option value="sin_clientes">todavía no tengo clientes</option>
         </select>
       </div>
 
@@ -524,7 +526,7 @@
         <input type="text" id="instagram" name="instagram" required placeholder="@tucuenta">
       </div>
 
-      <button type="submit" class="btn btn-primary btn-block" style="margin-top:6px">reservar mi lugar →</button>
+      <button type="submit" class="btn btn-primary btn-block" style="margin-top:6px">anotarme →</button>
 
       <p style="font-size:12px;color:var(--gray);text-align:center;margin-top:2px;line-height:1.5">
         Taller: lunes 5 de octubre, 20:00 AR · 17:00 MX y CR · 18:00 CO y PA, por Zoom. El link te llega por WhatsApp ese día.
@@ -579,13 +581,15 @@
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
 
-      // Filtro de avatar (28/9): la mesa es para quien vende servicios y ya tiene al menos 2 clientes.
+      // Filtro de avatar (28/9, ampliado 1/10): servicios, 2+ clientes, factura USD 500+/mes y no terapias alternativas.
       // Si vende productos o todavía no tiene clientes, no se registra ni dispara el pixel.
       var tk = (document.getElementById('ticket') || {}).value, cl = document.getElementById('clientes').value;
-      if (tk === 'productos' || tk === 'sin_clientes' || cl === 'ninguno' || cl === '1') {
+      var rb = document.getElementById('rubro').value, of = (document.getElementById('oferta') || {}).value || '';
+      var TERAPIAS = /aura|ak[aá]shic|dise[nñ]o humano|tarot|astrolog|reiki|constelaci|biodecodific|registros ak|chakra|canaliz|comunicaci[oó]n (con )?animal|numerolog|sanaci[oó]n|energ[ií]a (sutil|vital)/i;
+      if (tk === 'productos' || tk === 'sin_facturar' || tk === 'menos_500' || cl === 'ninguno' || cl === '1' || rb === 'terapias' || TERAPIAS.test(of)) {
         var nom = (document.getElementById('nombre').value || '').trim().split(' ')[0];
         form.parentNode.innerHTML = '<div style="padding:8px 4px"><p style="font-weight:900;font-size:22px;line-height:1.25;margin-bottom:14px">Gracias' + (nom ? ', ' + nom.replace(/[<>&"]/g, '') : '') + '. Esta mesa no es para vos, y prefiero decírtelo ahora.</p>'
-          + '<p style="margin-bottom:12px">La mesa es para profesionales que venden servicios y ya tienen por lo menos dos clientes, porque trabajamos sobre casos reales, con clientes reales. Si vendés productos o todavía estás arrancando, te va a quedar lejos y no quiero que pierdas un lunes a la noche.</p>'
+          + '<p style="margin-bottom:12px">La mesa es para profesionales que venden servicios, ya tienen por lo menos dos clientes y facturan USD 500 o más por mes, porque trabajamos sobre casos reales, con clientes reales. Si todavía estás arrancando, te va a quedar lejos y no quiero que pierdas un lunes a la noche.</p>'
           + '<p>Mientras tanto, en mi Instagram comparto cosas que sí te pueden servir ahora: <a href="https://instagram.com/juanhrr.mkt" target="_blank" rel="noopener" style="color:var(--yellow)">@juanhrr.mkt</a></p></div>';
         return;
       }
@@ -712,7 +716,7 @@
 </footer>
 
 <!-- CTA fijo mobile -->
-<div class="sticky-cta"><a href="#registro"><span>reservar mi lugar →</span><small>lun 5/10<br>20:00 AR</small></a></div>
+<div class="sticky-cta"><a href="#registro"><span>ver si es para mí →</span><small>lun 5/10<br>20:00 AR</small></a></div>
 
 <script>
 // Últimas publicaciones de Instagram (btb-capture/api/ig, cache 30 min). Si falla, quedan los reels locales.
