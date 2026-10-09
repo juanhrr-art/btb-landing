@@ -447,6 +447,15 @@ em::after{height:.12em;bottom:.02em;transform:none;left:0;right:0;opacity:.9}
 .final .btn-dark{background:var(--yellow);color:var(--dark)}
 .final .keywords code{background:var(--dark-2);color:var(--yellow)}
 .foot-big{opacity:.35;font-size:clamp(3rem,10vw,7rem)}
+
+/* acceso al taller (8/10) */
+.hero-taller{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:10px 16px;border:1px solid rgba(245,200,66,.45);border-radius:999px;font-size:.88rem;font-weight:700;text-decoration:none;color:var(--cream);opacity:0;animation:fade .8s ease 1.3s forwards}
+.hero-taller .dot{width:8px;height:8px;border-radius:50%;background:var(--yellow);flex:none}
+.hero-taller .arrow{color:var(--yellow)}
+.hero-taller:hover{border-color:var(--yellow)}
+.hero-taller{white-space:nowrap}
+@media(max-width:780px){.hero-taller .solo-desk{display:none}}
+@media(prefers-reduced-motion:reduce){.hero-taller{opacity:1;animation:none}}
 </style>
 
 <!-- Meta Pixel Code -->
@@ -478,6 +487,7 @@ em::after{height:.12em;bottom:.02em;transform:none;left:0;right:0;opacity:.9}
     <a href="#workspace">workspace</a>
     <a href="#ofertas">programas</a>
     <a href="#faq">preguntas</a>
+    <a class="nav-taller" href="/taller/">el taller</a>
     <a class="cta-mini btn-mag" href="https://ig.me/m/juanhrr.mkt">escribime por dm →</a>
   </div>
 </nav>
@@ -496,6 +506,7 @@ em::after{height:.12em;bottom:.02em;transform:none;left:0;right:0;opacity:.9}
       <a class="btn btn-dark btn-mag" href="#sistema">ver cómo funciona <span class="arrow">↓</span></a>
       <a class="btn btn-yellow btn-mag" href="https://ig.me/m/juanhrr.mkt">escribime por dm <span class="arrow">→</span></a>
     </div>
+    <a class="hero-taller" href="/taller/"><span class="dot"></span><span>taller en vivo<span class="solo-desk"> por zoom</span></span> <span class="arrow">→ reservar mi lugar</span></a>
     <p class="hero-note">¿no sabés cuánto invertir en anuncios? <a href="/calculadora/">usá la calculadora de roi gratuita →</a></p>
    </div>
    <div class="hero-photo hero-reel">
