@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Taller online · clientes sin esperar el referido · Be The Brand</title>
-<meta name="description" content="Taller online en seis módulos para consultores y agencias que le venden a empresas y viven de la recomendación. Al terminar tenés tu oferta escrita en una oración.">
+<meta name="description" content="Taller online en seis módulos para consultores y agencias que le venden a empresas y viven de la recomendación: qué publicar para que te escriba gente que puede pagarte y qué decirle para venderle.">
 <meta property="og:title" content="Si mañana nadie te recomienda, ¿de dónde sale tu próximo cliente? · taller online">
 <meta property="og:description" content="Para consultores y agencias que ya tienen clientes. Seis módulos, a tu ritmo.">
 <meta property="og:image" content="https://bethebrand.lat/clase/poster.jpg">
@@ -138,7 +138,7 @@
 
     <div class="bloque">
       <h3>Con qué te vas</h3>
-      <p class="txt">Al terminar tenés tu oferta escrita en una oración que entiende alguien que no te conoce, y sabés de dónde va a salir el próximo cliente el día que dejen de recomendarte.</p>
+      <p class="txt">Al terminar vas a saber qué publicar para que te escriba gente que puede pagarte, y qué decirle cuando te escribe para que esa conversación termine en una venta, sin esperar a que alguien te recomiende.</p>
     </div>
 
     <div class="bloque">
@@ -221,11 +221,11 @@
 
     <!-- Después del capítulo 1: la oración -->
     <form class="card step" id="oracion" novalidate>
-      <h2>Antes de seguir, escribí la tuya</h2>
-      <p class="formula">Resuelvo <b>tal problema</b> para <b>tales personas</b> en <b>tal tiempo</b>.</p>
-      <textarea name="oracion" id="oracion-txt" placeholder="Resuelvo… para… en…" maxlength="600"></textarea>
+      <h2>Antes de seguir, probalo con lo que contestás hoy</h2>
+      <p class="formula">Pensá en la última vez que alguien te preguntó a qué te dedicás. Escribí lo que le contestaste y fijate si ahí aparece <b>el problema que le resolvés</b> a esa persona y <b>en cuánto tiempo</b>, porque si solo aparece tu tarea, es muy probable que esa charla haya terminado en un “qué bueno”.</p>
+      <textarea name="oracion" id="oracion-txt" placeholder="Lo que contestaste…" maxlength="600"></textarea>
       <button class="btn" type="submit">Guardar y seguir</button>
-      <button class="small-link" type="button" id="oracion-salto">Seguir sin escribirla</button>
+      <button class="small-link" type="button" id="oracion-salto">Seguir sin escribir</button>
     </form>
 
     <div class="ctrl"><button type="button" id="sig">Siguiente módulo →</button></div>
@@ -272,12 +272,12 @@
   var CALENDLY = 'https://calendly.com/juanhrr00/sesion-de-entendimiento';
   var CLIP7 = '';   // caps/cap7.mp4 cuando esté grabado el cierre a cámara
   var CAPS = [
-    { t: 'Tu oferta en una oración', s: 'Tal problema, tales personas, tal tiempo', d: '0:43' },
-    { t: 'Las trabas de la oración', s: 'Por qué el que compra no compra tu tarea', d: '1:32' },
-    { t: 'Los referidos se terminan', s: 'De dónde sale el cliente que no te recomendó nadie', d: '3:41' },
-    { t: 'El de 25 años que promete 5.000 dólares en 30 días', s: 'Por qué tu experiencia no alcanza si nadie la ve', d: '2:14' },
-    { t: 'Lo que te frena para publicar', s: 'Por qué cuesta tanto el primer paso y cómo lo das sin tener todo resuelto', d: '1:21' },
-    { t: 'Qué publicar para que te escriban', s: 'Que cada publicación muestre qué problema resolvés', d: '2:56' }
+    { t: 'Por qué contás lo que hacés y nadie te compra', s: 'Qué decir de tu trabajo para que el que te escucha sienta que es justo lo que necesita y te pregunte cómo seguir', d: '0:43' },
+    { t: 'Qué está frenando tus ventas aunque seas bueno en lo que hacés', s: 'Por qué el que compra no compra tu tarea', d: '1:32' },
+    { t: 'De dónde sale el cliente que no te recomendó nadie', s: 'Cómo el contenido te trae conversaciones con gente que no te conoce', d: '3:41' },
+    { t: 'El de 25 que promete 5.000 dólares en 30 días se está quedando con clientes que eran para vos', s: 'Tenés años de experiencia que el que te busca no llega a ver, y acá vemos cómo mostrarla en lo que publicás', d: '2:14' },
+    { t: 'Lo que te frena para publicar te está costando clientes', s: 'Cómo publicar esta semana aunque todavía no tengas todo claro', d: '1:21' },
+    { t: 'Qué publicar para que te escriban', s: 'Cómo hacer contenido que trae consultas aunque no sea el más lindo, y cómo medirlo en conversaciones y en plata', d: '2:56' }
   ];
   var CLAVE = 'btb_taller_online_v1';
   var qs = new URLSearchParams(location.search);
@@ -366,7 +366,7 @@
   function pintarOracion() {
     ['pasa-oracion', 'taller-oracion'].forEach(function (id) {
       $(id).hidden = !st.oracion;
-      $(id).textContent = st.oracion ? 'Tu oración: “' + st.oracion + '”' : '';
+      $(id).textContent = st.oracion ? 'Lo que escribiste: “' + st.oracion + '”' : '';
     });
   }
 
