@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La clase · si mañana nadie te recomienda · Be The Brand</title>
-<meta name="description" content="El taller en seis capítulos cortos, para consultores y agencias que le venden a empresas y viven del referido. Lo ves cuando quieras y al final tenés tu oferta escrita en una oración.">
-<meta property="og:title" content="Si mañana nadie te recomienda, ¿de dónde sale tu próximo cliente? · la clase en 6 capítulos">
-<meta property="og:description" content="Para consultores y agencias que ya tienen clientes. Gratis, la ves cuando quieras.">
+<title>Taller online · clientes sin esperar el referido · Be The Brand</title>
+<meta name="description" content="Taller online en seis módulos para consultores y agencias que le venden a empresas y viven de la recomendación. Al terminar tenés tu oferta escrita en una oración.">
+<meta property="og:title" content="Si mañana nadie te recomienda, ¿de dónde sale tu próximo cliente? · taller online">
+<meta property="og:description" content="Para consultores y agencias que ya tienen clientes. Seis módulos, a tu ritmo.">
 <meta property="og:image" content="https://bethebrand.lat/clase/poster.jpg">
 <meta property="og:url" content="https://bethebrand.lat/clase/">
 <meta property="og:type" content="website">
@@ -92,10 +92,19 @@
   .tu-oracion { border-left: 3px solid var(--yellow); padding: 4px 0 4px 12px; font-size: 15px; color: var(--cream) !important; }
   /* Clip 7: el cierre a cámara para quien califica. Se graba aparte y va acá. */
   #clip7 { display: none; margin-bottom: 18px; }
-  .who { display: flex; gap: 12px; align-items: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--line); }
+  .bloque { margin: 36px 0 0; }
+  .bloque h3 { margin-bottom: 12px; }
+  .txt { font-size: 17px; line-height: 1.55; color: var(--muted); }
+  .hero-btn { margin-bottom: 8px; }
+  #b-form { margin-top: 40px; scroll-margin-top: 16px; }
+  #f { scroll-margin-top: 16px; }
+  .acceso { font-size: 15px; font-weight: 600; color: var(--yellow); margin-bottom: 14px; }
+  .temario.locked .d { font-size: 0; }
+  .temario.locked .d::before { font-size: 12px; }
+  .who { display: flex; gap: 14px; align-items: flex-start; margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--line); }
   .who img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--yellow); }
-  .who p { font-size: 13px; color: var(--muted); line-height: 1.45; }
-  .who p strong { display: block; font-size: 14px; color: var(--cream); }
+  .who p { font-size: 15px; color: var(--muted); line-height: 1.5; }
+  .who p strong { display: block; font-size: 11px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
   @media (min-width: 640px) { .row.two { grid-template-columns: 1fr 1fr; } main { padding: 56px 20px 64px; } }
 </style>
 <script>
@@ -121,18 +130,38 @@
 <nav><a href="https://bethebrand.lat/" class="nav-logo">● be the <span>brand</span></a></nav>
 
 <main>
-  <p class="kicker">La clase · 6 capítulos · 12 minutos · gratis</p>
-  <h1>Si mañana nadie te recomienda, <em>¿de dónde sale tu próximo cliente?</em></h1>
-  <p class="sub">Para consultores y agencias que le venden a empresas, que ya tienen clientes y viven del referido. Es el taller que doy en vivo, en seis capítulos cortos: <strong>por qué te eligen cuando alguien te recomienda y no cuando te encuentran</strong>, y cómo escribir tu oferta para que el que te encuentra entienda en una oración por qué hablar con vos.</p>
+  <section id="intro" class="step on">
+    <p class="kicker">Taller online · Clientes sin esperar el referido</p>
+    <h1>Si mañana nadie te recomienda, <em>¿de dónde sale tu próximo cliente?</em></h1>
+    <p class="sub">Para consultores y agencias que le venden a empresas, ya tienen clientes y casi todos les llegan por recomendación. <strong>Lo armé con lo que enseño en el taller en vivo, ordenado en seis módulos que hacés a tu ritmo.</strong></p>
+    <a class="btn hero-btn" href="#f">Pedir acceso</a>
 
-  <!-- PREGUNTAS (antes de la clase) -->
+    <div class="bloque">
+      <h3>Con qué te vas</h3>
+      <p class="txt">Al terminar tenés tu oferta escrita en una oración que entiende alguien que no te conoce, y sabés de dónde va a salir el próximo cliente el día que dejen de recomendarte.</p>
+    </div>
+
+    <div class="bloque">
+      <h3>Para quién es</h3>
+      <p class="txt">Es para vos si ya tenés clientes que te pagan y casi todos llegaron porque alguien te recomendó. No es para vos si todavía no facturás con tu servicio o si buscás una fórmula para facturar el doble en 30 días.</p>
+    </div>
+
+    <div class="bloque">
+      <h3>Los seis módulos</h3>
+      <ul class="temario locked" id="temario-pre"></ul>
+    </div>
+
+    <div class="bloque who">
+      <img src="../img/juan-hero.jpg" alt="Juan Herrera">
+      <p><strong>Quién lo da</strong>Soy Juan Herrera, fundador de Be the Brand. Acompaño a consultores y agencias a conseguir clientes sin esperar a que alguien los recomiende. Este taller lo di en vivo tres veces, con 174 anotados.</p>
+    </div>
+  </section>
+
+  <!-- FILTRO: antes de cualquier contenido -->
   <section id="b-form" class="step on">
-    <h3>Lo que vas a ver</h3>
-    <ul class="temario locked" id="temario-pre"></ul>
-
     <form class="card" id="f" novalidate>
-      <h2>Tres preguntas y empezás</h2>
-      <p class="hint">Tardás 20 segundos. Con esto sé qué te conviene después de la clase: una llamada conmigo o el próximo taller en vivo.</p>
+      <h2>Contame un poco de tu negocio</h2>
+      <p class="hint">Son tres preguntas. Lo armé para quien ya factura con su servicio, así que con lo que me contestes te digo si es para vos o si hoy te conviene más el taller en vivo.</p>
 
       <fieldset>
         <legend>¿A quién le vendés tu servicio?</legend>
@@ -175,14 +204,15 @@
         </div>
       </div>
 
-      <button class="btn" type="submit" id="f-btn">Empezar la clase</button>
+      <button class="btn" type="submit" id="f-btn">Pedir acceso</button>
       <p class="err" id="f-err">Completá las tres preguntas, tu nombre y tu WhatsApp.</p>
-      <p class="note">Tu WhatsApp es solo para coordinar con vos. No te sumo a ninguna lista.</p>
+      <p class="note">No tiene costo, y tu WhatsApp lo uso solo para hablar con vos, no te sumo a ninguna lista.</p>
     </form>
   </section>
 
   <!-- LA CLASE -->
   <section id="b-clase" class="step">
+    <p class="acceso">Listo, ya tenés acceso. Arrancá por el módulo 1 y seguí en orden.</p>
     <div class="video">
       <video id="v" controls playsinline preload="metadata"></video>
     </div>
@@ -198,9 +228,9 @@
       <button class="small-link" type="button" id="oracion-salto">Seguir sin escribirla</button>
     </form>
 
-    <div class="ctrl"><button type="button" id="sig">Siguiente capítulo →</button></div>
+    <div class="ctrl"><button type="button" id="sig">Siguiente módulo →</button></div>
 
-    <h3>Capítulos</h3>
+    <h3>Módulos</h3>
     <ul class="temario open" id="temario"></ul>
 
     <!-- CIERRE: según las tres preguntas -->
@@ -212,25 +242,25 @@
       <a class="btn" id="cal" href="https://calendly.com/juanhrr00/sesion-de-entendimiento" target="_blank" rel="noopener">Elegir horario</a>
     </section>
 
-    <section id="r-taller" class="step result card">
-      <h2>Lo que sigue: el taller en vivo</h2>
-      <p id="taller-oracion" class="tu-oracion" hidden></p>
-      <p>Lo que más te va a servir ahora es trabajar tu oferta en vivo, con otros que están en lo mismo. Eso hacemos en el próximo taller, y esta vez te muestro cómo trabajo con IA: si la IA ya hace buena parte de la tarea, lo que te siguen pagando es el problema que resolvés. <strong>Lunes 9 de noviembre, 20:00 AR · 17:00 MX · 18:00 CO</strong>. Es gratis.</p>
-      <a class="btn" href="https://bethebrand.lat/taller/?utm_source=clase&utm_medium=filtro" id="taller">Anotarme al taller</a>
-      <a class="small-link" id="cal-small" href="https://calendly.com/juanhrr00/sesion-de-entendimiento" target="_blank" rel="noopener">Igual prefiero una llamada</a>
-    </section>
+
   </section>
 
-  <div class="who">
-    <img src="../img/juan-hero.jpg" alt="Juan Herrera">
-    <p><strong>Juan Herrera</strong>Fundador de Be the Brand. Trabajo con consultores y agencias que venden a empresas.</p>
-  </div>
+  <!-- NO CALIFICA: no ve los módulos -->
+  <section id="r-taller" class="step result card">
+    <h2>Te espero en el taller en vivo del 9 de noviembre</h2>
+    <p id="taller-oracion" class="tu-oracion" hidden></p>
+    <p>Por lo que me contaste, hoy te sirve más trabajar tu oferta en vivo, con otros que están en lo mismo, que hacer los módulos por tu cuenta. Eso hacemos en el próximo taller, y en este te muestro cómo trabajo con IA: si la IA ya hace buena parte de la tarea, lo que te siguen pagando es el problema que resolvés. <strong>Lunes 9 de noviembre, 20:00 AR · 17:00 MX · 18:00 CO</strong>. Es gratis.</p>
+    <a class="btn" href="https://bethebrand.lat/taller/?utm_source=taller_online&utm_medium=filtro" id="taller">Anotarme al taller</a>
+    <a class="small-link" id="cal-small" href="https://calendly.com/juanhrr00/sesion-de-entendimiento" target="_blank" rel="noopener">Igual prefiero una llamada</a>
+  </section>
+
 </main>
 
 <script>
 (function () {
-  // Taller 24/7: primero las tres preguntas (registro), después la clase en 6 capítulos con un solo
-  // reproductor que avanza solo, la oración después del capítulo 1 y un cierre distinto según califique.
+  // Taller online 24/7 (decisión 19/10): primero se comunica el valor, después las tres preguntas y recién ahí
+  // el contenido. Solo el que califica (pasa) ve los 6 módulos, con un reproductor que avanza solo, la oración
+  // después del módulo 1 y la llamada al final. El que no califica no ve los módulos: va al taller en vivo.
   var CAPTURA = VIVO ? 'https://btb-capture.vercel.app/api/clase' : 'about:blank';
   var CALENDLY = 'https://calendly.com/juanhrr00/sesion-de-entendimiento';
   var CLIP7 = '';   // caps/cap7.mp4 cuando esté grabado el cierre a cámara
@@ -242,7 +272,7 @@
     { t: 'Lo que te frena para publicar', s: 'Por qué cuesta tanto el primer paso y cómo lo das sin tener todo resuelto', d: '1:21' },
     { t: 'Qué publicar para que te escriban', s: 'Que cada publicación muestre qué problema resolvés', d: '2:56' }
   ];
-  var CLAVE = 'btb_clase_v1';
+  var CLAVE = 'btb_taller_online_v1';
   var qs = new URLSearchParams(location.search);
   var $ = function (id) { return document.getElementById(id); };
   var show = function (id) { $(id).classList.add('on'); };
@@ -273,7 +303,7 @@
     });
     $('barra').style.width = (st.visto.length / CAPS.length * 100) + '%';
     $('now-t').textContent = CAPS[st.cap].t;
-    $('now-n').textContent = 'Capítulo ' + (st.cap + 1) + ' de ' + CAPS.length;
+    $('now-n').textContent = 'Módulo ' + (st.cap + 1) + ' de ' + CAPS.length;
     $('sig').parentNode.style.display = st.cap < CAPS.length - 1 ? '' : 'none';
   }
 
@@ -297,7 +327,7 @@
     guardar(); marcar();
     if (i === 0 && !st.oracionHecha) { show('oracion'); $('oracion').scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
     if (i < CAPS.length - 1) ir(i + 1, true);
-    else { var r = $(resultado()); r.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    else { var r = $('r-pasa'); r.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   });
   $('sig').addEventListener('click', function () { if (st.cap < CAPS.length - 1) ir(st.cap + 1, true); });
 
@@ -333,15 +363,19 @@
   function pasa(d) {
     return ['500_1500', '1500_4000', 'mas_4000'].indexOf(d.facturacion) >= 0 || ['3_5', '6_mas'].indexOf(d.clientes_3m) >= 0;
   }
-  function resultado() { return pasa(st.d) ? 'r-pasa' : 'r-taller'; }
 
   function abrirClase(play) {
-    hide('b-form'); show('b-clase');
-    var cal = CALENDLY + '?name=' + encodeURIComponent(st.d.nombre) + '&utm_source=clase&utm_campaign=' + encodeURIComponent(st.d.utm_campaign || 'organico');
+    hide('b-form'); hide('intro'); show('b-clase');
+    var cal = CALENDLY + '?name=' + encodeURIComponent(st.d.nombre) + '&utm_source=taller_online&utm_campaign=' + encodeURIComponent(st.d.utm_campaign || 'organico');
     $('cal').href = cal; $('cal-small').href = cal;
     if (CLIP7) { $('v7').src = CLIP7; $('clip7').style.display = 'block'; }
-    show(resultado()); pintarOracion();
+    show('r-pasa'); pintarOracion();
     ir(st.cap || 0, play);
+  }
+  function noCalifica() {
+    hide('b-form'); hide('intro'); show('r-taller');
+    var cal = CALENDLY + '?name=' + encodeURIComponent(st.d.nombre) + '&utm_source=taller_online&utm_campaign=' + encodeURIComponent(st.d.utm_campaign || 'organico');
+    $('cal-small').href = cal;
   }
 
   $('f').addEventListener('submit', function (e) {
@@ -356,18 +390,18 @@
     d.orden = 'b'; d.event_id = uuid(); d.fbp = cookie('_fbp'); d.fbc = cookie('_fbc');
     ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'].forEach(function (k) { d[k] = qs.get(k) || ''; });
 
-    fbq('track', 'Lead', { content_name: 'Clase grabada' }, { eventID: d.event_id });
+    fbq('track', 'Lead', { content_name: 'Taller online' }, { eventID: d.event_id });
     if (pasa(d)) fbq('trackCustom', 'LeadCalificado', { vende_a: d.vende_a }, { eventID: d.event_id + '-q' });
 
     // La captura no frena a nadie: si falla, la persona sigue igual.
     if (VIVO) try { fetch(CAPTURA, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d), keepalive: true }).catch(function () {}); } catch (_) {}
 
     st = { d: d, visto: [], oracion: '', oracionHecha: false, cap: 0 }; guardar();
-    abrirClase(true);
+    if (pasa(d)) abrirClase(true); else noCalifica();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  if (st.d) abrirClase(false);
+  if (st.d) { if (pasa(st.d)) abrirClase(false); else noCalifica(); }
 })();
 </script>
 </body>
