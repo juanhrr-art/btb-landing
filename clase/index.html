@@ -161,7 +161,7 @@
   <section id="b-form" class="step on">
     <form class="card" id="f" novalidate>
       <h2>Contame un poco de tu negocio</h2>
-      <p class="hint">Son tres preguntas. Lo armé para quien ya factura con su servicio, así que con lo que me contestes te digo si es para vos o si hoy te conviene más el taller en vivo.</p>
+      <p class="hint">Te hago tres preguntas para saber desde dónde arrancás, y con eso te muestro lo que más te sirve en este momento.</p>
 
       <fieldset>
         <legend>¿A quién le vendés tu servicio?</legend>
@@ -242,6 +242,13 @@
       <a class="btn" id="cal" href="https://calendly.com/juanhrr00/sesion-de-entendimiento" target="_blank" rel="noopener">Elegir horario</a>
     </section>
 
+    <!-- VE MÓDULOS PERO NO LA LLAMADA (3+ clientes, factura menos de 500) -->
+    <section id="r-vivo" class="step result card">
+      <h2>Lo que sigue: el taller en vivo del 9 de noviembre</h2>
+      <p>Si querés trabajar tu oferta en vivo, con otros que están en lo mismo, eso es lo que hacemos en el próximo taller. Ahí también te voy a mostrar en pantalla cómo trabajo yo con IA, porque si la IA ya hace buena parte de la tarea, lo que te van a seguir pagando es el problema que resolvés, y en eso nos vamos a meter. <strong>Lunes 9 de noviembre, 20:00 AR · 17:00 MX · 18:00 CO</strong>. Es gratis.</p>
+      <a class="btn" href="https://bethebrand.lat/taller/?utm_source=taller_online&utm_medium=modulos">Anotarme al taller</a>
+    </section>
+
 
   </section>
 
@@ -251,7 +258,7 @@
     <p id="taller-oracion" class="tu-oracion" hidden></p>
     <p>Por lo que me contaste, hoy te sirve más trabajar tu oferta en vivo, con otros que están en lo mismo, que hacer los módulos por tu cuenta. Eso hacemos en el próximo taller, y en este te muestro cómo trabajo con IA: si la IA ya hace buena parte de la tarea, lo que te siguen pagando es el problema que resolvés. <strong>Lunes 9 de noviembre, 20:00 AR · 17:00 MX · 18:00 CO</strong>. Es gratis.</p>
     <a class="btn" href="https://bethebrand.lat/taller/?utm_source=taller_online&utm_medium=filtro" id="taller">Anotarme al taller</a>
-    <a class="small-link" id="cal-small" href="https://calendly.com/juanhrr00/sesion-de-entendimiento" target="_blank" rel="noopener">Igual prefiero una llamada</a>
+    <a class="small-link" id="wa-caso" href="https://wa.me/5491168086631" target="_blank" rel="noopener">Si sentís que las tres preguntas no cuentan bien tu caso, escribime por WhatsApp y lo vemos.</a>
   </section>
 
 </main>
@@ -324,10 +331,15 @@
     if (st.visto.indexOf(i) < 0) st.visto.push(i);
     if (!terminado[i]) { terminado[i] = 1; fbq('trackCustom', 'ClaseCapitulo', { cap: i + 1, estado: 'fin' }); }
     if (st.visto.length === CAPS.length) fbq('trackCustom', 'ClaseCompleta');
+    // Progreso a la planilla: sin esto, el que ve dos módulos y se va es invisible para el seguimiento.
+    if (VIVO) try {
+      fetch(CAPTURA, { method: 'POST', headers: { 'Content-Type': 'application/json' }, keepalive: true,
+        body: JSON.stringify({ tipo: 'progreso', modulo: i + 1, vistos: st.visto.length, event_id: st.d.event_id, nombre: st.d.nombre, whatsapp: st.d.whatsapp }) }).catch(function () {});
+    } catch (_) {}
     guardar(); marcar();
     if (i === 0 && !st.oracionHecha) { show('oracion'); $('oracion').scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
     if (i < CAPS.length - 1) ir(i + 1, true);
-    else { var r = $('r-pasa'); r.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    else { $(llamada(st.d) ? 'r-pasa' : 'r-vivo').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   });
   $('sig').addEventListener('click', function () { if (st.cap < CAPS.length - 1) ir(st.cap + 1, true); });
 
@@ -360,22 +372,26 @@
 
   function cookie(n) { var m = document.cookie.match('(^|;)\\s*' + n + '=([^;]*)'); return m ? decodeURIComponent(m[2]) : ''; }
   function uuid() { return (crypto.randomUUID && crypto.randomUUID()) || String(Date.now()) + Math.random().toString(16).slice(2); }
-  function pasa(d) {
-    return ['500_1500', '1500_4000', 'mas_4000'].indexOf(d.facturacion) >= 0 || ['3_5', '6_mas'].indexOf(d.clientes_3m) >= 0;
-  }
+  // Dos niveles (decisión 19/10): ve los módulos quien factura 500+ o tuvo 3+ clientes; ve la llamada solo quien factura 500+.
+  function llamada(d) { return ['500_1500', '1500_4000', 'mas_4000'].indexOf(d.facturacion) >= 0; }
+  function pasa(d) { return llamada(d) || ['3_5', '6_mas'].indexOf(d.clientes_3m) >= 0; }
 
   function abrirClase(play) {
     hide('b-form'); hide('intro'); show('b-clase');
     var cal = CALENDLY + '?name=' + encodeURIComponent(st.d.nombre) + '&utm_source=taller_online&utm_campaign=' + encodeURIComponent(st.d.utm_campaign || 'organico');
-    $('cal').href = cal; $('cal-small').href = cal;
-    if (CLIP7) { $('v7').src = CLIP7; $('clip7').style.display = 'block'; }
-    show('r-pasa'); pintarOracion();
+    $('cal').href = cal;
+    // El botón de la llamada aparece cuando termina el clip 7 (cierre a cámara, sin precio). Sin clip, se ve directo.
+    if (CLIP7) {
+      $('v7').src = CLIP7; $('clip7').style.display = 'block';
+      if (!st.clip7) { $('cal').style.display = 'none'; }
+      $('v7').addEventListener('ended', function () { st.clip7 = true; guardar(); $('cal').style.display = ''; fbq('trackCustom', 'ClaseCierre'); });
+    }
+    show(llamada(st.d) ? 'r-pasa' : 'r-vivo'); pintarOracion();
     ir(st.cap || 0, play);
   }
   function noCalifica() {
     hide('b-form'); hide('intro'); show('r-taller');
-    var cal = CALENDLY + '?name=' + encodeURIComponent(st.d.nombre) + '&utm_source=taller_online&utm_campaign=' + encodeURIComponent(st.d.utm_campaign || 'organico');
-    $('cal-small').href = cal;
+    $('wa-caso').href = 'https://wa.me/5491168086631?text=' + encodeURIComponent('Hola Juan, soy ' + st.d.nombre + '. Completé lo del taller online y creo que mi caso no entra en las tres preguntas');
   }
 
   $('f').addEventListener('submit', function (e) {
@@ -391,7 +407,7 @@
     ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'].forEach(function (k) { d[k] = qs.get(k) || ''; });
 
     fbq('track', 'Lead', { content_name: 'Taller online' }, { eventID: d.event_id });
-    if (pasa(d)) fbq('trackCustom', 'LeadCalificado', { vende_a: d.vende_a }, { eventID: d.event_id + '-q' });
+    if (llamada(d)) fbq('trackCustom', 'LeadCalificado', { vende_a: d.vende_a }, { eventID: d.event_id + '-q' });
 
     // La captura no frena a nadie: si falla, la persona sigue igual.
     if (VIVO) try { fetch(CAPTURA, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d), keepalive: true }).catch(function () {}); } catch (_) {}
