@@ -99,7 +99,7 @@
   @media (min-width: 640px) { .row.two { grid-template-columns: 1fr 1fr; } main { padding: 56px 20px 64px; } }
 </style>
 <script>
-  !function(f,b,e,v,n,t,s)
+  if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
   n.callMethod.apply(n,arguments):n.queue.push(arguments)};
   if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
@@ -107,6 +107,9 @@
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
+  // En la compu (localhost) no se mide nada: probar la página no ensucia el pixel ni la planilla.
+  var VIVO = location.hostname !== 'localhost' && location.hostname !== '127.0.0.1';
+  if (!VIVO) window.fbq = function () {};
   fbq('set','autoConfig',false,'1514394006799758');
   fbq('init', '1514394006799758');
   fbq('track', 'PageView');
@@ -228,7 +231,7 @@
 (function () {
   // Taller 24/7: primero las tres preguntas (registro), después la clase en 6 capítulos con un solo
   // reproductor que avanza solo, la oración después del capítulo 1 y un cierre distinto según califique.
-  var CAPTURA = 'https://btb-capture.vercel.app/api/clase';
+  var CAPTURA = VIVO ? 'https://btb-capture.vercel.app/api/clase' : 'about:blank';
   var CALENDLY = 'https://calendly.com/juanhrr00/sesion-de-entendimiento';
   var CLIP7 = '';   // caps/cap7.mp4 cuando esté grabado el cierre a cámara
   var CAPS = [
@@ -309,7 +312,7 @@
     if (o) {
       st.oracion = o;
       fbq('trackCustom', 'ClaseOracion');
-      try {
+      if (VIVO) try {
         fetch(CAPTURA, { method: 'POST', headers: { 'Content-Type': 'application/json' }, keepalive: true,
           body: JSON.stringify({ tipo: 'oracion', oracion: o, event_id: st.d.event_id, nombre: st.d.nombre, whatsapp: st.d.whatsapp }) }).catch(function () {});
       } catch (_) {}
@@ -357,7 +360,7 @@
     if (pasa(d)) fbq('trackCustom', 'LeadCalificado', { vende_a: d.vende_a }, { eventID: d.event_id + '-q' });
 
     // La captura no frena a nadie: si falla, la persona sigue igual.
-    try { fetch(CAPTURA, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d), keepalive: true }).catch(function () {}); } catch (_) {}
+    if (VIVO) try { fetch(CAPTURA, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d), keepalive: true }).catch(function () {}); } catch (_) {}
 
     st = { d: d, visto: [], oracion: '', oracionHecha: false, cap: 0 }; guardar();
     abrirClase(true);
