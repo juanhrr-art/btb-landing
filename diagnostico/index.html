@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dónde se te escapa la venta · diagnóstico · Be The Brand</title>
-<meta name="description" content="Contestás seis preguntas sobre cómo te llegan los clientes y te digo en qué parte se te está cayendo la venta y qué hacer esta semana para empezar a arreglarlo.">
-<meta property="og:title" content="¿Dónde se te escapa la venta? · diagnóstico en un minuto">
-<meta property="og:description" content="Para consultores y agencias que le venden a empresas. Seis preguntas, un minuto.">
+<meta name="description" content="Contestás 8 preguntas, en la última me contás tu caso, y te digo en qué parte se te está cayendo la venta y qué hacer esta semana para empezar a arreglarlo.">
+<meta property="og:title" content="Dónde se te escapa la venta? · diagnóstico de las 4 fugas">
+<meta property="og:description" content="Para consultores y agencias que le venden a empresas. 8 preguntas, la última es tu caso en dos líneas.">
 <meta property="og:image" content="https://bethebrand.lat/diagnostico/poster.jpg">
 <meta property="og:url" content="https://bethebrand.lat/diagnostico/">
 <meta property="og:type" content="website">
@@ -79,6 +79,8 @@
   input::placeholder, textarea::placeholder { color: var(--gray); }
   .btn { display: inline-block; width: 100%; text-align: center; font: inherit; font-size: 16px; font-weight: 900; color: var(--dark); background: var(--yellow); padding: 17px 24px; border: none; border-radius: 6px; cursor: pointer; text-decoration: none; }
   .btn[disabled] { opacity: .5; cursor: default; }
+  .cuenta { font-size: 13px; color: var(--muted); margin: -6px 0 0; }
+  .result .btn + .btn { margin-top: 10px; }
   .note { font-size: 13px; color: var(--muted); margin-top: 10px; line-height: 1.5; }
   .err { font-size: 13px; color: #ff8a7a; margin-top: 10px; display: none; }
   .small-link { all: unset; cursor: pointer; display: block; width: 100%; text-align: center; font-size: 14px; color: var(--muted); margin-top: 14px; text-decoration: underline; text-underline-offset: 3px; }
@@ -137,13 +139,13 @@
 
 <main>
   <section id="intro" class="step on">
-    <p class="kicker">Diagnóstico · 1 minuto · para consultores y agencias</p>
-    <h1>¿Dónde se te <em>escapa la venta?</em></h1>
-    <p class="sub">Contestás seis preguntas sobre cómo te llegan los clientes y te digo en qué parte se te está cayendo la venta y qué hacer esta semana para empezar a arreglarlo.</p>
+    <p class="kicker">Diagnóstico de las 4 fugas · 8 preguntas · para consultores y agencias que le venden a empresas</p>
+    <h1>Dónde se te <em>escapa la venta?</em></h1>
+    <p class="sub">Contestás 8 preguntas, en la última me contás tu caso en dos líneas, y en un minuto te digo en qué parte se te está cayendo la venta y qué podés hacer esta semana para empezar a arreglarlo.</p>
     <a class="btn hero-btn" href="#f">Hacé tu diagnóstico</a>
 
     <div class="bloque">
-      <h3>Las cuatro partes donde se cae la venta</h3>
+      <h3>Las 4 fugas de la venta</h3>
       <ul class="temario fugas">
         <li><div class="fila"><span class="n">1</span><span class="t">No te encuentran.<small>El que no te conoce no tiene dónde verte.</small></span></div></li>
         <li><div class="fila"><span class="n">2</span><span class="t">Publicás, pero no te escribe gente nueva.<small>El que te lee no se reconoce en lo que publicás.</small></span></div></li>
@@ -154,7 +156,7 @@
 
     <div class="bloque">
       <h3>Qué recibís</h3>
-      <p class="txt">Te llega tu diagnóstico, con la parte donde se te está cayendo la venta y qué hacer esta semana para empezar a arreglarla. Y según lo que contestes, también accedés al taller online, seis módulos grabados con lo que enseño en el taller en vivo para arreglar esa parte, y a una llamada de 25 minutos conmigo para mirar tu caso.</p>
+      <p class="txt">Una lectura de tu caso, armada con lo que vos me contás. Te dice dónde se te está cayendo la venta y qué hacer esta semana para empezar a arreglarlo, y al final te dejo el paso que sigue para vos, que puede ser una llamada de 25 minutos conmigo o el taller en vivo del lunes 9 de noviembre.</p>
     </div>
 
     <div class="bloque">
@@ -176,11 +178,11 @@
   <!-- FILTRO: antes de cualquier contenido -->
   <section id="b-form" class="step on">
     <form class="card" id="f" novalidate>
-      <h2>Las seis preguntas</h2>
-      <p class="hint">Contestás seis preguntas y en un minuto te digo en qué parte se te está cayendo la venta y por dónde empezar.</p>
+      <h2>Las 8 preguntas</h2>
+      <p class="hint">Las primeras se contestan con un clic. En la última me contás tu caso con tus palabras, y es la que hace que la lectura hable de tu negocio.</p>
 
       <fieldset>
-        <legend>¿A quién le vendés tu servicio?</legend>
+        <legend>A quién le vendés tu servicio?</legend>
         <div class="opts">
           <label><input type="radio" name="vende_a" value="empresas" required><span>A empresas</span></label>
           <label><input type="radio" name="vende_a" value="personas"><span>A personas</span></label>
@@ -189,7 +191,7 @@
       </fieldset>
 
       <fieldset>
-        <legend>¿Cuántos clientes te pagaron en los últimos 3 meses?</legend>
+        <legend>Cuántos clientes te pagaron en los últimos 3 meses?</legend>
         <div class="opts">
           <label><input type="radio" name="clientes_3m" value="0" required><span>Ninguno</span></label>
           <label><input type="radio" name="clientes_3m" value="1_2"><span>1 o 2</span></label>
@@ -199,7 +201,7 @@
       </fieldset>
 
       <fieldset>
-        <legend>¿Cuánto facturás por mes con tu servicio? (en dólares)</legend>
+        <legend>Cuánto facturás por mes con tu servicio, en dólares?</legend>
         <div class="opts">
           <label><input type="radio" name="facturacion" value="sin_facturar" required><span>Todavía nada</span></label>
           <label><input type="radio" name="facturacion" value="menos_500"><span>Menos de 500</span></label>
@@ -211,7 +213,7 @@
 
 
       <fieldset>
-        <legend>¿Cuántas veces publicaste en redes el último mes?</legend>
+        <legend>Cuántas veces publicaste en redes el último mes?</legend>
         <div class="opts">
           <label><input type="radio" name="publica" value="nada" required><span>Ninguna</span></label>
           <label><input type="radio" name="publica" value="1_4"><span>1 a 4</span></label>
@@ -221,7 +223,7 @@
       </fieldset>
 
       <fieldset>
-        <legend>¿Cómo te llegaron las consultas del último mes?</legend>
+        <legend>Cómo te llegaron las consultas del último mes?</legend>
         <div class="opts">
           <label><input type="radio" name="origen" value="ninguna" required><span>No tuve consultas</span></label>
           <label><input type="radio" name="origen" value="recomendacion"><span>Por recomendación</span></label>
@@ -232,12 +234,28 @@
       </fieldset>
 
       <fieldset id="q6">
-        <legend>De esas consultas, ¿cuántas terminaron en cliente?</legend>
+        <legend>De esas consultas, cuántas terminaron en cliente?</legend>
         <div class="opts">
           <label><input type="radio" name="cierre" value="ninguna" required><span>Ninguna</span></label>
           <label><input type="radio" name="cierre" value="alguna"><span>Algunas</span></label>
           <label><input type="radio" name="cierre" value="mayoria"><span>La mayoría</span></label>
         </div>
+      </fieldset>
+
+      <!-- Paso A (21/10): la 7 ordena a quién atiendo primero, nunca descarta; la 8 es el caso con sus palabras. -->
+      <fieldset id="q7">
+        <legend>Si vemos claro qué te está trabando, cómo te imaginás avanzando?</legend>
+        <div class="opts">
+          <label><input type="radio" name="inversion" value="acompanamiento" required><span>Quiero hacerlo con acompañamiento y estoy en condiciones de invertir en eso</span></label>
+          <label><input type="radio" name="inversion" value="por_mi_cuenta"><span>Prefiero intentarlo por mi cuenta primero</span></label>
+          <label><input type="radio" name="inversion" value="hoy_no"><span>Hoy no puedo invertir, busco orientación</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset id="q8">
+        <legend><label for="abierta">Contame en dos o tres líneas qué vendés, a quién, y qué probaste este año para que te lleguen clientes nuevos.</label></legend>
+        <textarea name="abierta" id="abierta" maxlength="600" required placeholder="Por ejemplo: hago consultoría de procesos para pymes industriales, los últimos tres clientes vinieron recomendados, este año probé LinkedIn y no pasó nada."></textarea>
+        <p class="cuenta" id="abierta-n" aria-live="polite"></p>
       </fieldset>
 
       <div class="row two">
@@ -252,15 +270,15 @@
       </div>
 
       <button class="btn" type="submit" id="f-btn">Hacé tu diagnóstico</button>
-      <p class="err" id="f-err">Completá las preguntas, tu nombre y tu WhatsApp.</p>
-      <p class="note">No tiene costo, y tu WhatsApp lo uso solo para hablar con vos, no te sumo a ninguna lista.</p>
+      <p class="err" id="f-err">Te quedó algo sin completar, fijate que estén todas las preguntas, tu nombre y tu WhatsApp.</p>
+      <p class="note">No tiene costo. Lo que escribís lo lee una IA para armar tu lectura, y después lo leo yo, no se publica en ningún lado. Tu WhatsApp lo uso solo para escribirte por tu diagnóstico.</p>
     </form>
   </section>
 
   <!-- LA CLASE -->
   <!-- DIAGNÓSTICO: lo recibe todo el que contesta, acceda o no a los módulos -->
   <section id="diag" class="step card">
-    <h3>Tu diagnóstico</h3>
+    <h3 id="diag-h">Tu diagnóstico</h3>
     <h2 id="diag-t"></h2>
     <p class="txt" id="diag-p"></p>
     <h3 class="diag-h3">Lo que hacés esta semana</h3>
@@ -289,20 +307,23 @@
     <h3>Módulos</h3>
     <ul class="temario open" id="temario"></ul>
 
-    <!-- CIERRE: según las tres preguntas -->
+    <!-- CIERRE: según las respuestas (calificar() en clase.js, mismos umbrales) -->
     <section id="r-pasa" class="step result card">
       <div id="clip7"><div class="video"><video id="v7" controls playsinline preload="none"></video></div></div>
       <h2>Tu llamada de 25 minutos</h2>
       <p id="pasa-oracion" class="tu-oracion" hidden></p>
-      <p>Por lo que me contaste, una llamada te puede servir. <strong id="pasa-fuga">En 25 minutos vemos dónde se traba hoy tu venta</strong> y salís sabiendo qué cambiar, sea conmigo o con cualquiera.</p>
+      <p>Por lo que me contaste, lo que sigue es una llamada de 25 minutos. Vemos <strong id="pasa-fuga">dónde se traba hoy tu venta</strong> con tu caso en la mesa, y salís sabiendo qué cambiar, sea conmigo o con cualquiera. Elegí el horario que te quede mejor y llegá con tu caso, no hace falta preparar nada más.</p>
       <a class="btn" id="cal" href="https://calendly.com/juanhrr00/sesion-de-entendimiento" target="_blank" rel="noopener">Elegir horario</a>
+      <p style="margin:22px 0 0" id="pasa-taller">Y si querés ver cómo trabajo con IA en vivo, el lunes 9 de noviembre a las 20 (17 MX, 18 CO) hay taller. Si te sirve, anotate acá abajo.</p>
+      <a class="small-link" href="https://bethebrand.lat/taller/?utm_source=taller_online&utm_medium=llamada">Anotarme al taller</a>
     </section>
 
     <!-- VE MÓDULOS PERO NO LA LLAMADA (3+ clientes, factura menos de 500) -->
     <section id="r-vivo" class="step result card">
       <h2>Lo que sigue: el taller en vivo del 9 de noviembre</h2>
-      <p>Si querés trabajar tu oferta en vivo, con otros que están en lo mismo, eso es lo que hacemos en el próximo taller. Ahí también te voy a mostrar en pantalla cómo trabajo yo con IA, porque si la IA ya hace buena parte de la tarea, lo que te van a seguir pagando es el problema que resolvés, y en eso nos vamos a meter. <strong>Lunes 9 de noviembre, 20:00 AR · 17:00 MX · 18:00 CO</strong>. Es gratis.</p>
-      <a class="btn" href="https://bethebrand.lat/taller/?utm_source=taller_online&utm_medium=modulos">Anotarme al taller</a>
+      <p>Tenés clientes, así que algo de lo que hacés ya funciona. Lo que te sirve ahora es trabajar tu caso en vivo con otros que están en lo mismo: eso hacemos el <strong>lunes 9 de noviembre a las 20 (17 MX, 18 CO)</strong>, y ahí te muestro en pantalla cómo uso la IA para que te escriba gente que puede pagarte. Mientras tanto tenés los 6 módulos del taller online, arrancá por el 1.</p>
+      <a class="btn" href="https://bethebrand.lat/taller/?utm_source=taller_online&utm_medium=modulos">Anotarme al taller 9/11</a>
+      <a class="btn" href="#b-clase" id="ver-modulos">Ver los módulos</a>
     </section>
 
 
@@ -312,9 +333,9 @@
   <section id="r-taller" class="step result card">
     <h2>Te espero en el taller en vivo del 9 de noviembre</h2>
     <p id="taller-oracion" class="tu-oracion" hidden></p>
-    <p>Por lo que me contaste, hoy te sirve más trabajar tu oferta en vivo, con otros que están en lo mismo, que hacer los módulos por tu cuenta. Eso hacemos en el próximo taller, y en este te muestro cómo trabajo con IA: si la IA ya hace buena parte de la tarea, lo que te siguen pagando es el problema que resolvés. <strong>Lunes 9 de noviembre, 20:00 AR · 17:00 MX · 18:00 CO</strong>. Es gratis.</p>
-    <a class="btn" href="https://bethebrand.lat/taller/?utm_source=taller_online&utm_medium=filtro" id="taller">Anotarme al taller</a>
-    <a class="small-link" id="wa-caso" href="https://wa.me/5491168086631" target="_blank" rel="noopener">Si sentís que las preguntas no cuentan bien tu caso, escribime por WhatsApp y lo vemos.</a>
+    <p>Lo primero para vos es arreglar <strong id="taller-fuga">lo que se te está cayendo</strong>, y para eso te alcanza con lo que te dejo acá: la acción de esta semana y el taller en vivo del <strong>lunes 9 de noviembre a las 20 (17 MX, 18 CO)</strong>, donde trabajamos cuatro casos reales en pantalla. Anotate, y si sentís que las preguntas no cuentan bien tu caso, escribime por WhatsApp y lo vemos.</p>
+    <a class="btn" href="https://bethebrand.lat/taller/?utm_source=taller_online&utm_medium=filtro" id="taller">Anotarme al taller 9/11</a>
+    <a class="small-link" id="wa-caso" href="https://wa.me/5491168086631" target="_blank" rel="noopener">Escribirle a Juan por WhatsApp</a>
   </section>
 
 </main>
@@ -439,25 +460,33 @@
           "t": "No te encuentran",
           "p": "Hoy, si te llega un cliente, es porque alguien te recomendó. El que no te conoce no tiene dónde verte, así que cuando busca a alguien que haga lo que vos hacés termina hablando con el que sí encontró.",
           "a": "Publicá una sola cosa: un caso real de un cliente, qué problema tenía y cómo lo resolvieron juntos. No tiene que estar perfecto.",
-          "l": "En 25 minutos vemos qué publicar para que te escriba gente que puede pagarte"
+          "l": "En 25 minutos vemos qué publicar para que te escriba gente que puede pagarte",
+          "v": "qué publicar para que te escriba gente que puede pagarte",
+          "x": "cómo te encuentra el que todavía no te conoce"
       },
       "B": {
           "t": "Publicás, pero no te escribe gente nueva",
           "p": "Publicás seguido y explicás bien lo que hacés. Lo que pasa es que el que te lee todavía no se reconoce ahí: si en la primera línea no ve nombrado su problema, piensa “qué bueno” y sigue de largo.",
           "a": "Agarrá tus últimas tres publicaciones y fijate si alguna nombra el problema de tu cliente en la primera línea. La próxima que publiques, empezala por ahí.",
-          "l": "En 25 minutos vemos qué cambiar en lo que publicás para que te escriba gente que puede pagarte"
+          "l": "En 25 minutos vemos qué cambiar en lo que publicás para que te escriba gente que puede pagarte",
+          "v": "qué hacer con lo que publicás para que te escriba gente que puede pagarte",
+          "x": "lo que publicás, para que te traiga gente nueva"
       },
       "C": {
           "t": "Te escriben, pero no te compran",
           "p": "Las consultas llegan, así que algo de lo que hacés funciona. Lo que se cae es lo que pasa después de que te escriben, entre tu primera respuesta y la llamada.",
           "a": "Releé las últimas tres consultas que no cerraron y anotá en qué momento se cortó, si fue después de un mensaje tuyo o en la llamada. Lo más probable es que se repita, y ahí está lo primero que hay que cambiar.",
-          "l": "En 25 minutos vemos por qué te escriben y no te compran"
+          "l": "En 25 minutos vemos por qué te escriben y no te compran",
+          "v": "por qué te escriben y no te compran",
+          "x": "lo que pasa entre tu primera respuesta y el sí"
       },
       "D": {
           "t": "Vendés, pero no sabés de dónde sale el próximo cliente",
           "p": "Tenés clientes y sabés hacer el trabajo, eso no está en duda. Pero el próximo sigue dependiendo de que alguien te recomiende, y como no hay otra forma de que llegue, cada mes se siente como arrancar de cero.",
           "a": "Anotá de dónde vino cada uno de tus últimos cinco clientes. Si casi todos vienen de una recomendación, ese es el riesgo que hay que cubrir primero.",
-          "l": "En 25 minutos vemos de dónde puede salir tu próximo cliente cuando el referido no llega"
+          "l": "En 25 minutos vemos de dónde puede salir tu próximo cliente cuando el referido no llega",
+          "v": "de dónde puede salir tu próximo cliente cuando no llega una recomendación",
+          "x": "lo de depender de una recomendación para conseguir el próximo cliente"
       }
   };
   function fuga(d) {
@@ -470,7 +499,8 @@
   function pintarDiag() {
     var f = FUGAS[st.d.fuga || fuga(st.d)];
     $('diag-t').textContent = f.t; $('diag-p').textContent = f.p; $('diag-a').textContent = f.a;
-    $('pasa-fuga').textContent = f.l;
+    $('pasa-fuga').textContent = f.v; $('taller-fuga').textContent = f.x;
+    $('diag-h').textContent = st.d.nombre ? 'Tu diagnóstico, ' + (function (n) { return n.charAt(0).toUpperCase() + n.slice(1).toLowerCase(); })(st.d.nombre.split(' ')[0]) : 'Tu diagnóstico';
     show('diag');
   }
 
@@ -489,8 +519,20 @@
   }
   function noCalifica() {
     hide('b-form'); hide('intro'); pintarDiag(); show('r-taller');
-    $('wa-caso').href = 'https://wa.me/5491168086631?text=' + encodeURIComponent('Hola Juan, soy ' + st.d.nombre + '. Completé lo del taller online y creo que mi caso no entra en las tres preguntas');
+    $('wa-caso').href = 'https://wa.me/5491168086631?text=' + encodeURIComponent('Hola Juan, soy ' + st.d.nombre + '. Completé lo del taller online y creo que mi caso no entra en las preguntas');
   }
+
+  // Pregunta 8: entre 60 y 600 caracteres. El contador avisa cuánto falta.
+  var MIN_ABIERTA = 60;
+  var ERR_GENERAL = 'Te quedó algo sin completar, fijate que estén todas las preguntas, tu nombre y tu WhatsApp.';
+  var ERR_CORTA = 'Contame un poco más en la última pregunta, con dos líneas alcanza.';
+  function contar() {
+    var n = $('abierta').value.trim().length;
+    if (n >= MIN_ABIERTA && $('f-err').textContent === ERR_CORTA) $('f-err').style.display = 'none';
+    $('abierta-n').textContent = n < MIN_ABIERTA ? (MIN_ABIERTA - n === 1 ? 'Te falta 1 carácter' : 'Te faltan ' + (MIN_ABIERTA - n) + ' caracteres') : n + ' de 600';
+  }
+  $('abierta').addEventListener('input', contar); contar();
+  $('ver-modulos').addEventListener('click', function (e) { e.preventDefault(); $('b-clase').scrollIntoView({ behavior: 'smooth', block: 'start' }); });
 
   // Si no tuvo consultas, la pregunta de cuántas cerró no se hace.
   [].forEach.call(document.querySelectorAll('input[name=origen]'), function (r) {
@@ -500,9 +542,12 @@
   $('f').addEventListener('submit', function (e) {
     e.preventDefault();
     var f = e.target, d = {};
-    ['vende_a', 'clientes_3m', 'facturacion', 'publica', 'origen', 'cierre'].forEach(function (n) { var x = f.querySelector('input[name=' + n + ']:checked'); d[n] = x ? x.value : ''; });
+    ['vende_a', 'clientes_3m', 'facturacion', 'publica', 'origen', 'cierre', 'inversion'].forEach(function (n) { var x = f.querySelector('input[name=' + n + ']:checked'); d[n] = x ? x.value : ''; });
+    d.abierta = f.abierta.value.trim().slice(0, 600);
     d.nombre = f.nombre.value.trim(); d.whatsapp = f.whatsapp.value.trim(); d.pais = f.pais.value;
-    if (!d.vende_a || !d.clientes_3m || !d.facturacion || !d.publica || !d.origen || (!d.cierre && d.origen !== 'ninguna') || !d.nombre || d.whatsapp.replace(/\D/g, '').length < 7) { $('f-err').style.display = 'block'; return; }
+    var resto = d.vende_a && d.clientes_3m && d.facturacion && d.publica && d.origen && (d.cierre || d.origen === 'ninguna') && d.inversion && d.nombre && d.whatsapp.replace(/\D/g, '').length >= 7;
+    var corta = d.abierta.length < MIN_ABIERTA;
+    if (!resto || corta) { $('f-err').textContent = resto ? ERR_CORTA : ERR_GENERAL; $('f-err').style.display = 'block'; return; }
     $('f-err').style.display = 'none';
     $('f-btn').disabled = true;
 
