@@ -103,6 +103,11 @@
   #diag { margin-bottom: 28px; }
   #diag h2 { margin: 2px 0 12px; }
   #diag .diag-h3 { margin: 20px 0 8px; color: var(--yellow); }
+  #diag .espejo { color: var(--cream); }
+  #diag.leyendo .diag-h3, #diag.leyendo #diag-a { display: none; }
+  #diag.leyendo #diag-p { color: var(--cream); animation: latir 1.6s ease-in-out infinite; }
+  @keyframes latir { 50% { opacity: .45; } }
+  @media (prefers-reduced-motion: reduce) { #diag.leyendo #diag-p { animation: none; } }
   .acceso { font-size: 15px; font-weight: 600; color: var(--yellow); margin-bottom: 14px; }
   .temario.locked .d { font-size: 0; }
   .fugas .fila { display: grid; grid-template-columns: 28px 1fr; gap: 12px; padding: 13px 14px; font-size: 16px; font-weight: 600; line-height: 1.35; }
@@ -346,6 +351,11 @@
   // el contenido. Solo el que califica (pasa) ve los 6 módulos, con un reproductor que avanza solo, la oración
   // después del módulo 1 y la llamada al final. El que no califica no ve los módulos: va al taller en vivo.
   var CAPTURA = VIVO ? 'https://btb-capture.vercel.app/api/clase' : 'about:blank';
+  // Lectura de IA (Paso B). En la compu no se llama a producción: ?lectura=http://localhost:PUERTO/api/lectura
+  // usa la función local; sin eso, un simulacro (?mock=fallback fuerza el texto fijo).
+  var LECTURA = VIVO ? 'https://btb-capture.vercel.app/api/lectura' : (qs_lectura() || '');
+  function qs_lectura() { var u = new URLSearchParams(location.search).get('lectura'); return /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?\//.test(u || '') ? u : ''; }
+  var ESPERA_LECTURA = 25000;
   var CALENDLY = 'https://calendly.com/juanhrr00/sesion-de-entendimiento';
   var CLIP7 = '';   // caps/cap7.mp4 cuando esté grabado el cierre a cámara
   var CAPS = [
@@ -498,7 +508,20 @@
   }
   function pintarDiag() {
     var f = FUGAS[st.d.fuga || fuga(st.d)];
-    $('diag-t').textContent = f.t; $('diag-p').textContent = f.p; $('diag-a').textContent = f.a;
+    var l = st.lectura;
+    $('diag-t').textContent = f.t;
+    $('diag').classList.toggle('leyendo', l === 'pendiente' && !!st.esperando);
+    if (l === 'pendiente' && st.esperando) {
+      $('diag-p').textContent = 'Estoy leyendo lo que escribiste. Son unos segundos.';
+    } else if (l && l.fuente === 'ia') {
+      // Lectura de la IA: el espejo (lo que escribió) en claro, después el porqué.
+      $('diag-p').innerHTML = '';
+      if (l.espejo) { var e = document.createElement('span'); e.className = 'espejo'; e.textContent = l.espejo + ' '; $('diag-p').appendChild(e); }
+      $('diag-p').appendChild(document.createTextNode(l.por_que));
+      $('diag-a').textContent = l.accion_semana;
+    } else {
+      $('diag-p').textContent = f.p; $('diag-a').textContent = f.a;
+    }
     $('pasa-fuga').textContent = f.v; $('taller-fuga').textContent = f.x;
     $('diag-h').textContent = st.d.nombre ? 'Tu diagnóstico, ' + (function (n) { return n.charAt(0).toUpperCase() + n.slice(1).toLowerCase(); })(st.d.nombre.split(' ')[0]) : 'Tu diagnóstico';
     show('diag');
@@ -520,6 +543,36 @@
   function noCalifica() {
     hide('b-form'); hide('intro'); pintarDiag(); show('r-taller');
     $('wa-caso').href = 'https://wa.me/5491168086631?text=' + encodeURIComponent('Hola Juan, soy ' + st.d.nombre + '. Completé lo del taller online y creo que mi caso no entra en las preguntas');
+  }
+
+  // La lectura se pide una sola vez por diagnóstico: si recarga la página, queda la que ya llegó o el texto fijo.
+  function pedirLectura(d) {
+    st.lectura = 'pendiente'; st.esperando = true; guardar(); pintarDiag();
+    var listo = false;
+    function fin(r) {
+      if (listo) return; listo = true;
+      st.esperando = false;
+      st.lectura = r && r.fuente === 'ia' && r.por_que && r.accion_semana
+        ? { fuente: 'ia', espejo: r.espejo || '', por_que: r.por_que, accion_semana: r.accion_semana }
+        : { fuente: 'fallback' };
+      guardar(); pintarDiag();
+    }
+    setTimeout(function () { fin(null); }, ESPERA_LECTURA);
+    var cuerpo = { event_id: d.event_id, whatsapp: d.whatsapp, abierta: d.abierta };
+    ['vende_a', 'clientes_3m', 'facturacion', 'publica', 'origen', 'cierre', 'inversion'].forEach(function (k) { cuerpo[k] = d[k]; });
+    if (!LECTURA) {
+      // Simulacro local: no sale nada de la compu.
+      setTimeout(function () {
+        fin(qs.get('mock') === 'fallback' ? null : { fuente: 'ia', espejo: 'Hacés consultoría de procesos para pymes industriales y tus últimos tres clientes llegaron recomendados.',
+          por_que: 'Vendés, pero todo depende de que alguien te nombre. Si esa recomendación no llega, hoy no tenés otro lugar de donde salga el próximo cliente.',
+          accion_semana: 'Anotá qué tenían en común esos tres clientes: qué problema tenían y qué los hizo decir que sí.' });
+      }, 1500);
+      return;
+    }
+    try {
+      fetch(LECTURA, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(cuerpo) })
+        .then(function (r) { return r.ok ? r.json() : null; }).then(fin, function () { fin(null); });
+    } catch (_) { fin(null); }
   }
 
   // Pregunta 8: entre 60 y 600 caracteres. El contador avisa cuánto falta.
@@ -562,12 +615,13 @@
     // La captura no frena a nadie: si falla, la persona sigue igual.
     if (VIVO) try { fetch(CAPTURA, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d), keepalive: true }).catch(function () {}); } catch (_) {}
 
-    st = { d: d, visto: [], oracion: '', oracionHecha: false, cap: 0 }; guardar();
+    st = { d: d, visto: [], oracion: '', oracionHecha: false, cap: 0, lectura: null }; guardar();
     if (pasa(d)) abrirClase(true); else noCalifica();
+    pedirLectura(d);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  if (st.d) { if (pasa(st.d)) abrirClase(false); else noCalifica(); }
+  if (st.d) { st.esperando = false; if (pasa(st.d)) abrirClase(false); else noCalifica(); }
 })();
 </script>
 </body>
