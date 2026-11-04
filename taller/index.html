@@ -87,9 +87,22 @@
   .hero-body { font-size: 16px; line-height: 1.5; color: var(--muted); max-width: 600px; margin-bottom: 18px; }
   .hero-body strong { color: var(--cream); }
   .hero-for { font-size: 14px; font-weight: 600; color: var(--cream); margin: -6px 0 22px; }
+  .hero-promesa { font-size: 18px; font-weight: 900; line-height: 1.3; color: var(--yellow); margin: 0 0 14px; }
+  .caso { margin-top: 26px; padding: 18px 0 2px 18px; border-left: 4px solid var(--yellow); }
+  .caso .tag { font-size: 11px; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; color: #9a7a10; margin-bottom: 8px; }
+  .caso-txt { font-size: 21px; font-weight: 900; line-height: 1.3; letter-spacing: -0.01em; color: var(--dark); margin: 0 0 8px; }
+  .caso-quien { font-size: 14px; color: rgba(30,30,30,0.65); margin: 0; }
+  .caso-quien a { color: var(--dark); font-weight: 700; white-space: nowrap; }
+  .previa { display: flex; gap: 12px; align-items: flex-start; padding: 14px; border: 1px solid var(--yellow); border-radius: 8px; cursor: pointer; margin-top: 4px; text-transform: none; letter-spacing: 0; }
+  .previa input { width: 20px; height: 20px; flex: none; margin-top: 2px; accent-color: var(--yellow); }
+  .previa strong { display: block; font-size: 15px; color: var(--cream); line-height: 1.35; }
+  .previa small { display: block; font-size: 13px; font-weight: 400; color: var(--muted); line-height: 1.45; margin-top: 4px; }
+  .previa-ok { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); }
+  .previa-ok p { font-size: 15px; color: var(--cream); line-height: 1.6; margin-bottom: 14px; }
+  .previa-btn { text-align: center; text-decoration: none; background: transparent !important; color: var(--cream) !important; border: 1px solid var(--yellow); }
   .hero-who { display: flex; align-items: center; gap: 12px; margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--line); }
   .hero-who .pic { width: 48px; height: 48px; border-radius: 50%; overflow: hidden; border: 2px solid var(--yellow); flex: none; }
-  .hero-who .pic img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 38%; }
+  .hero-who .pic img { width: 100%; height: 100%; object-fit: cover; }
   .hero-who p { font-size: 13px; line-height: 1.4; color: var(--muted); }
   .hero-who p strong { display: block; font-size: 14px; }
 
@@ -156,7 +169,7 @@
   /* QUIÉN */
   .quien { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: start; }
   .quien .foto { width: 100%; max-width: 360px; aspect-ratio: 1 / 1; border-radius: 8px; overflow: hidden; border: 1px solid var(--line); }
-  .quien .foto img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+  .quien .foto img { width: 100%; height: 100%; object-fit: cover; }
   .quien p { font-size: 16px; line-height: 1.6; color: var(--muted); margin-top: 14px; }
   .quien p strong { color: var(--cream); }
   .igfeed { display: flex; gap: 12px; margin: 30px 0 0; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 6px; }
@@ -258,6 +271,7 @@
   <div class="wrap">
     <p class="hero-kicker">Mesa de trabajo en vivo · 4ª edición · gratis</p>
     <h1>la <span style="text-transform:none">IA</span> ya hace tu tarea. <em>entonces por qué te van a seguir pagando?</em></h1>
+    <p class="hero-promesa">Para vivir de tu profesión sin depender de recomendaciones.</p>
     <p class="hero-body">
       Una parte de lo que hoy te pagan, tu cliente ya se la puede pedir a la IA. Por qué te va a seguir pagando, entonces? Porque lo que compra es que alguien se haga cargo de su problema, y la tarea es solo una parte de eso.
       <strong>El lunes 9 te muestro en pantalla cómo uso la IA en mi trabajo, y en cuatro casos reales vemos qué tiene que cambiar cada uno en cómo cuenta lo que hace para que le sigan comprando.</strong>
@@ -289,7 +303,7 @@
     <p class="btn-note">Te pregunto por tus clientes y en el momento te digo si la mesa es para vos. Si entrás, ese mismo día te llega el link de Zoom por WhatsApp. Es gratis.</p>
 
     <div class="hero-who">
-      <div class="pic"><img src="reel1.jpg" alt="Juan Herrera"></div>
+      <div class="pic"><img src="foto-juan-cara.jpg" alt="Juan Herrera"></div>
       <p><strong>La da Juan Herrera</strong>18 años en marketing. Productoras de cine, una agencia global, comerciales para el Super Bowl.</p>
     </div>
 
@@ -317,6 +331,11 @@
       </div>
     </div>
     <p class="lead">Sabe hacer lo mismo y se lo hace a la misma gente. Lo que cambió es desde dónde lo dice: la primera cuenta su tarea, la segunda cuenta lo que gana el que la contrata. <strong>Esa noche agendó una llamada.</strong> Eso es lo que trabajamos en cada caso: que el que te escucha entienda qué problema le resolvés y por qué tiene que ser con vos.</p>
+    <div class="caso">
+      <div class="tag">Un caso del programa</div>
+      <p class="caso-txt">En abril ordenamos la oferta de Agos. Hoy vive de su trabajo con tres empresas.</p>
+      <p class="caso-quien">Agos Milocco · consultora de empresas · <a href="https://www.instagram.com/reel/DfP_TewijOK/" target="_blank" rel="noopener">ver su caso →</a></p>
+    </div>
   </div>
 </section>
 
@@ -338,13 +357,13 @@
     <div class="llevas">
       <div class="llevas-item">
         <div class="n">01 · MINUTO 8</div>
-        <h3>Cómo trabajo con IA</h3>
-        <p>Un caso real en pantalla, desde lo que le pido a la IA hasta lo que decido yo.</p>
+        <h3>Qué parte de tu trabajo no reemplaza la IA</h3>
+        <p>Ves un caso real en pantalla, desde lo que le pido a la IA hasta lo que decido yo, y hacés la misma separación con lo tuyo.</p>
       </div>
       <div class="llevas-item">
         <div class="n">02 · MINUTO 18</div>
-        <h3>Cuatro casos reales</h3>
-        <p>Doce minutos cada uno, en pantalla. Si te parecés a alguno, te llevás lo que hay que cambiar en el tuyo para que te compren.</p>
+        <h3>Qué cambiar en cómo contás lo que hacés</h3>
+        <p>Son cuatro casos reales, doce minutos cada uno, y si el tuyo se parece a alguno salís sabiendo qué cambiar para que te compren.</p>
       </div>
       <div class="llevas-item big">
         <div class="n">03 · MINUTO 68</div>
@@ -377,7 +396,7 @@
   <div class="wrap">
     <p class="label">Los cuatro casos</p>
     <h2>Salen de lo que escribís al anotarte.</h2>
-    <p class="lead">Entrar a la sala es gratis. En la mesa hablan cuatro, y los elijo el sábado 7 de noviembre entre lo que la gente cuenta de su trabajo en el formulario. Escribilo como lo contestás hoy cuando te preguntan qué hacés: así nos sirve más.</p>
+    <p class="lead">Entrar a la sala es gratis. En la mesa hablan cuatro, y los elijo el sábado 7 de noviembre entre lo que la gente cuenta de su trabajo en el formulario y que hayan confirmado por WhatsApp. Escribilo como lo contestás hoy cuando te preguntan qué hacés: así nos sirve más.</p>
     <p class="lead" style="margin-top:16px"><strong>Si no te toca, trabajás igual sobre lo tuyo por el chat.</strong></p>
     <p style="margin-top:28px"><a href="#registro" class="btn">contar mi caso para la mesa →</a></p>
   </div>
@@ -388,7 +407,7 @@
   <div class="wrap">
     <p class="label">Quién la da</p>
     <div class="quien">
-      <div class="foto"><img src="reel1.jpg" alt="Juan Herrera"></div>
+      <div class="foto"><img src="foto-juan.jpg" alt="Juan Herrera"></div>
       <div>
         <h2 style="text-transform:none">Soy Juan Herrera.</h2>
         <p>Trabajé 18 años en marketing: productoras de cine, una agencia global, comerciales que salieron en el Super Bowl. Y con todo eso seguía dependiendo de que alguien me contratara, sin saber de dónde iba a salir el cliente del mes siguiente.</p>
@@ -507,9 +526,15 @@
       </div>
 
       <div class="form-field">
-        <label for="instagram">tu Instagram <span class="hint">(así miro tu caso antes del taller)</span></label>
+        <label for="instagram">tu Instagram <span class="hint">(así veo lo que publicás)</span></label>
         <input type="text" id="instagram" name="instagram" required placeholder="@tucuenta">
       </div>
+
+      <label class="previa" id="previa-box">
+        <input type="checkbox" id="previa" name="previa">
+        <span><strong>Quiero que mires mi caso antes del taller</strong>
+        <small>Tengo cinco lugares de 25 minutos por videollamada. Miramos tu caso y, si tiene sentido, te cuento cómo trabajo.</small></span>
+      </label>
 
       <button type="submit" class="btn btn-primary btn-block" style="margin-top:6px">anotarme →</button>
 
@@ -520,6 +545,12 @@
   </div>
 
   <script>
+    // Sesión previa al taller. Cinco lugares: pasar a false cuando se completen.
+    const PREVIA_ABIERTA = true;
+    const PREVIA_CIERRE = Date.parse('2026-11-09T12:00:00-03:00');
+    const CASOS_CIERRE = Date.parse('2026-11-07T23:59:00-03:00');
+    const PREVIA_URL = 'https://calendly.com/juanhrr/sesion-de-entendimiento?utm_source=taller4_previa&utm_medium=landing&utm_campaign=taller_9nov';
+    if (!PREVIA_ABIERTA || Date.now() >= PREVIA_CIERRE) { document.getElementById('previa-box').style.display = 'none'; }
     // Webhook n8n (self-host) — workflow "BTB — Taller Registro" -> Sheet + CAPI Lead.
     // Captura propia (Vercel). Guarda la fila y dispara el evento de Meta sin
     // depender de n8n, que ademas avisa a Juan y manda la bienvenida cuando esta
@@ -624,15 +655,19 @@
           }, { eventID: eventId });
         }
 
+        // Sesión previa: solo se mide en Calendly (utm_source), la captura no cambia.
+        const quierePrevia = PREVIA_ABIERTA && Date.now() < PREVIA_CIERRE && document.getElementById('previa').checked;
+        const casosAbiertos = Date.now() < CASOS_CIERRE;
         // Estado de éxito
         form.innerHTML =
           '<div style="text-align:center;padding:16px 0">' +
             '<div style="font-size:44px;margin-bottom:16px">✓</div>' +
-            '<p style="font-size:20px;font-weight:900;color:var(--cream);margin-bottom:10px">Listo, tenés tu lugar.</p>' +
+            '<p style="font-size:20px;font-weight:900;color:var(--cream);margin-bottom:10px">' + (casosAbiertos ? 'Ya te anoté. Te falta un paso para que tu caso pueda salir en la mesa.' : 'Ya te anoté. Te falta un paso.') + '</p>' +
             '<p style="font-size:15px;color:rgba(245,240,232,0.6);line-height:1.6;margin-bottom:24px">Nos vemos el <strong style="color:var(--cream)">lunes 9 de noviembre</strong> (20:00 AR · 17:00 MX y CR · 18:00 CO y PA). El link de Zoom te llega por WhatsApp ese día.</p>' +
-            '<p style="font-size:15px;color:var(--cream);line-height:1.6;margin-bottom:16px"><strong>Un paso más.</strong> Confirmame el lugar por WhatsApp. De los que confirman elijo los cuatro casos en vivo.</p>' +
+            '<p style="font-size:15px;color:var(--cream);line-height:1.6;margin-bottom:16px">' + (casosAbiertos ? 'Confirmame el lugar por WhatsApp, que los cuatro casos en vivo los elijo el sábado 7 entre los que confirmaron.' : 'Confirmame el lugar por WhatsApp.') + '</p>' +
             '<a class="btn btn-block" style="text-align:center;text-decoration:none" target="_blank" rel="noopener" href="https://wa.me/5491168765302?text=CONFIRMO" onclick="try{fbq(\'trackCustom\',\'ConfirmoWhatsApp\')}catch(e){}">Confirmar por WhatsApp</a>' +
             '<p class="btn-note" style="text-align:center">Se abre WhatsApp con el mensaje ya escrito. Solo tenés que enviarlo.</p>' +
+            (quierePrevia ? '<div class="previa-ok"><p><strong>Y elegí el horario para mirar tu caso,</strong> así el lunes ya lo conozco.</p><a class="btn btn-block previa-btn" target="_blank" rel="noopener" href="'+PREVIA_URL+'" onclick="try{fbq(\'trackCustom\',\'PreviaAgenda\')}catch(e){}">Elegir horario</a></div>' : '') +
           '</div>';
       } catch (err) {
         console.error(err);
