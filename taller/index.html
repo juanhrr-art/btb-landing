@@ -87,12 +87,9 @@
   .hero-body { font-size: 16px; line-height: 1.5; color: var(--muted); max-width: 600px; margin-bottom: 18px; }
   .hero-body strong { color: var(--cream); }
   .hero-for { font-size: 14px; font-weight: 600; color: var(--cream); margin: -6px 0 22px; }
-  .hero-promesa { font-size: 18px; font-weight: 900; line-height: 1.3; color: var(--yellow); margin: 0 0 14px; }
-  .caso { margin-top: 26px; padding: 18px 0 2px 18px; border-left: 4px solid var(--yellow); }
-  .caso .tag { font-size: 11px; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; color: #9a7a10; margin-bottom: 8px; }
   .caso-txt { font-size: 21px; font-weight: 900; line-height: 1.3; letter-spacing: -0.01em; color: var(--dark); margin: 0 0 8px; }
-  .caso-quien { font-size: 14px; color: rgba(30,30,30,0.65); margin: 0; }
-  .caso-quien a { color: var(--dark); font-weight: 700; white-space: nowrap; }
+  .ba q.sin-comillas { quotes: none; }
+  .caso-link { color: var(--dark); font-weight: 700; white-space: nowrap; }
   .previa { display: flex; gap: 12px; align-items: flex-start; padding: 14px; border: 1px solid var(--yellow); border-radius: 8px; cursor: pointer; margin-top: 4px; text-transform: none; letter-spacing: 0; }
   .previa input { width: 20px; height: 20px; flex: none; margin-top: 2px; accent-color: var(--yellow); }
   .previa strong { display: block; font-size: 15px; color: var(--cream); line-height: 1.35; }
@@ -271,7 +268,6 @@
   <div class="wrap">
     <p class="hero-kicker">Mesa de trabajo en vivo · 4ª edición · gratis</p>
     <h1>la <span style="text-transform:none">IA</span> ya hace tu tarea. <em>entonces por qué te van a seguir pagando?</em></h1>
-    <p class="hero-promesa">Para vivir de tu profesión sin depender de recomendaciones.</p>
     <p class="hero-body">
       Una parte de lo que hoy te pagan, tu cliente ya se la puede pedir a la IA. Por qué te va a seguir pagando, entonces? Porque lo que compra es que alguien se haga cargo de su problema, y la tarea es solo una parte de eso.
       <strong>El lunes 9 te muestro en pantalla cómo uso la IA en mi trabajo, y en cuatro casos reales vemos qué tiene que cambiar cada uno en cómo cuenta lo que hace para que le sigan comprando.</strong>
@@ -318,24 +314,20 @@
 <!-- ANTES / DESPUÉS -->
 <section class="block cream">
   <div class="wrap">
-    <p class="label">Agosto, en esta misma mesa</p>
-    <h2>La misma consultora, diez minutos después.</h2>
+    <p class="label">Una clienta</p>
+    <h2>La misma consultora, otra oferta.</h2>
     <div class="ba">
       <div class="before">
-        <div class="tag">Al principio dijo</div>
-        <q>Acompaño a profesionales en roles de conducción a elevar su manera de comunicar.</q>
+        <div class="tag">Abril</div>
+        <q class="sin-comillas">Planificación estratégica, costos, contabilidad, procesos, personal.</q>
       </div>
       <div class="after">
-        <div class="tag">Diez minutos después</div>
-        <q>Ayudo a personas en cargos ejecutivos a tener claridad para tomar decisiones.</q>
+        <div class="tag">Después de ordenarla</div>
+        <q class="sin-comillas">Administración eficiente. Un proceso de seis meses.</q>
       </div>
     </div>
-    <p class="lead">Sabe hacer lo mismo y se lo hace a la misma gente. Lo que cambió es desde dónde lo dice: la primera cuenta su tarea, la segunda cuenta lo que gana el que la contrata. <strong>Esa noche agendó una llamada.</strong> Eso es lo que trabajamos en cada caso: que el que te escucha entienda qué problema le resolvés y por qué tiene que ser con vos.</p>
-    <div class="caso">
-      <div class="tag">Un caso del programa</div>
-      <p class="caso-txt">En abril ordenamos la oferta de Agos. Hoy vive de su trabajo con tres empresas.</p>
-      <p class="caso-quien">Agos Milocco · consultora de empresas · <a href="https://www.instagram.com/reel/DfP_TewijOK/" target="_blank" rel="noopener">ver su caso →</a></p>
-    </div>
+    <p class="caso-txt">Hoy vive de su trabajo con tres empresas.</p>
+    <p class="lead">Agos Milocco, consultora de empresas. Sabe hacer lo mismo que antes, pero desde afuera costaba ver para qué contratarla. Ahora la empresa entiende qué compra y en cuánto tiempo. Una oferta así no se termina en una noche. En la mesa, con cuatro casos reales, ves qué cambiar primero en cómo contás lo tuyo. <a class="caso-link" href="https://www.instagram.com/reel/DfP_TewijOK/" target="_blank" rel="noopener">Ver su caso →</a></p>
   </div>
 </section>
 
@@ -462,7 +454,6 @@
           <option value="coach">coach / mentor</option>
           <option value="disenio">diseño / arquitectura</option>
           <option value="salud">salud / bienestar</option>
-          <option value="terapias">terapias holísticas o espirituales</option>
           <option value="servicios">servicios profesionales</option>
           <option value="agencia">agencia pequeña</option>
           <option value="freelancer">freelancer</option>
