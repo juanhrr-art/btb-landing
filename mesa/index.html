@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mesa de trabajo en vivo · cada dos miércoles · Be the Brand</title>
+<meta name="description" content="Mesa de trabajo en vivo y gratis, cada dos miércoles a las 19 h (Argentina), para consultores y agencias que le venden a empresas y ya tienen clientes. Casos reales para que el próximo cliente no dependa de una recomendación.">
+<meta property="og:title" content="Tus clientes llegan por recomendación. De dónde sale el próximo? · mesa en vivo, cada dos miércoles">
+<meta property="og:description" content="Mesa de trabajo en vivo y gratis para consultores y agencias que le venden a empresas. Cada dos miércoles, 19:00 AR · 16:00 MX · 17:00 CO. Demo de cómo uso la IA y tres casos en vivo.">
+<meta property="og:image" content="https://bethebrand.lat/mesa/og.jpg?v=1">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://bethebrand.lat/mesa/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bethebrand.lat/mesa/og.jpg?v=1">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #ECE8DB;
+    --dark: #1E1E1E;
+    --yellow: #F5C842;
+    --gray: #6B675C;
+    --line: rgba(236,232,219,0.12);
+    --soft: rgba(236,232,219,0.06);
+    --muted: rgba(236,232,219,0.66);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: 'Figtree', sans-serif;
+    background: var(--dark);
+    color: var(--cream);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+  img, video { max-width: 100%; display: block; }
+  a { color: inherit; }
+  strong { font-weight: 900; color: var(--cream); }
+  em { font-style: normal; color: var(--yellow); }
+
+  .wrap { width: 100%; max-width: 960px; margin: 0 auto; padding-left: 16px; padding-right: 16px; }
+  .narrow { max-width: 640px; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 12px 16px;
+    background: rgba(30,30,30,0.94);
+    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-logo { font-weight: 900; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; white-space: nowrap; }
+  .nav-logo span { color: var(--yellow); }
+  .nav-cta {
+    font-size: 13px; font-weight: 900; color: var(--dark); background: var(--yellow);
+    padding: 10px 16px; text-decoration: none; border-radius: 4px; white-space: nowrap;
+  }
+
+  /* BOTONES */
+  .btn {
+    display: inline-block; font-size: 16px; font-weight: 900; letter-spacing: -0.01em;
+    color: var(--dark); background: var(--yellow); padding: 18px 28px; border: none; border-radius: 6px;
+    text-decoration: none; cursor: pointer; text-align: center; transition: transform .15s, opacity .15s;
+  }
+  .btn:hover { opacity: .9; transform: translateY(-1px); }
+  .btn-block { display: block; width: 100%; }
+  .btn-note { font-size: 13px; color: var(--muted); margin-top: 12px; line-height: 1.5; }
+
+  /* ETIQUETAS */
+  .label { font-size: 11px; font-weight: 900; letter-spacing: 0.16em; text-transform: uppercase; color: var(--yellow); margin-bottom: 18px; }
+  .label::before { content: "● "; }
+  h2 { font-size: clamp(30px, 6.5vw, 50px); font-weight: 900; line-height: 1.02; letter-spacing: -0.03em; margin-bottom: 18px; }
+  .lead { font-size: 17px; line-height: 1.6; color: var(--muted); max-width: 620px; }
+  .lead strong { color: var(--cream); }
+
+  /* HERO */
+  .hero { padding: 84px 0 40px; }
+  .hero-kicker { font-size: 11px; font-weight: 900; letter-spacing: 0.16em; text-transform: uppercase; color: var(--yellow); margin-bottom: 20px; }
+  .hero h1 {
+    font-size: clamp(38px, 10.5vw, 88px); font-weight: 900; line-height: 0.95;
+    letter-spacing: -0.035em; text-transform: lowercase; margin-bottom: 22px;
+  }
+  .hero-body { font-size: 16px; line-height: 1.5; color: var(--muted); max-width: 600px; margin-bottom: 18px; }
+  .hero-body strong { color: var(--cream); }
+  .hero-for { font-size: 14px; font-weight: 600; color: var(--cream); margin: -6px 0 22px; }
+  .caso-txt { font-size: 21px; font-weight: 900; line-height: 1.3; letter-spacing: -0.01em; color: var(--dark); margin: 0 0 8px; }
+  .ba q.sin-comillas { quotes: none; }
+  .ba q.tachado { text-decoration: line-through; text-decoration-thickness: 2px; }
+  .caso-link { color: var(--dark); font-weight: 700; white-space: nowrap; }
+  .previa { display: flex; gap: 12px; align-items: flex-start; padding: 14px; border: 1px solid var(--yellow); border-radius: 8px; cursor: pointer; margin-top: 4px; text-transform: none; letter-spacing: 0; }
+  .previa input { width: 20px; height: 20px; flex: none; margin-top: 2px; accent-color: var(--yellow); }
+  .previa strong { display: block; font-size: 15px; color: var(--cream); line-height: 1.35; }
+  .previa small { display: block; font-size: 13px; font-weight: 400; color: var(--muted); line-height: 1.45; margin-top: 4px; }
+  .previa-ok { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); }
+  .previa-ok p { font-size: 15px; color: var(--cream); line-height: 1.6; margin-bottom: 14px; }
+  .previa-btn { text-align: center; text-decoration: none; background: transparent !important; color: var(--cream) !important; border: 1px solid var(--yellow); }
+  .hero-who { display: flex; align-items: center; gap: 12px; margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--line); }
+  .hero-who .pic { width: 48px; height: 48px; border-radius: 50%; overflow: hidden; border: 2px solid var(--yellow); flex: none; }
+  .hero-who .pic img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-who p { font-size: 13px; line-height: 1.4; color: var(--muted); }
+  .hero-who p strong { display: block; font-size: 14px; }
+
+  /* FECHA + CUENTA REGRESIVA */
+  .when {
+    display: grid; grid-template-columns: 1fr; gap: 2px; margin-bottom: 24px;
+    border: 1px solid var(--line); border-radius: 8px; overflow: hidden;
+  }
+  .when > div { background: var(--soft); padding: 18px 18px; }
+  .when .k { font-size: 10px; font-weight: 900; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray); margin-bottom: 6px; }
+  .when .v { font-size: 22px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; }
+  .when .v span { color: var(--yellow); }
+  .when .s { font-size: 13px; color: var(--muted); margin-top: 6px; line-height: 1.45; }
+  .cd { display: flex; gap: 14px; align-items: baseline; }
+  .cd b { font-size: 30px; font-weight: 900; letter-spacing: -0.03em; color: var(--yellow); line-height: 1; font-variant-numeric: tabular-nums; }
+  .cd small { font-size: 11px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); margin-left: 4px; }
+  .cd-live { font-size: 22px; font-weight: 900; color: var(--yellow); }
+
+  .proof { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); }
+  .proof div { font-size: 13px; color: var(--muted); line-height: 1.4; }
+  .proof b { display: block; font-size: 22px; font-weight: 900; color: var(--cream); letter-spacing: -0.02em; line-height: 1.1; }
+
+  /* SECCIONES */
+  section.block { padding: 64px 0; }
+  section.block + section.block { border-top: 1px solid var(--line); }
+  .cream { background: var(--cream); color: var(--dark); }
+  .cream .label { color: var(--dark); opacity: .55; }
+  .cream .lead { color: rgba(30,30,30,0.78); }
+  .cream .lead strong, .cream strong { color: var(--dark); }
+  .cream h2 em { color: #9a7a10; }
+
+  /* ANTES / DESPUÉS */
+  .ba { display: grid; grid-template-columns: 1fr; gap: 12px; margin: 26px 0 22px; }
+  .ba > div { border-left: 4px solid rgba(30,30,30,0.18); padding: 4px 0 4px 18px; }
+  .ba .tag { font-size: 11px; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 8px; }
+  .ba q { quotes: "“" "”"; font-size: 19px; font-weight: 600; line-height: 1.35; color: rgba(30,30,30,0.7); letter-spacing: -0.01em; }
+  .ba .after { border-left-color: var(--yellow); }
+  .ba .after q { color: var(--dark); font-weight: 900; }
+  .ba .after .tag { color: #9a7a10; }
+
+  /* TRABAS */
+  .trabas { margin-top: 30px; border-top: 1px solid var(--line); }
+  .traba { display: grid; grid-template-columns: 40px 1fr; gap: 14px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+  .traba .n { font-size: 30px; font-weight: 900; color: var(--yellow); line-height: 1; letter-spacing: -0.03em; }
+  .traba h3 { font-size: 20px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 6px; }
+  .traba p { font-size: 15px; line-height: 1.55; color: var(--muted); }
+  .traba p q { quotes: "“" "”"; color: var(--cream); }
+
+  /* QUÉ TE LLEVÁS */
+  .llevas { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 30px; }
+  .llevas-item { background: var(--soft); border: 1px solid var(--line); border-top: 3px solid var(--yellow); border-radius: 6px; padding: 22px 20px; }
+  .llevas-item .n { font-size: 12px; font-weight: 900; letter-spacing: 0.12em; color: var(--yellow); margin-bottom: 10px; }
+  .llevas-item h3 { font-size: 20px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 8px; }
+  .llevas-item p { font-size: 15px; line-height: 1.55; color: var(--muted); }
+  .llevas-item.big { border-top-color: var(--cream); background: rgba(245,200,66,0.08); }
+  .llevas-item.big .n { color: var(--cream); }
+
+  /* AGENDA */
+  .agenda { margin-top: 26px; border-top: 1px solid var(--line); }
+  .agenda-row { display: grid; grid-template-columns: 64px 1fr; gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .agenda-row .t { font-size: 13px; font-weight: 900; letter-spacing: 0.04em; color: var(--yellow); padding-top: 3px; font-variant-numeric: tabular-nums; }
+  .agenda-row p { font-size: 15px; line-height: 1.55; color: var(--muted); }
+
+  /* QUIÉN */
+  .quien { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: start; }
+  .quien .foto { width: 100%; max-width: 360px; aspect-ratio: 1 / 1; border-radius: 8px; overflow: hidden; border: 1px solid var(--line); }
+  .quien .foto img { width: 100%; height: 100%; object-fit: cover; }
+  .quien p { font-size: 16px; line-height: 1.6; color: var(--muted); margin-top: 14px; }
+  .quien p strong { color: var(--cream); }
+  .igfeed { display: flex; gap: 12px; margin: 30px 0 0; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 6px; }
+  .igfeed[hidden] { display: none; }
+  .igcard { flex: 0 0 240px; width: 240px; scroll-snap-align: start; text-decoration: none; color: var(--cream); background: rgba(236,232,219,0.04); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
+  .igcard .im { aspect-ratio: 4/5; background: #111 center/cover no-repeat; }
+  .igcard .tx { padding: 12px 14px 14px; font-size: 14px; line-height: 1.4; }
+  .igcard .k { font-size: 10px; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; color: var(--yellow); margin-bottom: 6px; }
+  .reels { display: flex; gap: 12px; margin: 30px 0 0; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 6px; }
+  .reels video { flex: 0 0 230px; width: 230px; scroll-snap-align: start; aspect-ratio: 9/16; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); background: #000; }
+  .ig {
+    display: inline-flex; align-items: center; gap: 9px; padding: 12px 22px; border-radius: 999px;
+    border: 1px solid rgba(245,200,66,0.55); color: var(--yellow); text-decoration: none;
+    font-weight: 900; font-size: 14px;
+  }
+
+  /* FORM */
+  .form-wrap { background: var(--soft); border: 1px solid var(--line); border-radius: 8px; padding: 26px 18px; text-align: left; }
+  .form-field { display: flex; flex-direction: column; gap: 8px; }
+  .form-field label { font-size: 14px; font-weight: 900; letter-spacing: -0.01em; color: var(--cream); }
+  .form-field .hint { font-size: 12px; font-weight: 400; color: var(--muted); line-height: 1.45; }
+  .form-field input, .form-field select, .form-field textarea {
+    background: rgba(30,30,30,0.6); border: 1px solid var(--line); color: var(--cream);
+    padding: 14px 16px; font-size: 16px; font-family: inherit; border-radius: 6px; width: 100%;
+  }
+  .form-field textarea { resize: vertical; min-height: 96px; line-height: 1.5; }
+  .form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: none; border-color: var(--yellow); }
+  .form-field select { cursor: pointer; }
+  .form-field.key { padding: 16px; border: 1px solid rgba(245,200,66,0.45); border-radius: 6px; background: rgba(245,200,66,0.06); }
+  .form-field.key label { color: var(--yellow); }
+
+  /* FOOTER */
+  footer { padding: 28px 16px calc(96px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); text-align: center; font-size: 12px; color: var(--gray); line-height: 1.8; }
+
+  /* CTA FIJO MOBILE */
+  .sticky-cta {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(30,30,30,0.96); border-top: 1px solid var(--line);
+    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  }
+  .sticky-cta a {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    background: var(--yellow); color: var(--dark); font-weight: 900; font-size: 15px;
+    padding: 14px 16px; text-decoration: none; border-radius: 6px;
+  }
+  .sticky-cta a small { font-size: 11px; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; opacity: .7; text-align: right; line-height: 1.2; }
+
+  /* DESKTOP */
+  @media (min-width: 720px) {
+    nav { padding: 16px 32px; }
+    .nav-logo { font-size: 13px; }
+    .wrap { padding-left: 32px; padding-right: 32px; }
+    .hero { padding: 132px 0 64px; }
+    .hero-body { font-size: 19px; }
+    .when { grid-template-columns: 1.2fr 1fr 1fr; }
+    .hero-for { font-size: 16px; }
+    section.block { padding: 88px 0; }
+    .ba { grid-template-columns: 1fr 1fr; gap: 28px; }
+    .llevas { grid-template-columns: 1fr 1fr; }
+    .quien { grid-template-columns: 300px 1fr; gap: 40px; }
+    .reels { display: grid; grid-template-columns: repeat(3, 1fr); max-width: 720px; overflow: visible; }
+    .igfeed { display: grid; grid-template-columns: repeat(4, 1fr); overflow: visible; }
+    .igcard { width: auto; flex: none; }
+    .reels video { width: 100%; flex: none; }
+    .form-wrap { padding: 40px; }
+    footer { padding-bottom: 40px; }
+    .sticky-cta { display: none; }
+  }
+</style>
+
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('set','autoConfig',false,'1514394006799758');
+  fbq('init', '1514394006799758');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1514394006799758&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+<script>
+// Mesa fija cada dos miércoles, 19:00 AR (22:00 UTC). Para sumar o sacar fechas, editar FECHAS.
+// La página muestra la primera mesa que todavía no terminó (inicio + 60 min).
+var MESA = (function () {
+  var FECHAS = ['2026-12-02','2026-12-16','2027-01-13','2027-01-27','2027-02-10','2027-02-24','2027-03-10','2027-03-24'];
+  var MESES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  var CORTOS = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  var ahora = Date.now(), elegida = FECHAS[FECHAS.length - 1];
+  for (var i = 0; i < FECHAS.length; i++) {
+    if (Date.parse(FECHAS[i] + 'T22:00:00Z') + 3600 * 1000 > ahora) { elegida = FECHAS[i]; break; }
+  }
+  var p = elegida.split('-'), dia = +p[2], mes = +p[1] - 1;
+  var inicio = Date.parse(elegida + 'T22:00:00Z');
+  var lunes = new Date(inicio - 2 * 86400000);
+  return { iso: elegida, inicio: inicio, larga: dia + ' de ' + MESES[mes], corta: dia + ' ' + CORTOS[mes],
+           casos: 'lunes ' + lunes.getUTCDate() };
+})();
+document.addEventListener('DOMContentLoaded', function () {
+  function poner(sel, txt) { document.querySelectorAll(sel).forEach(function (e) { e.textContent = txt; }); }
+  poner('.m-fecha', MESA.larga); poner('.m-corta', MESA.corta); poner('.m-casos', MESA.casos);
+  poner('.m-dia', 'miércoles ' + MESA.larga.split(' ')[0]);
+});
+</script>
+
+<nav>
+  <a href="https://bethebrand.lat/" class="nav-logo">● be the <span>brand</span></a>
+  <a href="#registro" class="nav-cta">anotarme</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <p class="hero-kicker">Mesa de trabajo en vivo · cada dos miércoles · gratis</p>
+    <h1>tus clientes llegan por recomendación. <em>y cuando se termina un proyecto, de dónde sale el próximo?</em></h1>
+    <p class="hero-body">
+      Si casi todos tus clientes llegaron porque alguien te recomendó, el próximo depende de que alguien se acuerde de vos. Cada dos miércoles armo una mesa de trabajo por Zoom para cambiar eso con casos reales.
+      <strong>El <span class="m-dia">miércoles</span> te muestro en pantalla cómo uso la IA en mi trabajo, y en tres casos de los que se anotan vemos qué cambiar en cómo cuenta cada uno lo que hace para que el próximo cliente no dependa de una recomendación.</strong>
+    </p>
+    <p class="hero-for">Para consultores y agencias que le venden a empresas y ya tienen clientes. Si la mesa no es para vos, te lo digo en el momento, cuando completás el formulario.</p>
+
+    <div class="when">
+      <div>
+        <div class="k">Cuándo</div>
+        <div class="v">Miércoles <span class="m-fecha">–</span></div>
+        <div class="s">19:00 Argentina · 16:00 México y Costa Rica · 17:00 Colombia y Panamá</div>
+      </div>
+      <div>
+        <div class="k">Empieza en</div>
+        <div class="cd" id="cd">
+          <div><b id="cd-d">–</b><small>días</small></div>
+          <div><b id="cd-h">–</b><small>hs</small></div>
+          <div><b id="cd-m">–</b><small>min</small></div>
+        </div>
+      </div>
+      <div>
+        <div class="k">Formato</div>
+        <div class="v">Zoom · <span>60 min</span></div>
+        <div class="s">Tres casos en la mesa. Si no querés mostrar el tuyo, podés escuchar.</div>
+      </div>
+    </div>
+
+    <a href="#registro" class="btn btn-block">ver si la mesa es para mí →</a>
+    <p class="btn-note">Te pregunto por tus clientes y en el momento te digo si la mesa es para vos. Si entrás, ese mismo día te llega el link de Zoom por WhatsApp. Es gratis.</p>
+
+    <div class="hero-who">
+      <div class="pic"><img src="foto-juan-cara.jpg" alt="Juan Herrera"></div>
+      <p><strong>La da Juan Herrera</strong>18 años en marketing. Productoras de cine, una agencia global, comerciales para el Super Bowl.</p>
+    </div>
+
+    <div class="proof">
+      <div><b>33</b>anotados en agosto</div>
+      <div><b>94</b>anotados en septiembre</div>
+      <div><b>5 países</b>en las mesas de este año</div>
+    </div>
+  </div>
+</header>
+
+<!-- ANTES / DESPUÉS -->
+<section class="block cream">
+  <div class="wrap">
+    <p class="label">Una clienta</p>
+    <h2>La misma consultora, otra oferta.</h2>
+    <div class="ba">
+      <div class="before">
+        <div class="tag">Abril</div>
+        <q class="sin-comillas tachado">Planificación estratégica, costos, contabilidad, procesos, personal.</q>
+      </div>
+      <div class="after">
+        <div class="tag">Con la oferta ordenada</div>
+        <q class="sin-comillas">Administración eficiente. Un proceso de seis meses.</q>
+      </div>
+    </div>
+    <p class="caso-txt">Hoy vive de su trabajo con tres empresas.</p>
+    <p class="lead">Agos Milocco, consultora de empresas. Sabe hacer lo mismo que antes, pero desde afuera costaba ver para qué contratarla. Ahora lo dice ella: “ya no explico más, me consultan por cosas más específicas”. En la mesa, con casos reales, vemos qué cambiar primero en cómo contás lo que hacés. <a class="caso-link" href="https://www.instagram.com/reel/DfP_TewijOK/" target="_blank" rel="noopener">Ver su caso →</a></p>
+  </div>
+</section>
+
+<!-- LA DEMO -->
+<section class="block">
+  <div class="wrap">
+    <p class="label">En cada mesa</p>
+    <h2>Cómo uso la IA en mi trabajo, <em>en pantalla</em>.</h2>
+    <p class="lead">Diez minutos con un caso real, de punta a punta. Vas a ver lo que le pido a la IA y el momento en que dejo de usarla y decido yo, que es justo la parte por la que me pagan. <strong>Con eso a la vista, mirar tu propio trabajo y separar las dos cosas se vuelve bastante más fácil.</strong></p>
+  </div>
+</section>
+
+<!-- QUÉ TE LLEVÁS -->
+<section class="block">
+  <div class="wrap">
+    <p class="label">Qué te llevás, gratis</p>
+    <h2>Salís con tres cosas.</h2>
+    <p class="lead">Es como trabajo con la gente que me contrata, en una noche y con casos reales.</p>
+    <div class="llevas">
+      <div class="llevas-item">
+        <div class="n">01 · MINUTO 3</div>
+        <h3>Qué parte de tu trabajo no reemplaza la IA</h3>
+        <p>Ves un caso real en pantalla, desde lo que le pido a la IA hasta lo que decido yo, y hacés la misma separación con lo tuyo.</p>
+      </div>
+      <div class="llevas-item">
+        <div class="n">02 · MINUTO 13</div>
+        <h3>Qué cambiar en cómo contás lo que hacés</h3>
+        <p>Son tres casos reales, diez minutos cada uno, y si el tuyo se parece a alguno salís sabiendo qué cambiar para que te compren.</p>
+      </div>
+      <div class="llevas-item big">
+        <div class="n">03 · MINUTO 43</div>
+        <h3>Un movimiento para esta semana</h3>
+        <p>Uno solo y concreto, que podés hacer antes del viernes. Lo escribís en el chat antes de irte.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOS 60 MINUTOS -->
+<section class="block">
+  <div class="wrap">
+    <p class="label">Los 60 minutos</p>
+    <h2>La ves entera antes de anotarte.</h2>
+    <div class="agenda">
+      <div class="agenda-row"><div class="t">0–3'</div><p><strong>Arranque.</strong> Qué vamos a ver, y un aviso desde el principio: al final te cuento cómo trabajo, qué incluye y cuánto sale.</p></div>
+      <div class="agenda-row"><div class="t">3–13'</div><p><strong>La demo.</strong> Cómo uso la IA en mi trabajo: un caso real de punta a punta, en pantalla, y el momento en que decido yo.</p></div>
+      <div class="agenda-row"><div class="t">13–43'</div><p><strong>Tres casos en vivo.</strong> Diez minutos cada uno. El resto trabaja por el chat sobre el suyo.</p></div>
+      <div class="agenda-row"><div class="t">43–46'</div><p><strong>Tu movimiento de la semana.</strong> Lo escribís en el chat.</p></div>
+      <div class="agenda-row"><div class="t">46–54'</div><p><strong>Cómo trabajo.</strong> Qué incluye y cuánto sale, una vez y sin vueltas.</p></div>
+      <div class="agenda-row"><div class="t">54–60'</div><p><strong>Preguntas.</strong></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOS CUATRO CASOS -->
+<section class="block cream">
+  <div class="wrap">
+    <p class="label">Los tres casos</p>
+    <h2>Salen de lo que escribís al anotarte.</h2>
+    <p class="lead">Entrar a la sala es gratis. En la mesa hablan tres, y los elijo el <span class="m-casos">lunes</span> entre lo que la gente cuenta de su trabajo en el formulario y que hayan confirmado por WhatsApp. Escribilo como lo contestás hoy cuando te preguntan qué hacés: así nos sirve más.</p>
+    <p class="lead" style="margin-top:16px"><strong>Si no te toca, trabajás igual sobre lo tuyo por el chat.</strong></p>
+    <p style="margin-top:28px"><a href="#registro" class="btn">contar mi caso para la mesa →</a></p>
+  </div>
+</section>
+
+<!-- QUIÉN -->
+<section class="block">
+  <div class="wrap">
+    <p class="label">Quién la da</p>
+    <div class="quien">
+      <div class="foto"><img src="foto-juan.jpg" alt="Juan Herrera"></div>
+      <div>
+        <h2 style="text-transform:none">Soy Juan Herrera.</h2>
+        <p>Trabajé 18 años en marketing: productoras de cine, una agencia global, comerciales que salieron en el Super Bowl. Y con todo eso seguía dependiendo de que alguien me contratara, sin saber de dónde iba a salir el cliente del mes siguiente.</p>
+        <p>Armé mi propio negocio para cortar con eso, y hoy trabajo uno a uno con consultores para que dejen de depender de que alguien los recomiende. <strong>A esta sala nadie llega recomendado:</strong> se llega por un anuncio o un video, una página y unos mensajes, y eso es un sistema que armé solo. De eso también hablamos al final.</p>
+        <p>Sin poses de gurú ni fotos con autos que no tengo. Así pienso y así mentoreo, en crudo. Esto es lo último que publiqué:</p>
+      </div>
+    </div>
+    <div class="igfeed" id="igfeed" hidden></div>
+    <div class="reels" id="reels-fallback">
+      <video muted loop playsinline controls preload="none" poster="reel1.jpg"><source src="reel1.mp4" type="video/mp4"></video>
+      <video muted loop playsinline controls preload="none" poster="reel2.jpg"><source src="reel2.mp4" type="video/mp4"></video>
+      <video muted loop playsinline controls preload="none" poster="reel3.jpg"><source src="reel3.mp4" type="video/mp4"></video>
+    </div>
+    <p style="margin-top:24px">
+      <a href="https://instagram.com/juanhrr.mkt" target="_blank" rel="noopener" class="ig">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        @juanhrr.mkt
+      </a>
+    </p>
+  </div>
+</section>
+
+<!-- PARA QUIÉN -->
+<section class="block">
+  <div class="wrap narrow">
+    <p class="label">Para quién es la mesa</p>
+    <p class="lead">Trabajamos sobre casos reales, con clientes reales, así que la mesa es para vos si vendés un servicio, hoy tenés por lo menos dos clientes que te pagan, tu servicio factura USD 500 o más por mes y casi todos tus clientes te llegaron por recomendación. Si todavía estás arrancando o vendés productos, el formulario te lo dice cuando lo mandás y no te anota. Prefiero eso a que pierdas un miércoles a la noche en algo que todavía no te sirve.</p>
+  </div>
+</section>
+
+<!-- REGISTRO -->
+<section class="block" id="registro">
+  <div class="wrap narrow">
+    <p class="label">Anotarte</p>
+    <h2>La mesa es para vos?</h2>
+    <p class="lead" style="margin-bottom:8px"><strong>Próxima mesa: miércoles <span class="m-fecha">–</span>, 19:00 AR</strong> · 16:00 MX y CR · 17:00 CO y PA. En vivo, por Zoom, gratis.</p>
+    <p class="lead" style="margin-bottom:28px">Dos minutos. Con lo que me contás de tus clientes te digo en el momento si la mesa es para vos. Si entrás, lo que contás de tu trabajo es lo que más importa: de ahí salen los tres casos.</p>
+
+  <div class="form-wrap">
+    <form id="taller-form" style="display:flex;flex-direction:column;gap:22px">
+
+      <div class="form-field">
+        <label for="nombre">nombre</label>
+        <input type="text" id="nombre" name="nombre" required placeholder="tu nombre">
+      </div>
+
+      <div class="form-field">
+        <label for="rubro">a qué te dedicás?</label>
+        <select id="rubro" name="rubro" required>
+          <option value="">seleccioná</option>
+          <option value="consultor">consultor independiente</option>
+          <option value="coach">coach / mentor</option>
+          <option value="disenio">diseño / arquitectura</option>
+          <option value="salud">salud / bienestar</option>
+          <option value="servicios">servicios profesionales</option>
+          <option value="agencia">agencia pequeña</option>
+          <option value="freelancer">freelancer</option>
+          <option value="otro">otro</option>
+        </select>
+      </div>
+
+      <div class="form-field">
+        <label for="email">email</label>
+        <input type="email" id="email" name="email" required placeholder="tu@email.com">
+      </div>
+
+      <div class="form-field">
+        <label for="pais">país</label>
+        <select id="pais" name="pais" required>
+          <option value="AR">Argentina</option>
+          <option value="MX">México</option>
+          <option value="CO">Colombia</option>
+          <option value="PA">Panamá</option>
+          <option value="CR">Costa Rica</option>
+          <option value="OTRO">otro</option>
+        </select>
+      </div>
+
+      <div class="form-field">
+        <label for="whatsapp">whatsapp</label>
+        <span class="hint">por acá te llega el link de Zoom el día de la mesa.</span>
+        <input type="tel" id="whatsapp" name="whatsapp" required placeholder="11 1234 5678">
+      </div>
+
+      <div class="form-field">
+        <label for="clientes">cuántos clientes activos tenés hoy?</label>
+        <select id="clientes" name="clientes" required>
+          <option value="">seleccioná</option>
+          <option value="ninguno">ninguno todavía</option>
+          <option value="1">uno</option>
+          <option value="2-3">entre 2 y 3</option>
+          <option value="4-10">entre 4 y 10</option>
+          <option value="10+">más de 10</option>
+        </select>
+      </div>
+
+      <div class="form-field">
+        <label for="ticket">cuánto factura tu servicio por mes, en promedio?</label>
+        <span class="hint">en dólares o su equivalente, aproximado.</span>
+        <select id="ticket" name="ticket" required>
+          <option value="">seleccioná</option>
+          <option value="sin_facturar">todavía no facturo con esto</option>
+          <option value="menos_500">menos de USD 500</option>
+          <option value="500_1500">entre USD 500 y 1.500</option>
+          <option value="1500_4000">entre USD 1.500 y 4.000</option>
+          <option value="mas_4000">más de USD 4.000</option>
+          <option value="productos">vendo productos, no servicios</option>
+        </select>
+      </div>
+
+      <div class="form-field key">
+        <label for="oferta">qué resolvés y para quién? contalo como lo decís hoy.</label>
+        <span class="hint">los tres casos de la mesa salen de acá. escribilo como te sale, sin corregirlo.</span>
+        <textarea id="oferta" name="oferta" rows="3" placeholder="ordeno la administración de estudios contables chicos para que dejen de perder horas en cada cierre"></textarea>
+      </div>
+
+      <div class="form-field">
+        <label for="instagram">tu Instagram <span class="hint">(así veo lo que publicás)</span></label>
+        <input type="text" id="instagram" name="instagram" required placeholder="@tucuenta">
+      </div>
+
+      <label class="previa" id="previa-box">
+        <input type="checkbox" id="previa" name="previa">
+        <span><strong>Quiero que mires mi caso antes de la mesa</strong>
+        <small>Tengo cinco lugares de 25 minutos por videollamada. Miramos tu caso y, si tiene sentido, te cuento cómo trabajo.</small></span>
+      </label>
+
+      <button type="submit" class="btn btn-primary btn-block" style="margin-top:6px">anotarme →</button>
+
+      <p style="font-size:12px;color:var(--gray);text-align:center;margin-top:2px;line-height:1.5">
+        Mesa: miércoles <span class="m-fecha">–</span>, 19:00 AR · 16:00 MX y CR · 17:00 CO y PA, por Zoom. El link te llega por WhatsApp ese día.
+      </p>
+    </form>
+  </div>
+
+  <script>
+    // Sesión previa al taller. Cinco lugares: pasar a false cuando se completen.
+    const PREVIA_ABIERTA = true;
+    const PREVIA_CIERRE = MESA.inicio - 7 * 3600 * 1000;
+    const CASOS_CIERRE = MESA.inicio - 48 * 3600 * 1000;
+    const PREVIA_URL = 'https://calendly.com/juanhrr/sesion-de-entendimiento?utm_source=mesa_previa&utm_medium=landing&utm_campaign=mesa_' + MESA.iso + '';
+    if (!PREVIA_ABIERTA || Date.now() >= PREVIA_CIERRE) { document.getElementById('previa-box').style.display = 'none'; }
+    // Webhook n8n (self-host) — workflow "BTB — Taller Registro" -> Sheet + CAPI Lead.
+    // Captura propia (Vercel). Guarda la fila y dispara el evento de Meta sin
+    // depender de n8n, que ademas avisa a Juan y manda la bienvenida cuando esta
+    // arriba. El 4/9/2026 n8n estuvo caido y se perdieron registros durante horas.
+    const N8N_WEBHOOK_URL = 'https://btb-capture.vercel.app/api/registro';
+
+    // --- Captura de parámetros de atribución para el CAPI (dedup por event_id) ---
+    function getCookie(name){
+      var m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+      return m ? m.pop() : '';
+    }
+    // fbclid → _fbc (si Meta aún no lo seteó por cookie)
+    (function(){
+      var p = new URLSearchParams(window.location.search);
+      var fbclid = p.get('fbclid');
+      if (fbclid && !getCookie('_fbc')) {
+        var fbc = 'fb.1.' + Date.now() + '.' + fbclid;
+        document.cookie = '_fbc=' + fbc + ';path=/;max-age=7776000';
+      }
+    })();
+
+    function uuid(){
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c){
+        var r = Math.random()*16|0, v = c==='x' ? r : (r&0x3|0x8);
+        return v.toString(16);
+      });
+    }
+
+    // Atribución de canal: de dónde vino el registro (ads / organico / invitacion).
+    // Si hay fbclid es tráfico de pauta aunque no traiga utm. Default: "directo".
+    function getAttribution(){
+      var p = new URLSearchParams(window.location.search);
+      var src = p.get('utm_source') || (p.get('fbclid') ? 'ads' : 'directo');
+      return {
+        utm_source: src,
+        utm_medium: p.get('utm_medium') || '',
+        utm_campaign: p.get('utm_campaign') || ''
+      };
+    }
+
+    const form = document.getElementById('taller-form');
+    const btn = form.querySelector('button[type="submit"]');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      // Filtro de avatar (28/9, ampliado 1/10): servicios, 2+ clientes, factura USD 500+/mes y no terapias alternativas.
+      // Si vende productos o todavía no tiene clientes, no se registra ni dispara el pixel.
+      var tk = (document.getElementById('ticket') || {}).value, cl = document.getElementById('clientes').value;
+      var rb = document.getElementById('rubro').value, of = (document.getElementById('oferta') || {}).value || '';
+      var TERAPIAS = /aura|ak[aá]shic|dise[nñ]o humano|tarot|astrolog|reiki|constelaci|biodecodific|registros ak|chakra|canaliz|comunicaci[oó]n (con )?animal|numerolog|sanaci[oó]n|energ[ií]a (sutil|vital)/i;
+      if (tk === 'productos' || tk === 'sin_facturar' || tk === 'menos_500' || cl === 'ninguno' || cl === '1' || rb === 'terapias' || TERAPIAS.test(of)) {
+        var nom = (document.getElementById('nombre').value || '').trim().split(' ')[0];
+        form.parentNode.innerHTML = '<div style="padding:8px 4px"><p style="font-weight:900;font-size:22px;line-height:1.25;margin-bottom:14px">Gracias' + (nom ? ', ' + nom.replace(/[<>&"]/g, '') : '') + '. Esta mesa no es para vos, y prefiero decírtelo ahora.</p>'
+          + '<p style="margin-bottom:12px">La mesa es para profesionales que venden servicios, ya tienen por lo menos dos clientes y facturan USD 500 o más por mes, porque trabajamos sobre casos reales, con clientes reales. Si todavía estás arrancando, te va a quedar lejos y no quiero que pierdas un miércoles a la noche.</p>'
+          + '<p>Mientras tanto, en mi Instagram comparto cosas que sí te pueden servir ahora: <a href="https://instagram.com/juanhrr.mkt" target="_blank" rel="noopener" style="color:var(--yellow)">@juanhrr.mkt</a></p></div>';
+        return;
+      }
+
+      const eventId = uuid();
+      const attr = getAttribution();
+      const formData = {
+        nombre: document.getElementById('nombre').value,
+        rubro: document.getElementById('rubro').value,
+        facturacion: '',
+        email: document.getElementById('email').value,
+        whatsapp: document.getElementById('whatsapp').value,
+        pais: document.getElementById('pais').value,
+        instagram: document.getElementById('instagram').value,
+        clientes: document.getElementById('clientes').value,
+        ticket: document.getElementById('ticket').value,
+        oferta: document.getElementById('oferta').value,
+        event_id: eventId,
+        fbp: getCookie('_fbp'),
+        fbc: getCookie('_fbc'),
+        utm_source: attr.utm_source,
+        utm_medium: attr.utm_medium,
+        utm_campaign: attr.utm_campaign,
+        page_url: window.location.href,
+        timestamp: new Date().toISOString(),
+        source: 'btb-landing-mesa',
+        evento: 'Mesa ' + MESA.iso
+      };
+
+      const originalLabel = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'reservando…';
+
+      try {
+        const res = await fetch(N8N_WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+        if (!res.ok) throw new Error('Respuesta no OK: ' + res.status);
+
+        // Evento Meta del navegador. Mismo event_id que el CAPI del servidor → Meta deduplica.
+        if (window.fbq) {
+          fbq('track', 'Lead', {
+            content_name: 'Mesa — registro',
+            content_category: formData.rubro
+          }, { eventID: eventId });
+        }
+
+        // Sesión previa: solo se mide en Calendly (utm_source), la captura no cambia.
+        const quierePrevia = PREVIA_ABIERTA && Date.now() < PREVIA_CIERRE && document.getElementById('previa').checked;
+        const casosAbiertos = Date.now() < CASOS_CIERRE;
+        // Estado de éxito
+        form.innerHTML =
+          '<div style="text-align:center;padding:16px 0">' +
+            '<div style="font-size:44px;margin-bottom:16px">✓</div>' +
+            '<p style="font-size:20px;font-weight:900;color:var(--cream);margin-bottom:10px">' + (casosAbiertos ? 'Ya te anoté. Te falta un paso para que tu caso pueda salir en la mesa.' : 'Ya te anoté. Te falta un paso.') + '</p>' +
+            '<p style="font-size:15px;color:rgba(245,240,232,0.6);line-height:1.6;margin-bottom:24px">Nos vemos el <strong style="color:var(--cream)">miércoles ' + MESA.larga + '</strong> (19:00 AR · 16:00 MX y CR · 17:00 CO y PA). El link de Zoom te llega por WhatsApp ese día.</p>' +
+            '<p style="font-size:15px;color:var(--cream);line-height:1.6;margin-bottom:16px">' + (casosAbiertos ? 'Confirmame el lugar por WhatsApp, que los tres casos en vivo los elijo el ' + MESA.casos + ' entre los que confirmaron.' : 'Confirmame el lugar por WhatsApp.') + '</p>' +
+            '<a class="btn btn-block" style="text-align:center;text-decoration:none" target="_blank" rel="noopener" href="https://wa.me/5491168765302?text=CONFIRMO" onclick="try{fbq(\'trackCustom\',\'ConfirmoWhatsApp\')}catch(e){}">Confirmar por WhatsApp</a>' +
+            '<p class="btn-note" style="text-align:center">Se abre WhatsApp con el mensaje ya escrito. Solo tenés que enviarlo.</p>' +
+            (quierePrevia ? '<div class="previa-ok"><p><strong>Y elegí el horario para mirar tu caso,</strong> así el miércoles ya lo conozco.</p><a class="btn btn-block previa-btn" target="_blank" rel="noopener" href="'+PREVIA_URL+'" onclick="try{fbq(\'trackCustom\',\'PreviaAgenda\')}catch(e){}">Elegir horario</a></div>' : '') +
+          '</div>';
+      } catch (err) {
+        console.error(err);
+        btn.disabled = false;
+        btn.textContent = originalLabel;
+        alert('Hubo un problema al sumarte a la lista. Probá de nuevo o escribime a @juanhrr.mkt');
+      }
+    });
+  </script>
+  <script>
+    // Variante del titulo segun el anuncio (?v=b). Por defecto, la A.
+    (function () {
+      var v = (new URLSearchParams(location.search).get('v') || 'a').toLowerCase() === 'b' ? 'b' : 'a';
+      document.querySelectorAll('.v-a').forEach(function (e) { e.hidden = v !== 'a'; });
+      document.querySelectorAll('.v-b').forEach(function (e) { e.hidden = v !== 'b'; });
+      var ej = { AR: '11 1234 5678', MX: '55 1234 5678', CO: '300 123 4567', PA: '6123 4567', CR: '8123 4567', OTRO: 'con código de país' };
+      var sel = document.getElementById('pais'), tel = document.getElementById('whatsapp');
+      if (sel && tel) {
+        // El pais se preselecciona por la zona horaria del navegador: si alguien de
+        // Mexico deja "Argentina", su numero se guardaria como argentino.
+        try {
+          var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+          var pais = /^America\/(Mexico_City|Monterrey|Merida|Cancun|Chihuahua|Ciudad_Juarez|Hermosillo|Mazatlan|Tijuana|Bahia_Banderas|Matamoros|Ojinaga)$/.test(tz) ? 'MX'
+            : tz === 'America/Bogota' ? 'CO' : tz === 'America/Panama' ? 'PA' : tz === 'America/Costa_Rica' ? 'CR'
+            : /^America\/(Argentina\/|Buenos_Aires|Cordoba|Mendoza)/.test(tz) ? 'AR' : '';
+          if (pais) sel.value = pais;
+        } catch (e) {}
+        tel.placeholder = ej[sel.value] || '';
+        sel.addEventListener('change', function () { tel.placeholder = ej[sel.value] || ''; });
+      }
+    })();
+  </script>
+  <script>
+    // Cuenta regresiva a la próxima mesa (MESA, calculada arriba).
+    // Solo presentación; no toca el formulario ni la captura.
+    (function () {
+      var start = MESA.inicio;
+      var box = document.getElementById('cd');
+      var d = document.getElementById('cd-d'), h = document.getElementById('cd-h'), m = document.getElementById('cd-m');
+      if (!box || !d || !h || !m) return;
+      function pad(n) { return n < 10 ? '0' + n : '' + n; }
+      function tick() {
+        var diff = start - Date.now();
+        if (diff <= 0) {
+          box.innerHTML = diff > -2 * 3600 * 1000
+            ? '<span class="cd-live">Está en vivo ahora.</span>'
+            : '<span class="cd-live">Ya pasó.</span>';
+          return;
+        }
+        var mins = Math.floor(diff / 60000);
+        d.textContent = Math.floor(mins / 1440);
+        h.textContent = pad(Math.floor((mins % 1440) / 60));
+        m.textContent = pad(mins % 60);
+        setTimeout(tick, 30000);
+      }
+      tick();
+    })();
+  </script>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>● BE THE BRAND · Juan Herrera · @juanhrr.mkt</div>
+  <div>© 2026 Be The Brand</div>
+</footer>
+
+<!-- CTA fijo mobile -->
+<div class="sticky-cta"><a href="#registro"><span>ver si es para mí →</span><small>mié <span class="m-corta">–</span><br>19:00 AR</small></a></div>
+
+<script>
+// Últimas publicaciones de Instagram (btb-capture/api/ig, cache 30 min). Si falla, quedan los reels locales.
+(function(){
+  var box=document.getElementById('igfeed'), fb=document.getElementById('reels-fallback');
+  if(!box||!window.fetch) return;
+  fetch('https://btb-capture.vercel.app/api/ig?n=8').then(function(r){return r.json();}).then(function(d){
+    var ps=(d&&d.posts)||[]; if(ps.length<3) return;
+    var meses=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+    ps.forEach(function(p){
+      var a=document.createElement('a'); a.className='igcard'; a.href=p.permalink; a.target='_blank'; a.rel='noopener';
+      var im=document.createElement('div'); im.className='im'; im.style.backgroundImage='url("'+p.imagen.replace(/"/g,'%22')+'")';
+      var tx=document.createElement('div'); tx.className='tx';
+      var f=new Date(p.fecha), k=document.createElement('div'); k.className='k'; k.textContent=p.tipo+' · '+f.getDate()+' '+meses[f.getMonth()];
+      var c=document.createElement('div'); var cap=p.caption||''; c.textContent=cap.length>110?cap.slice(0,cap.lastIndexOf(' ',107))+'…':cap;
+      tx.appendChild(k); tx.appendChild(c); a.appendChild(im); a.appendChild(tx); box.appendChild(a);
+    });
+    box.hidden=false; if(fb) fb.style.display='none';
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
