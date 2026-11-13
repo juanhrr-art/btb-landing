@@ -547,7 +547,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <label class="previa" id="previa-box">
         <input type="checkbox" id="previa" name="previa">
         <span><strong>Quiero que mires mi caso antes de la mesa</strong>
-        <small>Tengo cinco lugares de 25 minutos por videollamada. Miramos tu caso y, si tiene sentido, te cuento cómo trabajo.</small></span>
+        <small>Lo hago con cinco personas por mesa, 25 minutos por videollamada. Salís sabiendo qué tocaría primero en tu caso.</small></span>
       </label>
 
       <button type="submit" class="btn btn-primary btn-block" style="margin-top:6px">anotarme →</button>
@@ -564,7 +564,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const PREVIA_CIERRE = MESA.inicio - 7 * 3600 * 1000;
     const CASOS_CIERRE = MESA.inicio - 48 * 3600 * 1000;
     const PREVIA_URL = 'https://calendly.com/juanhrr/sesion-de-entendimiento?utm_source=mesa_previa&utm_medium=landing&utm_campaign=mesa_' + MESA.iso + '';
-    if (!PREVIA_ABIERTA || Date.now() >= PREVIA_CIERRE) { document.getElementById('previa-box').style.display = 'none'; }
+    // 13/11: la revisión previa solo se ofrece a quien factura USD 1.500 o más por mes (decisión de Juan). Al resto no se le muestra.
+    const PREVIA_TICKETS = ['1500_4000', 'mas_4000'];
+    function mostrarPrevia() {
+      const ok = PREVIA_ABIERTA && Date.now() < PREVIA_CIERRE && PREVIA_TICKETS.includes(document.getElementById('ticket').value);
+      document.getElementById('previa-box').style.display = ok ? '' : 'none';
+      if (!ok) document.getElementById('previa').checked = false;
+    }
+    mostrarPrevia();
+    document.getElementById('ticket').addEventListener('change', mostrarPrevia);
     // Webhook n8n (self-host) — workflow "BTB — Taller Registro" -> Sheet + CAPI Lead.
     // Captura propia (Vercel). Guarda la fila y dispara el evento de Meta sin
     // depender de n8n, que ademas avisa a Juan y manda la bienvenida cuando esta
@@ -670,7 +678,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // Sesión previa: solo se mide en Calendly (utm_source), la captura no cambia.
-        const quierePrevia = PREVIA_ABIERTA && Date.now() < PREVIA_CIERRE && document.getElementById('previa').checked;
+        const quierePrevia = PREVIA_ABIERTA && Date.now() < PREVIA_CIERRE && PREVIA_TICKETS.includes(document.getElementById('ticket').value) && document.getElementById('previa').checked;
         const casosAbiertos = Date.now() < CASOS_CIERRE;
         // Estado de éxito
         form.innerHTML =
